@@ -17,8 +17,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$memInMb = {ksVmRamSizeGb}*1024  
-$diskInMb = {ksVmDiskSizeGb}*1024
+$memInMb = {ksVmRamSizeGb}*1024
 
 if ( "{vmwareEsxiServer.fqn}" -eq "{vmwareVcenterServer.fqn}" ) {
     Write-Host "We're talking to the ESXi host, don't pass the -VMHost arg"
@@ -44,7 +43,7 @@ if ( "{vmwareEsxiServer.fqn}" -eq "{vmwareVcenterServer.fqn}" ) {
         -CoresPerSocket {ksVmCpuCount} `
         -NumCpu {ksVmCpuCount} `
         -DiskMB {ksVmDiskSizeMb} `
-        -MemoryMB $memInMb `
+        -MemoryMB 51200 `
         -NetworkName "{ksVmwareNetworkName}" `
         -GuestId '{ksVmwareGuestType}' `
         -CD 
