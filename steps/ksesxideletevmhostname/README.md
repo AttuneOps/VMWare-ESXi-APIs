@@ -1,0 +1,1 @@
+Deletes a ESXi virtual machine given the hostname.

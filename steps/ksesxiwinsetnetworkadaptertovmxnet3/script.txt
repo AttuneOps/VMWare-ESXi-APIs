@@ -1,0 +1,19 @@
+pwsh <<'EOF' 
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+if ($? -eq $false) {
+    Write-Host "Error: Not connected."
+    exit 1
+}
+
+Get-VM -name {targetServer.fqn} `
+    | Get-NetworkAdapter `
+    | Where { $_.Type -eq "E1000E"} `
+    | Set-NetworkAdapter -Type "vmxnet3"
+
+EOF

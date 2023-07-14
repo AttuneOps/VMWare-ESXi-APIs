@@ -1,0 +1,1 @@
+Boot the target Windows virtual machine up to kickstart from the WinPE ISO.

@@ -1,0 +1,7 @@
+{
+    "externalUuid4": "e9d51131-9a14-4b0f-b7ec-3421cf003dd0", 
+    "key": "vmwarevcenteruser", 
+    "name": "VMWare: vCenter User", 
+    "showInPlan": true, 
+    "type": "c.s.s.b.phv.OsCred"
+}

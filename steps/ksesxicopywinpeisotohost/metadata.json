@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "ed120c7c-6efd-4c3a-a41b-a1a9728d0bdf", 
+    "interpreter": 1, 
+    "key": "ksesxicopywinpeisotohost", 
+    "name": "KS ESXi Copy WinPE ISO To Host", 
+    "osCredKey": "linuxattuneuser", 
+    "serverKey": "attuneosbuildserver", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}
