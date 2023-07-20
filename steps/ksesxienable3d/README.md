@@ -1,1 +1,0 @@
-Enables 3D support if target build is Windows Desktop 10.

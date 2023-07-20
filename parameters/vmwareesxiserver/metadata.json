@@ -1,7 +1,0 @@
-{
-    "externalUuid4": "4bfedd2f-2da0-44eb-a560-083881ae9e48", 
-    "key": "vmwareesxiserver", 
-    "name": "VMWare: ESXi Server", 
-    "showInPlan": true, 
-    "type": "c.s.s.b.phv.Server"
-}

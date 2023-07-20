@@ -1,7 +1,0 @@
-{
-    "externalUuid4": "92d11185-28c3-4c1e-9f4e-bf3d4c31cd13", 
-    "key": "ksvmwareguesttype", 
-    "name": "KS VMWare: Guest Type", 
-    "showInPlan": true, 
-    "type": "c.s.s.b.phv.Text"
-}

@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "3494f430-942c-4665-b5d3-5618995b6b7e", 
+    "externalUuid4": "fb0f2f8e-bf49-4177-9e86-b297b3355e64", 
     "interpreter": 1, 
-    "key": "ksesxideletevmhostname", 
-    "name": "KS ESXi Delete VM Hostname", 
+    "key": "ksmoveesxidriverstoextractedwinpefolder", 
+    "name": "KS Move ESXi Drivers to Extracted WinPE Folder", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

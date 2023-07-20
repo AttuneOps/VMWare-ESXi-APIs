@@ -1,0 +1,3 @@
+cd {ksVmwareAttuneBaseDir}/build-{targetServer.fqn}
+
+mv Drivers WinPE_amd64Dir

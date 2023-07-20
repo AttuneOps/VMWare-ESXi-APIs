@@ -1,0 +1,13 @@
+{
+    "actionOnStepFail": null, 
+    "archiveKey": "winvmwaredrivers", 
+    "deployPath": "{ksAttuneBaseDir}/build-{targetServer.fqn}/WinPE_amd64Dir", 
+    "enabled": true, 
+    "externalUuid4": "c52a58f8-93a7-4d8b-8e31-2de757402d13", 
+    "key": "deployvmwaredrivers", 
+    "name": "Deploy VMWare Drivers", 
+    "osCredKey": "linuxattuneuser", 
+    "serverKey": "attuneosbuildserver", 
+    "type": "com.servertribe.attune.tuples.StepPushDesignFileTuple", 
+    "unpack": true
+}

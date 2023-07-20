@@ -1,1 +1,0 @@
-Loads the WinPE ISO into the target Windows virtual machine's CD ROM.

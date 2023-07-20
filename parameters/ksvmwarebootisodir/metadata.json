@@ -1,7 +1,0 @@
-{
-    "externalUuid4": "87da7e3f-aa94-415b-bbda-81f2d0afd578", 
-    "key": "ksvmwarebootisodir", 
-    "name": "KS VMWare: Boot ISO Dir", 
-    "showInPlan": false, 
-    "type": "c.s.s.b.phv.Text"
-}

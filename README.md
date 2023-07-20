@@ -54,9 +54,8 @@ This Project contains the following Blueprints.
 
 
 
-### KS ESXi Boot WinPE Recreate Virtual Machine
+### ESXi Deploy VMWare Drivers
 
-Recreates the target Windows virtual machine on ESXi.
 
 
 
@@ -66,20 +65,11 @@ Recreates the target Windows virtual machine on ESXi.
 
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
-| KS VMWare: Network Name | Text | `ksvmwarenetworkname` |  |
-| Target Server | Basic Node | `targetserver` |  |
-| KS: VM Ram Size GB | Text | `ksvmramsizegb` |  |
-| VMWare: ESXi Server | Basic Node | `vmwareesxiserver` |  |
-| VMWare: vCenter User | Basic Credential | `vmwarevcenteruser` |  |
-| KS VMWare: Attune Base Dir | Text | `ksvmwareattunebasedir` |  |
-| KS VMWare: Guest Type | Text | `ksvmwareguesttype` | https://vdc-download.vmware.com/vmwb-repository/dcr-public/8946c1b6-2861-4c12-a45f-f14ae0d3b1b9/a5b8094c-c222-4307-9399-3b606a04af55/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html<br><br>https://vdc-download.vmware.com/vmwb-repository/dcr-public/da47f910-60ac-438b-8b9b-6122f4d14524/16b7274a-bf8b-4b4c-a05e-746f2aa93c8c/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html |
-| KS VMWare: Storage Pool Name | Text | `ksvmwarestoragepoolname` |  |
-| KS: VM CPU Count | Text | `ksvmcpucount` |  |
-| Attune OS Build Server | Linux/Unix Node | `attuneosbuildserver` | This variable is used in the "Kickstart" build procedures, so the "Attune Server" can be used to build Attune servers. |
-| Linux: Attune User | Linux/Unix Credential | `linuxattuneuser` |  |
-| VMWare: vCenter Server | Basic Node | `vmwarevcenterserver` |  |
-| KS VMWare: Boot ISO Dir | Text | `ksvmwarebootisodir` | The directory of where the kickstart ISOs are copied to. |
 | KS: VM Disk Size GB | Text | `ksvmdisksizegb` |  |
+| KS VMWare: Attune Base Dir | Text | `ksvmwareattunebasedir` |  |
+| Linux: Attune User | Linux/Unix Credential | `linuxattuneuser` |  |
+| Target Server | Basic Node | `targetserver` |  |
+| Attune OS Build Server | Linux/Unix Node | `attuneosbuildserver` | This variable is used in the "Kickstart" build procedures, so the "Attune Server" can be used to build Attune servers. |
 
 
 
@@ -88,6 +78,7 @@ Recreates the target Windows virtual machine on ESXi.
 
 | Name | Type | Comment |
 | ---- | ---- | ------- |
+| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016 Std.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
 
 
 

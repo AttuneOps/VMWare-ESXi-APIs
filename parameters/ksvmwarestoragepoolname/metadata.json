@@ -1,7 +1,0 @@
-{
-    "externalUuid4": "ff371771-d917-47a6-8ddc-5e6ce723b478", 
-    "key": "ksvmwarestoragepoolname", 
-    "name": "KS VMWare: Storage Pool Name", 
-    "showInPlan": false, 
-    "type": "c.s.s.b.phv.Text"
-}

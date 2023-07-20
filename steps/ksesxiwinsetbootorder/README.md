@@ -1,1 +1,0 @@
-Sets the boot order to be hard disk then CD ROM.
