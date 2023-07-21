@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "3531a478-a4df-4942-9812-454ac03ca39d", 
+    "externalUuid4": "eb3aa3aa-1313-4e30-9339-1697467a566f", 
     "interpreter": 1, 
-    "key": "ksesxistartvm", 
-    "name": "KS ESXi Start VM", 
+    "key": "ksesxiloadwinpeisointovm", 
+    "name": "KS ESXi Load WinPE ISO into VM", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

@@ -1,7 +1,7 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "905efc5c-8430-4648-ab45-f065eb42e618", 
+    "externalUuid4": "a5da4a9f-2f21-45c8-a69d-e9184427990f", 
     "interpreter": 1, 
     "key": "ksesxisetoptions", 
     "name": "KS ESXi Set Options", 

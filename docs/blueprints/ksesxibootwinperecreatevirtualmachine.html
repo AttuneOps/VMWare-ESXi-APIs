@@ -14,7 +14,7 @@
     <meta name="title"
           content="How to KS ESXi Boot WinPE Recreate Virtual Machine - Attune Automation">
     <meta name="description"
-          content="Recreates the target Windows virtual machine on ESXi.">
+          content="">
     <meta name="robots"
           content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
 
@@ -22,13 +22,13 @@
     <meta property="og:type" content="article" />
     <meta property="og:title"
           content="HowTo KS ESXi Boot WinPE Recreate Virtual Machine - Attune Automation" />
-    <meta property="og:description" content="Recreates the target Windows virtual machine on ESXi." />
+    <meta property="og:description" content="" />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
           content="How to KS ESXi Boot WinPE Recreate Virtual Machine - Attune Automation" />
-    <meta name="twitter:description" content="Recreates the target Windows virtual machine on ESXi." />
+    <meta name="twitter:description" content="" />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-192x192.png" sizes="192x192">
@@ -92,13 +92,6 @@
     </div>
 
 <!-- Blueprint Description -->
-    <div class="row">
-        <div class="blueprint-description col px-0">
-            <p class="text-left">
-                <p>Recreates the target Windows virtual machine on ESXi.</p>
-            </p>
-        </div>
-    </div>
     <div class="row pt-4">
         <div class="col-6 px-0">
             <h6 class="text-left">
@@ -174,8 +167,8 @@
         
 
                     <h6 class="text-muted pt-2">
-                        <a href="#ksesxideletevmfqn">
-                            <strong>Step 2 -</strong> KS ESXi Delete VM FQN
+                        <a href="#ksesxideletevmfon">
+                            <strong>Step 2 -</strong> KS ESXi Delete VM FON
                         </a>
                     </h6>
 
@@ -342,7 +335,7 @@
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Sets PowerShell CLI options.</p>
+                            
                         </p>
                     </div>
 
@@ -402,16 +395,16 @@ EOF
 
 
                     <div class="row pt-5">
-                        <h4 id="ksesxideletevmfqn">
-                            <a href="#ksesxideletevmfqn">
-                                <strong>Step 2 -</strong> KS ESXi Delete VM FQN
+                        <h4 id="ksesxideletevmfon">
+                            <a href="#ksesxideletevmfon">
+                                <strong>Step 2 -</strong> KS ESXi Delete VM FON
                             </a>
                         </h4>
                     </div>
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Deletes a ESXi virtual machine given the fully qualified domain name.</p>
+                            
                         </p>
                     </div>
 
@@ -495,7 +488,7 @@ EOF
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Deletes a ESXi virtual machine given the hostname.</p>
+                            
                         </p>
                     </div>
 
@@ -579,17 +572,7 @@ EOF
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Creates the ESXi virtual machine using these paramters:</p>
-<ol>
-<li>VMWare: ESXi Server</li>
-<li>Target Server</li>
-<li>KS VMWare: Storage Pool Name</li>
-<li>KS: VM CPU Count</li>
-<li>KS: VM Disk Size GB</li>
-<li>KS: VM Ram Size GB</li>
-<li>KS VMWare: Network Name</li>
-<li>KS VMWare: Guest Type</li>
-</ol>
+                            
                         </p>
                     </div>
 
@@ -636,7 +619,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$memInMb = {ksVmRamSizeGb}*1024
+$memInMb = {ksVmRamSizeGb}*1024  
 
 if ( &quot;{vmwareEsxiServer.fqn}&quot; -eq &quot;{vmwareVcenterServer.fqn}&quot; ) {
     Write-Host &quot;We&#x27;re talking to the ESXi host, don&#x27;t pass the -VMHost arg&quot;
@@ -645,7 +628,7 @@ if ( &quot;{vmwareEsxiServer.fqn}&quot; -eq &quot;{vmwareVcenterServer.fqn}&quot
         -Datastore &quot;{ksVmwareStoragePoolName}&quot; `
         -CoresPerSocket {ksVmCpuCount} `
         -NumCpu {ksVmCpuCount} `
-        -DiskMB $diskInMb `
+        -DiskMB 51200 `
         -MemoryMB $memInMb `
         -NetworkName &quot;{ksVmwareNetworkName}&quot; `
         -GuestId &#x27;{ksVmwareGuestType}&#x27; `
@@ -661,8 +644,8 @@ if ( &quot;{vmwareEsxiServer.fqn}&quot; -eq &quot;{vmwareVcenterServer.fqn}&quot
         -Datastore &quot;$storagePool&quot; `
         -CoresPerSocket {ksVmCpuCount} `
         -NumCpu {ksVmCpuCount} `
-        -DiskMB {ksVmDiskSizeMb} `
-        -MemoryMB 51200 `
+        -DiskMB 51200 `
+        -MemoryMB $memInMb `
         -NetworkName &quot;{ksVmwareNetworkName}&quot; `
         -GuestId &#x27;{ksVmwareGuestType}&#x27; `
         -CD 
@@ -693,7 +676,7 @@ EOF
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Enables 3D support if target build is Windows Desktop 10.</p>
+                            
                         </p>
                     </div>
 
@@ -778,7 +761,7 @@ fi
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Sets the boot order to be hard disk then CD ROM.</p>
+                            
                         </p>
                     </div>
 
@@ -872,7 +855,7 @@ EOF
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Sets the ESXi network adapter type to <code>vmxnet3</code> for the target Windows virtual machine.</p>
+                            
                         </p>
                     </div>
 
@@ -913,10 +896,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-Get-VM -name {targetServer.fqn} `
-    | Get-NetworkAdapter `
-    | Where { $_.Type -eq &quot;E1000E&quot;} `
-    | Set-NetworkAdapter -Type &quot;vmxnet3&quot;
+Get-VM -name {targetServer.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1000E&quot;} | Set-NetworkAdapter -Type &quot;vmxnet3&quot;
 
 EOF
                 </code>
@@ -942,7 +922,7 @@ EOF
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Uploads the WinPE ISO to ESXi datastore specified in <code>KS VMWare: Storage Pool Name</code>.</p>
+                            
                         </p>
                     </div>
 
@@ -1046,7 +1026,7 @@ EOF
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Loads the WinPE ISO into the target Windows virtual machine's CD ROM.</p>
+                            
                         </p>
                     </div>
 
@@ -1120,7 +1100,7 @@ EOF
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Boot the target Windows virtual machine up to kickstart from the WinPE ISO.</p>
+                            
                         </p>
                     </div>
 

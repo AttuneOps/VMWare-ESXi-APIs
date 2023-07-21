@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "3531a478-a4df-4942-9812-454ac03ca39d", 
+    "externalUuid4": "10d41c22-a53b-4a40-b719-e7ae5b85e959", 
     "interpreter": 1, 
-    "key": "ksesxistartvm", 
-    "name": "KS ESXi Start VM", 
+    "key": "ksesxiwinsetbootorder", 
+    "name": "KS ESXi Win Set Boot Order", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

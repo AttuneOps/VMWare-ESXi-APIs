@@ -57,6 +57,9 @@ This Project contains the following Blueprints.
 ### ESXi Deploy VMWare Drivers
 
 
+### KS ESXi Boot WinPE Recreate Virtual Machine
+
+
 ### KS ESXi Recreate Virtual Machine
 
 To install the PowerCLI for VMWare

@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "3531a478-a4df-4942-9812-454ac03ca39d", 
+    "externalUuid4": "bfc2581c-f4af-461d-ab83-07d4acced6af", 
     "interpreter": 1, 
-    "key": "ksesxistartvm", 
-    "name": "KS ESXi Start VM", 
+    "key": "ksesxideletevmfon", 
+    "name": "KS ESXi Delete VM FON", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 
