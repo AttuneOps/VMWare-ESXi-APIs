@@ -6,47 +6,29 @@
 
 
 <head>
-    <title>How to ESXi Recreate Virtual Machine - Attune Automation</title>
+    <title>How to ESXi Win Recreate Virtual Machine - Attune Automation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title"
-          content="How to ESXi Recreate Virtual Machine - Attune Automation">
+          content="How to ESXi Win Recreate Virtual Machine - Attune Automation">
     <meta name="description"
-          content="Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
-
-To install the PowerCLI for VMWare
-sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
-sudo pwsh -Command "Install-Module VMware.PowerCLI"
-
-PowerCLI reference is ava">
+          content="Creates a Windows virtual machine from Windows ISOs.">
     <meta name="robots"
           content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
 
     <meta property="og:locale" content="en_AU" />
     <meta property="og:type" content="article" />
     <meta property="og:title"
-          content="HowTo ESXi Recreate Virtual Machine - Attune Automation" />
-    <meta property="og:description" content="Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
-
-To install the PowerCLI for VMWare
-sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
-sudo pwsh -Command "Install-Module VMware.PowerCLI"
-
-PowerCLI reference is ava" />
+          content="HowTo ESXi Win Recreate Virtual Machine - Attune Automation" />
+    <meta property="og:description" content="Creates a Windows virtual machine from Windows ISOs." />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
-          content="How to ESXi Recreate Virtual Machine - Attune Automation" />
-    <meta name="twitter:description" content="Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
-
-To install the PowerCLI for VMWare
-sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
-sudo pwsh -Command "Install-Module VMware.PowerCLI"
-
-PowerCLI reference is ava" />
+          content="How to ESXi Win Recreate Virtual Machine - Attune Automation" />
+    <meta name="twitter:description" content="Creates a Windows virtual machine from Windows ISOs." />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-192x192.png" sizes="192x192">
@@ -92,7 +74,7 @@ PowerCLI reference is ava" />
             </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            <strong>ESXi Recreate Virtual Machine</strong>
+            <strong>ESXi Win Recreate Virtual Machine</strong>
         </li>
     </ol>
 </nav>
@@ -104,7 +86,7 @@ PowerCLI reference is ava" />
     <div class="row pt-5">
         <div class="col px-0">
             <h1 class="text-left">
-                How to ESXi Recreate Virtual Machine
+                How to ESXi Win Recreate Virtual Machine
             </h1>
         </div>
     </div>
@@ -113,12 +95,7 @@ PowerCLI reference is ava" />
     <div class="row">
         <div class="blueprint-description col px-0">
             <p class="text-left">
-                <p>Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.</p>
-<p>To install the PowerCLI for VMWare
-sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
-sudo pwsh -Command "Install-Module VMware.PowerCLI"</p>
-<p>PowerCLI reference is available at : 
-https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html</p>
+                <p>Creates a Windows virtual machine from Windows ISOs.</p>
             </p>
         </div>
     </div>
@@ -180,7 +157,7 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
                     </h6>
                     <h6 class="text-muted">
                         <a href="#top">
-                            <strong>ESXi Recreate Virtual Machine</strong>
+                            <strong>ESXi Win Recreate Virtual Machine</strong>
                         </a>
                     </h6>
 
@@ -221,16 +198,16 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
         
 
                     <h6 class="text-muted pt-2">
-                        <a href="#esxienablesas">
-                            <strong>Step 5 -</strong> ESXi Enable SAS
+                        <a href="#esxienable3d">
+                            <strong>Step 5 -</strong> ESXi Enable 3D
                         </a>
                     </h6>
 
         
 
                     <h6 class="text-muted pt-2">
-                        <a href="#esxienable3d">
-                            <strong>Step 6 -</strong> ESXi Enable 3D
+                        <a href="#esxienablesas">
+                            <strong>Step 6 -</strong> ESXi Enable SAS
                         </a>
                     </h6>
 
@@ -261,8 +238,24 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
         
 
                     <h6 class="text-muted pt-2">
+                        <a href="#esxiwincopydriversisotoesxihost">
+                            <strong>Step 10 -</strong> ESXi Win Copy Drivers ISO to ESXi Host
+                        </a>
+                    </h6>
+
+        
+
+                    <h6 class="text-muted pt-2">
                         <a href="#esxiloadisointovm">
-                            <strong>Step 10 -</strong> ESXi Load ISO into VM
+                            <strong>Step 11 -</strong> ESXi Load ISO into VM
+                        </a>
+                    </h6>
+
+        
+
+                    <h6 class="text-muted pt-2">
+                        <a href="#esxiwinadddriverscdrom">
+                            <strong>Step 12 -</strong> ESXi Win Add Drivers CDROM
                         </a>
                     </h6>
 
@@ -270,7 +263,7 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 
                     <h6 class="text-muted pt-2">
                         <a href="#esxistartvm">
-                            <strong>Step 11 -</strong> ESXi Start VM
+                            <strong>Step 13 -</strong> ESXi Start VM
                         </a>
                     </h6>
 
@@ -278,7 +271,7 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 
                     <h6 class="text-muted pt-2">
                         <a href="#kswinwinrmhttpswait120s">
-                            <strong>Step 12 -</strong> KS Win WinRM HTTPS Wait 120s
+                            <strong>Step 14 -</strong> KS Win WinRM HTTPS Wait 120s
                         </a>
                     </h6>
 
@@ -341,7 +334,7 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
                 </ol>
             </p>
             <p class="lead text-center">
-                You've automated: <strong>ESXi Recreate Virtual Machine</strong>
+                You've automated: <strong>ESXi Win Recreate Virtual Machine</strong>
             </p>
             <hr class="my-4 text-center">
             <div class="col px-0">
@@ -723,87 +716,9 @@ EOF
 
 
                     <div class="row pt-5">
-                        <h4 id="esxienablesas">
-                            <a href="#esxienablesas">
-                                <strong>Step 5 -</strong> ESXi Enable SAS
-                            </a>
-                        </h4>
-                    </div>
-
-                    <div class="blueprint-description row">
-                        <p>
-                            <p>Enables SAS support if target build is Windows Server.</p>
-                        </p>
-                    </div>
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-
-
-    <div class="row">
-        <p>
-            Execute the following script:
-        </p>
-    </div>
-    <div class="row">
-        <div class="col px-0">
-            <pre>
-                <code class="language-sql py-0">
-if [ &#x27;{ksVmwareGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
-    echo &quot;This isn&#x27;t windows server VM, SAS not required&quot;
-else
-    echo &quot;Switching to LSI Logic SAS Controller&quot;
-
-pwsh &lt;&lt;&#x27;EOF&#x27;
-$ErrorActionPreference = &quot;Stop&quot;
-Import-Module VMware.VimAutomation.Core
-
-Connect-VIServer {vmwareVcenterServer.ip} `
-    -User {vmwareVcenterUser.user} `
-    -Password {vmwareVcenterUser.password}
-
-if ($? -eq $false) {
-    Write-Host &quot;Error: Not connected.&quot;
-    exit 1
-}
- 
-$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
- 
-# Make the controller compatible with the Win2016 drivers
-Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
-
-EOF
-
-
-fi
-                </code>
-            </pre>
-        </div>
-    </div>
-
-
-
-
-
-        
-
-
-
-                    <div class="row pt-5">
                         <h4 id="esxienable3d">
                             <a href="#esxienable3d">
-                                <strong>Step 6 -</strong> ESXi Enable 3D
+                                <strong>Step 5 -</strong> ESXi Enable 3D
                             </a>
                         </h4>
                     </div>
@@ -866,6 +781,84 @@ $dev.enable3DSupport = $true
 $dc.Device += $dev
 $spec.DeviceChange += $dc
 $vm.ReconfigVM($spec)
+
+EOF
+
+
+fi
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
+                        <h4 id="esxienablesas">
+                            <a href="#esxienablesas">
+                                <strong>Step 6 -</strong> ESXi Enable SAS
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div class="blueprint-description row">
+                        <p>
+                            <p>Enables SAS support if target build is Windows Server.</p>
+                        </p>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+if [ &#x27;{ksVmwareGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
+    echo &quot;This isn&#x27;t windows server VM, SAS not required&quot;
+else
+    echo &quot;Switching to LSI Logic SAS Controller&quot;
+
+pwsh &lt;&lt;&#x27;EOF&#x27;
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+ 
+$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
+ 
+# Make the controller compatible with the Win2016 drivers
+Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
 
 EOF
 
@@ -1150,9 +1143,110 @@ EOF
 
 
                     <div class="row pt-5">
+                        <h4 id="esxiwincopydriversisotoesxihost">
+                            <a href="#esxiwincopydriversisotoesxihost">
+                                <strong>Step 10 -</strong> ESXi Win Copy Drivers ISO to ESXi Host
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div class="blueprint-description row">
+                        <p>
+                            <p>Uploads the ESXi Drivers ISO to ESXi datastore specified in KS VMWare: Storage Pool Name.</p>
+                        </p>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+# Copy ISO to ESXi host
+pwsh &lt;&lt;&#x27;EOF&#x27; | grep -v &#x27;Uploading&#x27;
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+    
+# Create the TO dir string
+$to = &quot;ds:{ksVmwareBootIsoDir}&quot;
+$to = $to -Replace &quot;/&quot;,&quot;\&quot;
+
+# Get the Datastore
+$datastore = Get-Datastore -Name &#x27;{ksVmwareStoragePoolName}&#x27;
+$datastore
+
+# Create the DS drive
+if (Test-Path &quot;ds:&quot;) {
+    Remove-PSDrive ds -Force
+}
+
+if ($datastore -is [System.Array]) {
+    Write-Host &quot;Get-Datastore returned multiple datastores, using first item in array..&quot;
+    $datastore = $datastore[0]
+
+}
+
+New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root &quot;&quot;
+
+# Ensure the destination dir exists
+Set-Location &quot;ds:&quot;
+
+if (-Not (Test-Path &quot;$to&quot;)) {
+    &quot;Creating $to&quot;
+    New-Item  -ItemType Directory -Path &quot;$to&quot;
+}
+
+# Set the local path to the ISO
+Set-Location {ksVmwareAttuneBaseDir}/build-{targetServer.fqn}
+
+# Copy the ISO
+Copy-DatastoreItem {targetServer.fqn}-Drivers.iso $to `
+    -Force:$true -Confirm:$false 
+
+    
+# Remove the DS Drive
+Remove-PSDrive ds -Force
+
+EOF
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
                         <h4 id="esxiloadisointovm">
                             <a href="#esxiloadisointovm">
-                                <strong>Step 10 -</strong> ESXi Load ISO into VM
+                                <strong>Step 11 -</strong> ESXi Load ISO into VM
                             </a>
                         </h4>
                     </div>
@@ -1224,9 +1318,74 @@ EOF
 
 
                     <div class="row pt-5">
+                        <h4 id="esxiwinadddriverscdrom">
+                            <a href="#esxiwinadddriverscdrom">
+                                <strong>Step 12 -</strong> ESXi Win Add Drivers CDROM
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div class="blueprint-description row">
+                        <p>
+                            <p>Attaches the ESXi drivers ISO as a second CD-ROM.</p>
+                        </p>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+pwsh &lt;&lt;&#x27;EOF&#x27;
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
+$iso = &quot;[{ksVmwareStoragePoolName}] kickstart_isos/{targetServer.fqn}-Drivers.iso&quot;
+
+New-CDDrive -VM $vm -IsoPath $iso -StartConnected
+
+EOF
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
                         <h4 id="esxistartvm">
                             <a href="#esxistartvm">
-                                <strong>Step 11 -</strong> ESXi Start VM
+                                <strong>Step 13 -</strong> ESXi Start VM
                             </a>
                         </h4>
                     </div>
@@ -1293,7 +1452,7 @@ EOF
                     <div class="row pt-5">
                         <h4 id="kswinwinrmhttpswait120s">
                             <a href="#kswinwinrmhttpswait120s">
-                                <strong>Step 12 -</strong> KS Win WinRM HTTPS Wait 120s
+                                <strong>Step 14 -</strong> KS Win WinRM HTTPS Wait 120s
                             </a>
                         </h4>
                     </div>

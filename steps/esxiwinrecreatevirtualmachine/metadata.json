@@ -2,9 +2,9 @@
     "actionOnStepFail": null, 
     "concurrency": 1, 
     "enabled": true, 
-    "externalUuid4": "a40fa396-7212-4dde-ac6a-43645cf09f17", 
+    "externalUuid4": "962f177c-a6cb-4732-9459-7b7f7fc0173b", 
     "isBlueprint": true, 
-    "key": "esxirecreatevirtualmachine", 
+    "key": "esxiwinrecreatevirtualmachine", 
     "links": [
         {
             "order": 0, 
@@ -15,12 +15,16 @@
             "stepKey": "esxideletevmfqn"
         }, 
         {
-            "order": 150, 
+            "order": 100, 
             "stepKey": "esxideletevmhostname"
         }, 
         {
-            "order": 200, 
+            "order": 150, 
             "stepKey": "esxicreatevm"
+        }, 
+        {
+            "order": 200, 
+            "stepKey": "esxienable3d"
         }, 
         {
             "order": 250, 
@@ -28,19 +32,19 @@
         }, 
         {
             "order": 300, 
-            "stepKey": "esxienable3d"
-        }, 
-        {
-            "order": 350, 
             "stepKey": "esxiwinsetbootorder"
         }, 
         {
-            "order": 400, 
+            "order": 350, 
             "stepKey": "esxiwinsetnetworkadaptertovmxnet3"
         }, 
         {
-            "order": 450, 
+            "order": 400, 
             "stepKey": "esxicopyisotohost"
+        }, 
+        {
+            "order": 450, 
+            "stepKey": "esxiwincopydriversisotoesxihost"
         }, 
         {
             "order": 500, 
@@ -48,13 +52,17 @@
         }, 
         {
             "order": 550, 
-            "stepKey": "esxistartvm"
+            "stepKey": "esxiwinadddriverscdrom"
         }, 
         {
             "order": 600, 
+            "stepKey": "esxistartvm"
+        }, 
+        {
+            "order": 650, 
             "stepKey": "kswinwinrmhttpswait120s"
         }
     ], 
-    "name": "ESXi Recreate Virtual Machine", 
+    "name": "ESXi Win Recreate Virtual Machine", 
     "type": "com.servertribe.attune.tuples.StepGroupTuple"
 }

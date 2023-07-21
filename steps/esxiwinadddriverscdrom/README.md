@@ -1,0 +1,1 @@
+Attaches the ESXi drivers ISO as a second CD-ROM.

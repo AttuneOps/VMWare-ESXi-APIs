@@ -1,0 +1,14 @@
+pwsh <<'EOF'
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+$vm = Get-VM -Name "{targetServer.fqn}"
+$iso = "[{ksVmwareStoragePoolName}] kickstart_isos/{targetServer.fqn}-Drivers.iso"
+
+New-CDDrive -VM $vm -IsoPath $iso -StartConnected
+
+EOF

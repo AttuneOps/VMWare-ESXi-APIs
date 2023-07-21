@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "bfc2581c-f4af-461d-ab83-07d4acced6af", 
+    "externalUuid4": "0eab15ed-94f2-4f84-88bb-285d3d624f1b", 
     "interpreter": 1, 
-    "key": "esxideletevmfon", 
-    "name": "ESXi Delete VM FON", 
+    "key": "esxiwinadddriverscdrom", 
+    "name": "ESXi Win Add Drivers CDROM", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

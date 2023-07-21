@@ -1,1 +1,1 @@
-Deletes a ESXi virtual machine given the fully qualified domain name.
+Deletes a ESXi virtual machine given it's fully qualified domain name.

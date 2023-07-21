@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "bfc2581c-f4af-461d-ab83-07d4acced6af", 
+    "externalUuid4": "22e9bd74-f23a-4637-a55d-126a061a9af1", 
     "interpreter": 1, 
-    "key": "esxideletevmfqn", 
-    "name": "ESXi Delete VM FQN", 
+    "key": "esxiwincopydriversisotoesxihost", 
+    "name": "ESXi Win Copy Drivers ISO to ESXi Host", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 
