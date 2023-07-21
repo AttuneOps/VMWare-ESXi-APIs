@@ -1189,6 +1189,11 @@ Connect-VIServer {vmwareVcenterServer.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
     
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+
 # Create the TO dir string
 $to = &quot;ds:{ksVmwareBootIsoDir}&quot;
 $to = $to -Replace &quot;/&quot;,&quot;\&quot;
@@ -1362,6 +1367,11 @@ Import-Module VMware.VimAutomation.Core
 Connect-VIServer {vmwareVcenterServer.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
 
 $vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
 $iso = &quot;[{ksVmwareStoragePoolName}] kickstart_isos/{targetServer.fqn}-Drivers.iso&quot;

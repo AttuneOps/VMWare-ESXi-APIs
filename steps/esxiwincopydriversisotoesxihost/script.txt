@@ -7,6 +7,11 @@ Connect-VIServer {vmwareVcenterServer.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
     
+if ($? -eq $false) {
+    Write-Host "Error: Not connected."
+    exit 1
+}
+
 # Create the TO dir string
 $to = "ds:{ksVmwareBootIsoDir}"
 $to = $to -Replace "/","\"

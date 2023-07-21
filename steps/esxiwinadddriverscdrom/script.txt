@@ -6,6 +6,11 @@ Connect-VIServer {vmwareVcenterServer.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
 
+if ($? -eq $false) {
+    Write-Host "Error: Not connected."
+    exit 1
+}
+
 $vm = Get-VM -Name "{targetServer.fqn}"
 $iso = "[{ksVmwareStoragePoolName}] kickstart_isos/{targetServer.fqn}-Drivers.iso"
 
