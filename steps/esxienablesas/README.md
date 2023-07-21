@@ -1,0 +1,1 @@
+Enables SAS support if target build is Windows Server.

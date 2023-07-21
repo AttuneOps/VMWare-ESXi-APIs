@@ -1,0 +1,33 @@
+if [ '{ksVmwareGuestType}' != 'windows9_64Guest' ]; then
+    echo "This isn't windows 10, 3D isn't required"
+else
+    echo "Enabling 3d"
+
+pwsh <<'EOF'
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User "{vmwareVcenterUser.user}" `
+    -Password '{vmwareVcenterUser.password}'
+
+if ($? -eq $false) {
+    Write-Host "Error: Not connected."
+    exit 1
+}
+
+$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{targetServer.fqn}$"}
+ 
+$spec = New-Object VMware.Vim.VirtualMachineConfigSpec
+$dc = New-Object VMware.Vim.VirtualDeviceConfigSpec
+$dc.Operation = 'edit'
+$dev = $vm.Config.Hardware.Device | where{$_ -is [VMware.Vim.VirtualMachineVideoCard]}
+$dev.enable3DSupport = $true
+$dc.Device += $dev
+$spec.DeviceChange += $dc
+$vm.ReconfigVM($spec)
+
+EOF
+
+
+fi

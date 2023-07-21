@@ -1,0 +1,1 @@
+Uploads the WinPE ISO to ESXi datastore specified in `KS VMWare: Storage Pool Name`.

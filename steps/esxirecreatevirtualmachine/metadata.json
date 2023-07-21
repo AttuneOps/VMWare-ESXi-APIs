@@ -1,0 +1,56 @@
+{
+    "actionOnStepFail": null, 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "a40fa396-7212-4dde-ac6a-43645cf09f17", 
+    "isBlueprint": true, 
+    "key": "esxirecreatevirtualmachine", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "esxisetoptions"
+        }, 
+        {
+            "order": 50, 
+            "stepKey": "esxideletevmfon"
+        }, 
+        {
+            "order": 100, 
+            "stepKey": "esxideletevmhostname"
+        }, 
+        {
+            "order": 150, 
+            "stepKey": "esxicreatevm"
+        }, 
+        {
+            "order": 200, 
+            "stepKey": "esxienablesas"
+        }, 
+        {
+            "order": 250, 
+            "stepKey": "esxienable3d"
+        }, 
+        {
+            "order": 300, 
+            "stepKey": "esxiwinsetbootorder"
+        }, 
+        {
+            "order": 350, 
+            "stepKey": "esxiwinsetnetworkadaptertovmxnet3"
+        }, 
+        {
+            "order": 400, 
+            "stepKey": "esxicopyisotohost"
+        }, 
+        {
+            "order": 450, 
+            "stepKey": "esxiloadisointovm"
+        }, 
+        {
+            "order": 500, 
+            "stepKey": "esxistartvm"
+        }
+    ], 
+    "name": "ESXi Recreate Virtual Machine", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

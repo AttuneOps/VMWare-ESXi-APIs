@@ -1,0 +1,28 @@
+
+if [ '{ksVmwareGuestType}' != 'winNetStandard64Guest' ]; then
+    echo "This isn't windows server VM, SAS not required"
+else
+    echo "Switching to LSI Logic SAS Controller"
+
+pwsh <<'EOF'
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+if ($? -eq $false) {
+    Write-Host "Error: Not connected."
+    exit 1
+}
+ 
+$vm = Get-VM -Name "{targetServer.fqn}"
+ 
+# Make the controller compatible with the Win2016 drivers
+Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
+
+EOF
+
+
+fi
