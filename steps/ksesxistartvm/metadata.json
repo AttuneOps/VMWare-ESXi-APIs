@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "0bd9b111-7b59-4fb2-a0bc-2a8e6dc6a19d", 
+    "interpreter": 1, 
+    "key": "ksesxistartvm", 
+    "name": "KS ESXi Start VM", 
+    "osCredKey": "linuxattuneuser", 
+    "serverKey": "attuneosbuildserver", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

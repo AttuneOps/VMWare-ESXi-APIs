@@ -263,8 +263,8 @@
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Deploys VMWare ESXi drivers to the <code>WinPE_amd64Dir</code> folder.</p>
-<p>Please ensure that the file archive has a <code>Drivers</code> folder as the root folder as that's where the <code>autounattned.xml</code> file will specify to search for the drivers.</p>
+                            <p>Deploys VMWare ESXi drivers to the <code>{ksAttuneBaseDir}/build-{targetServer.fqn}</code> folder.</p>
+<p>Please ensure that the file archive has a <code>Drivers</code> folder as the root folder as that's the folder where <code>autounattned.xml</code> file will specify to search for the drivers.</p>
                         </p>
                     </div>
 
@@ -309,7 +309,7 @@ ssh {linuxattuneuser}@{attuneosbuildserver}
     </div>
     <div class="row py-1">
         <code class="language-bash">
-{ksAttuneBaseDir}/build-{targetServer.fqn}/WinPE_amd64Dir, relative to the home directory
+{ksAttuneBaseDir}/build-{targetServer.fqn}, relative to the home directory
         </code>
     </div>
 

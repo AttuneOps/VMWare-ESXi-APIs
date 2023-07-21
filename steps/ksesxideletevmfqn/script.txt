@@ -1,0 +1,28 @@
+# Delete the VM if it exists
+
+pwsh <<'EOF'
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User "{vmwareVcenterUser.user}" `
+    -Password "{vmwareVcenterUser.password}"
+
+$existing = Get-VM "{targetServer.fqn}"
+
+if ( $existing.count -eq 1 ) {
+    if ( $existing.PowerState -eq "PoweredOn" ) {
+        "Stopping the VM"
+        Stop-VM -VM $existing -Confirm:$false
+    } else {
+        "The VM is off"
+    }
+    
+    "Removing the VM"
+    Remove-VM -DeleteFromDisk -VM $existing -Confirm:$false
+    
+} else {
+    "The VM doesn't exist"
+}
+
+EOF

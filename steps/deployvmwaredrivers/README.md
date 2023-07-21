@@ -1,3 +1,3 @@
-Deploys VMWare ESXi drivers to the `WinPE_amd64Dir` folder.
+Deploys VMWare ESXi drivers to the `{ksAttuneBaseDir}/build-{targetServer.fqn}` folder.
 
-Please ensure that the file archive has a `Drivers` folder as the root folder as that's where the `autounattned.xml` file will specify to search for the drivers.
+Please ensure that the file archive has a `Drivers` folder as the root folder as that's the folder where `autounattned.xml` file will specify to search for the drivers.

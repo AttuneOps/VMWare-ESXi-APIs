@@ -1,0 +1,22 @@
+FROM="{ksVmwareAttuneBaseDir}/kickstart_{targetServer.fqn}.iso"
+TO="{ksVmwareBootIsoDir}"
+
+# Create the new VM
+pwsh <<'EOF'
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+$cd = Get-VM -Name "{targetServer.fqn}" | Get-CDDrive
+$iso = "[{ksVmwareStoragePoolName}] kickstart_isos/kickstart_{targetServer.fqn}.iso"
+
+Set-CDDrive -CD $cd `
+    -IsoPath $iso `
+    -StartConnected $true `
+    -Confirm:$false
+
+EOF
+

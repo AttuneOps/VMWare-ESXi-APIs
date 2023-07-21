@@ -1,0 +1,1 @@
+The directory of where the kickstart ISOs are copied to.

@@ -1,0 +1,49 @@
+
+# Create the new VM
+pwsh <<'EOF' | grep -v 'Uploading'
+#$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+    
+# Create the TO dir string
+$to = "ds:{ksVmwareBootIsoDir}"
+$to = $to -Replace "/","\"
+
+# Get the Datastore
+$datastore = Get-Datastore -Name '{ksVmwareStoragePoolName}'
+$datastore
+
+# Create the DS drive
+if (Test-Path "ds:") {
+    Remove-PSDrive ds -Force
+}
+
+if ($datastore -is [System.Array]) {
+    Write-Host "Get-Datastore returned multiple datastores, using first item in array.."
+    $datastore = $datastore[0]
+
+}
+New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root ""
+
+# Ensure the destination dir exists
+Set-Location "ds:"
+
+if (-Not (Test-Path "$to")) {
+    "Creating $to"
+    New-Item  -ItemType Directory -Path "$to"
+}
+
+# Set the local path to the ISO
+Set-Location {ksVmwareAttuneBaseDir}
+
+# Copy the ISO
+Copy-DatastoreItem kickstart_{targetServer.fqn}.iso $to `
+    -Force:$true -Confirm:$false 
+    
+# Remove the DS Drive
+Remove-PSDrive ds -Force
+
+EOF

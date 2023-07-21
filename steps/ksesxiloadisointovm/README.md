@@ -1,0 +1,1 @@
+NOTE: The kickstart script ejects this CDROM
