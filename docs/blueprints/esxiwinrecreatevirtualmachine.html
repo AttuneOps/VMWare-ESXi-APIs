@@ -1119,12 +1119,17 @@ if (-Not (Test-Path &quot;$to&quot;)) {
 }
 
 # Set the local path to the ISO
-Set-Location {ksVmwareAttuneBaseDir}
+Set-Location {ksAttuneBaseDir}
 
 # Copy the ISO
 Copy-DatastoreItem kickstart_{targetServer.fqn}.iso $to `
     -Force:$true -Confirm:$false 
     
+if ($? -eq $false) {
+    Write-Host &quot;Error: Copy-DatastoreItem&quot;
+    exit 1
+}
+
 # Remove the DS Drive
 Remove-PSDrive ds -Force
 
@@ -1224,7 +1229,7 @@ if (-Not (Test-Path &quot;$to&quot;)) {
 }
 
 # Set the local path to the ISO
-Set-Location {ksVmwareAttuneBaseDir}/build-{targetServer.fqn}
+Set-Location {ksAttuneBaseDir}/build-{targetServer.fqn}
 
 # Copy the ISO
 Copy-DatastoreItem {targetServer.fqn}-Drivers.iso $to `

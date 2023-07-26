@@ -57,10 +57,6 @@ This Project contains the following Blueprints.
 ### ESXi Deploy VMWare Drivers
 
 
-### ESXi Win Recreate Virtual Machine
-
-Creates a Windows virtual machine from Windows ISOs.
-
 ### ESXi Recreate Virtual Machine
 
 Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
@@ -72,6 +68,10 @@ sudo pwsh -Command "Install-Module VMware.PowerCLI"
 PowerCLI reference is available at : 
 https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html
 
+### ESXi Win Recreate Virtual Machine
+
+Creates a Windows virtual machine from Windows ISOs.
+
 
 
 
@@ -81,6 +81,7 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
 | Attune OS Build Server | Linux/Unix Node | `attuneosbuildserver` | This variable is used in the "Kickstart" build procedures, so the "Attune Server" can be used to build Attune servers. |
+| KS: Attune Base Dir | Text | `ksattunebasedir` |  |
 | KS: VM CPU Count | Text | `ksvmcpucount` |  |
 | KS: VM Disk Size GB | Text | `ksvmdisksizegb` |  |
 | KS: VM Ram Size GB | Text | `ksvmramsizegb` |  |

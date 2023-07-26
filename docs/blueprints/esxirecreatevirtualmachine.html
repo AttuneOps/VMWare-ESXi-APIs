@@ -245,8 +245,8 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
         
 
                     <h6 class="text-muted pt-2">
-                        <a href="#esxiwinsetnetworkadaptertovmxnet3">
-                            <strong>Step 8 -</strong> ESXi Win Set Network Adapter to vmxnet3
+                        <a href="#kooitest">
+                            <strong>Step 8 -</strong> kooi test
                         </a>
                     </h6>
 
@@ -979,16 +979,16 @@ EOF
 
 
                     <div class="row pt-5">
-                        <h4 id="esxiwinsetnetworkadaptertovmxnet3">
-                            <a href="#esxiwinsetnetworkadaptertovmxnet3">
-                                <strong>Step 8 -</strong> ESXi Win Set Network Adapter to vmxnet3
+                        <h4 id="kooitest">
+                            <a href="#kooitest">
+                                <strong>Step 8 -</strong> kooi test
                             </a>
                         </h4>
                     </div>
 
                     <div class="blueprint-description row">
                         <p>
-                            <p>Sets the ESXi network adapter type to vmxnet3 for the target Windows virtual machine.</p>
+                            
                         </p>
                     </div>
 
@@ -1016,7 +1016,7 @@ EOF
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-pwsh &lt;&lt;&#x27;EOF&#x27; 
+pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
@@ -1029,7 +1029,13 @@ if ($? -eq $false) {
     exit 1
 }
 
-Get-VM -name {targetServer.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1000E&quot;} | Set-NetworkAdapter -Type &quot;vmxnet3&quot;
+#$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{targetServer.fqn}$&quot;}
+$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
+
+$vm
+Get-VMResourceConfiguration -VM $vm
+
+#$vm | Select-object ExtensionData.VMware.Vim.VirtualMachine
 
 EOF
                 </code>
@@ -1126,12 +1132,17 @@ if (-Not (Test-Path &quot;$to&quot;)) {
 }
 
 # Set the local path to the ISO
-Set-Location {ksVmwareAttuneBaseDir}
+Set-Location {ksAttuneBaseDir}
 
 # Copy the ISO
 Copy-DatastoreItem kickstart_{targetServer.fqn}.iso $to `
     -Force:$true -Confirm:$false 
     
+if ($? -eq $false) {
+    Write-Host &quot;Error: Copy-DatastoreItem&quot;
+    exit 1
+}
+
 # Remove the DS Drive
 Remove-PSDrive ds -Force
 

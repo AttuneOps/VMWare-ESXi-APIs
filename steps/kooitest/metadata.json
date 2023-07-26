@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "8bae3e5c-1209-4efc-a865-c4ed6ee2aa5f", 
+    "interpreter": 1, 
+    "key": "kooitest", 
+    "name": "kooi test", 
+    "osCredKey": "linuxattuneuser", 
+    "serverKey": "attuneosbuildserver", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

@@ -42,7 +42,7 @@ if (-Not (Test-Path "$to")) {
 }
 
 # Set the local path to the ISO
-Set-Location {ksVmwareAttuneBaseDir}/build-{targetServer.fqn}
+Set-Location {ksAttuneBaseDir}/build-{targetServer.fqn}
 
 # Copy the ISO
 Copy-DatastoreItem {targetServer.fqn}-Drivers.iso $to `
