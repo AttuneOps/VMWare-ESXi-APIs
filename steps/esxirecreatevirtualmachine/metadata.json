@@ -36,7 +36,7 @@
         }, 
         {
             "order": 400, 
-            "stepKey": "kooitest"
+            "stepKey": "esxiwinsetnetworkadaptertovmxnet3"
         }, 
         {
             "order": 450, 
