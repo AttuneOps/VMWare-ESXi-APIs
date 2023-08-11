@@ -8,39 +8,39 @@
     "links": [
         {
             "order": 0, 
-            "stepKey": "esxisetoptions"
+            "stepKey": "linesxisetoptions"
         }, 
         {
             "order": 50, 
-            "stepKey": "esxideletevmfqn"
+            "stepKey": "linesxideletevmfqn"
         }, 
         {
             "order": 100, 
-            "stepKey": "esxideletevmhostname"
+            "stepKey": "linesxideletevmhostname"
         }, 
         {
             "order": 150, 
-            "stepKey": "esxicreatevm"
+            "stepKey": "linesxicreatevm"
         }, 
         {
             "order": 200, 
-            "stepKey": "esxienable3d"
+            "stepKey": "linesxienable3d"
         }, 
         {
             "order": 250, 
-            "stepKey": "esxienablesas"
+            "stepKey": "linesxienablesas"
         }, 
         {
             "order": 300, 
-            "stepKey": "esxiwinsetbootorder"
+            "stepKey": "linesxiwinsetbootorder"
         }, 
         {
             "order": 350, 
-            "stepKey": "esxiwinsetnetworkadaptertovmxnet3"
+            "stepKey": "linesxiwinsetnetworkadaptertovmxnet3"
         }, 
         {
             "order": 400, 
-            "stepKey": "esxicopyisotohost"
+            "stepKey": "linesxicopyisotohost"
         }, 
         {
             "order": 450, 
@@ -48,7 +48,7 @@
         }, 
         {
             "order": 500, 
-            "stepKey": "esxiloadisointovm"
+            "stepKey": "linesxiloadisointovm"
         }, 
         {
             "order": 550, 
@@ -56,11 +56,11 @@
         }, 
         {
             "order": 600, 
-            "stepKey": "esxistartvm"
+            "stepKey": "linesxistartvm"
         }, 
         {
             "order": 650, 
-            "stepKey": "kswinwinrmhttpswait120s"
+            "stepKey": "winwinrmhttpswait120s"
         }
     ], 
     "name": "ESXi Win Recreate Virtual Machine", 

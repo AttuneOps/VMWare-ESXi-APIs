@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "10d41c22-a53b-4a40-b719-e7ae5b85e959", 
+    "externalUuid4": "62befaca-eb44-429d-8117-c7b813c1e2d1", 
     "interpreter": 1, 
-    "key": "esxiwinsetbootorder", 
-    "name": "ESXi Win Set Boot Order", 
+    "key": "linesxienablesas", 
+    "name": "LIN ESXi Enable SAS", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

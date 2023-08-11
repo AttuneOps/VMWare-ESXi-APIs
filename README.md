@@ -54,10 +54,19 @@ This Project contains the following Blueprints.
 
 
 
-### ESXi Deploy VMWare Drivers
+### ESXi WinPE Recreate Virtual Machine
 
 
-### ESXi Recreate Virtual Machine
+### ESXi Win Recreate Virtual Machine
+
+Creates a Windows virtual machine from two ISOs.
+1. Unaltered Windows ISO.
+2. ESXi Drivers ISO.
+
+### LIN Deploy VMWare Drivers - Group
+
+
+### LIN ESXi Recreate Virtual Machine
 
 Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
 
@@ -67,15 +76,6 @@ sudo pwsh -Command "Install-Module VMware.PowerCLI"
 
 PowerCLI reference is available at : 
 https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html
-
-### ESXi Win Recreate Virtual Machine
-
-Creates a Windows virtual machine from two ISOs.
-1. Unaltered Windows ISO.
-2. ESXi Drivers ISO.
-
-### ESXi WinPE Recreate Virtual Machine
-
 
 
 

@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "905efc5c-8430-4648-ab45-f065eb42e618", 
+    "externalUuid4": "6ec74c34-4a3b-4641-9c9e-d5518037175c", 
     "interpreter": 1, 
-    "key": "esxisetoptions", 
-    "name": "ESXi Set Options", 
+    "key": "linesxienable3d", 
+    "name": "LIN ESXi Enable 3D", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "0bd9b111-7b59-4fb2-a0bc-2a8e6dc6a19d", 
+    "externalUuid4": "10d41c22-a53b-4a40-b719-e7ae5b85e959", 
     "interpreter": 1, 
-    "key": "esxistartvm", 
-    "name": "ESXi Start VM", 
+    "key": "linesxiwinsetbootorder", 
+    "name": "LIN ESXi Win Set Boot Order", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

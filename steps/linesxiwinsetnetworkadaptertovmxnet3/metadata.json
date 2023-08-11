@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "ed120c7c-6efd-4c3a-a41b-a1a9728d0bdf", 
+    "externalUuid4": "eb9de62e-78ed-4f9d-ac0b-944dec4585dc", 
     "interpreter": 1, 
-    "key": "esxicopyisotohost", 
-    "name": "ESXi Copy ISO To Host", 
+    "key": "linesxiwinsetnetworkadaptertovmxnet3", 
+    "name": "LIN ESXi Win Set Network Adapter to vmxnet3", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

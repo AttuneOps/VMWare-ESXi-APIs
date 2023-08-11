@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "62befaca-eb44-429d-8117-c7b813c1e2d1", 
+    "externalUuid4": "eb3aa3aa-1313-4e30-9339-1697467a566f", 
     "interpreter": 1, 
-    "key": "esxienablesas", 
-    "name": "ESXi Enable SAS", 
+    "key": "linesxiloadisointovm", 
+    "name": "LIN ESXi Load ISO into VM", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

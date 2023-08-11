@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "eb3aa3aa-1313-4e30-9339-1697467a566f", 
+    "externalUuid4": "0bd9b111-7b59-4fb2-a0bc-2a8e6dc6a19d", 
     "interpreter": 1, 
-    "key": "esxiloadisointovm", 
-    "name": "ESXi Load ISO into VM", 
+    "key": "linesxistartvm", 
+    "name": "LIN ESXi Start VM", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

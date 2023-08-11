@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "0d6f7c74-d59d-4a11-ab5a-d71400cbe999", 
+    "externalUuid4": "3494f430-942c-4665-b5d3-5618995b6b7e", 
     "interpreter": 1, 
-    "key": "esxicreatevm", 
-    "name": "ESXi Create VM", 
+    "key": "linesxideletevmhostname", 
+    "name": "LIN ESXi Delete VM Hostname", 
     "osCredKey": "linuxattuneuser", 
     "serverKey": "attuneosbuildserver", 
     "successExitCode": 0, 

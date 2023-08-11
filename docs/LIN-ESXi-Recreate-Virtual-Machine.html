@@ -6,29 +6,47 @@
 
 
 <head>
-    <title>How to ESXi WinPE Recreate Virtual Machine - Attune Automation</title>
+    <title>How to LIN ESXi Recreate Virtual Machine - Attune Automation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title"
-          content="How to ESXi WinPE Recreate Virtual Machine - Attune Automation">
+          content="How to LIN ESXi Recreate Virtual Machine - Attune Automation">
     <meta name="description"
-          content="">
+          content="Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
+
+To install the PowerCLI for VMWare
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
+sudo pwsh -Command "Install-Module VMware.PowerCLI"
+
+PowerCLI reference is ava">
     <meta name="robots"
           content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
 
     <meta property="og:locale" content="en_AU" />
     <meta property="og:type" content="article" />
     <meta property="og:title"
-          content="HowTo ESXi WinPE Recreate Virtual Machine - Attune Automation" />
-    <meta property="og:description" content="" />
+          content="HowTo LIN ESXi Recreate Virtual Machine - Attune Automation" />
+    <meta property="og:description" content="Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
+
+To install the PowerCLI for VMWare
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
+sudo pwsh -Command "Install-Module VMware.PowerCLI"
+
+PowerCLI reference is ava" />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
-          content="How to ESXi WinPE Recreate Virtual Machine - Attune Automation" />
-    <meta name="twitter:description" content="" />
+          content="How to LIN ESXi Recreate Virtual Machine - Attune Automation" />
+    <meta name="twitter:description" content="Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
+
+To install the PowerCLI for VMWare
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
+sudo pwsh -Command "Install-Module VMware.PowerCLI"
+
+PowerCLI reference is ava" />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-192x192.png" sizes="192x192">
@@ -119,7 +137,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <strong>ESXi WinPE Recreate Virtual Machine</strong>
+                    <strong>LIN ESXi Recreate Virtual Machine</strong>
                 </li>
             </ol>
         </nav>
@@ -133,12 +151,24 @@
     <div class="row">
         <div class="col px-0">
             <h1 class="text-left">
-                How to ESXi WinPE Recreate Virtual Machine
+                How to LIN ESXi Recreate Virtual Machine
             </h1>
         </div>
     </div>
 
 <!-- Blueprint Description -->
+    <div class="row">
+        <div class="description col px-0">
+            <p class="text-left">
+                <p>Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.</p>
+<p>To install the PowerCLI for VMWare
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
+sudo pwsh -Command "Install-Module VMware.PowerCLI"</p>
+<p>PowerCLI reference is available at : 
+https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html</p>
+            </p>
+        </div>
+    </div>
     <div class="row pt-4">
         <div class="col-6 px-0">
             <h6 class="text-left">
@@ -197,7 +227,7 @@
                     </p>
                     <p class="text-muted">
                         <a href="#top">
-                            <strong>ESXi WinPE Recreate Virtual Machine</strong>
+                            <strong>LIN ESXi Recreate Virtual Machine</strong>
                         </a>
                     </p>
 
@@ -238,16 +268,16 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#linesxienable3d">
-                            <strong>Step 5 -</strong> LIN ESXi Enable 3D
+                        <a href="#linesxienablesas">
+                            <strong>Step 5 -</strong> LIN ESXi Enable SAS
                         </a>
                     </p>
 
         
 
                     <p class="text-muted pt-2">
-                        <a href="#linesxienablesas">
-                            <strong>Step 6 -</strong> LIN ESXi Enable SAS
+                        <a href="#linesxienable3d">
+                            <strong>Step 6 -</strong> LIN ESXi Enable 3D
                         </a>
                     </p>
 
@@ -358,7 +388,7 @@
                 </ol>
             </p>
             <p class="lead text-center">
-                You've automated: <strong>ESXi WinPE Recreate Virtual Machine</strong>
+                You've automated: <strong>LIN ESXi Recreate Virtual Machine</strong>
             </p>
             <hr class="my-4 text-center">
             <div class="col px-0">
@@ -748,9 +778,89 @@ EOF
 
 
                     <div class="row pt-5">
+                        <h3 id="linesxienablesas">
+                            <a href="#linesxienablesas">
+                                <strong>Step 5 -</strong> LIN ESXi Enable SAS
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>Enables SAS support if target build is Windows Server.</p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+if [ &#x27;{ksVmwareGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
+    echo &quot;This isn&#x27;t windows server VM, SAS not required&quot;
+else
+    echo &quot;Switching to LSI Logic SAS Controller&quot;
+
+pwsh &lt;&lt;&#x27;EOF&#x27;
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+ 
+$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
+ 
+# Make the controller compatible with the Win2016 drivers
+Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
+
+EOF
+
+
+fi
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
                         <h3 id="linesxienable3d">
                             <a href="#linesxienable3d">
-                                <strong>Step 5 -</strong> LIN ESXi Enable 3D
+                                <strong>Step 6 -</strong> LIN ESXi Enable 3D
                             </a>
                         </h3>
                     </div>
@@ -815,86 +925,6 @@ $dev.enable3DSupport = $true
 $dc.Device += $dev
 $spec.DeviceChange += $dc
 $vm.ReconfigVM($spec)
-
-EOF
-
-
-fi
-                </code>
-            </pre>
-        </div>
-    </div>
-
-
-
-
-
-        
-
-
-
-                    <div class="row pt-5">
-                        <h3 id="linesxienablesas">
-                            <a href="#linesxienablesas">
-                                <strong>Step 6 -</strong> LIN ESXi Enable SAS
-                            </a>
-                        </h3>
-                    </div>
-
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                <p>Enables SAS support if target build is Windows Server.</p>
-                            </p>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-
-
-    <div class="row">
-        <p>
-            Execute the following script:
-        </p>
-    </div>
-    <div class="row">
-        <div class="col px-0">
-            <pre>
-                <code class="language-sql py-0">
-if [ &#x27;{ksVmwareGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
-    echo &quot;This isn&#x27;t windows server VM, SAS not required&quot;
-else
-    echo &quot;Switching to LSI Logic SAS Controller&quot;
-
-pwsh &lt;&lt;&#x27;EOF&#x27;
-$ErrorActionPreference = &quot;Stop&quot;
-Import-Module VMware.VimAutomation.Core
-
-Connect-VIServer {vmwareVcenterServer.ip} `
-    -User {vmwareVcenterUser.user} `
-    -Password {vmwareVcenterUser.password}
-
-if ($? -eq $false) {
-    Write-Host &quot;Error: Not connected.&quot;
-    exit 1
-}
- 
-$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
- 
-# Make the controller compatible with the Win2016 drivers
-Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
 
 EOF
 
