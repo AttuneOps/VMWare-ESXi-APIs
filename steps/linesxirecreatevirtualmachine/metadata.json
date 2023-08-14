@@ -52,7 +52,7 @@
         }, 
         {
             "order": 600, 
-            "stepKey": "winwinrmhttpswait120s"
+            "stepKey": "linesxisshwait"
         }
     ], 
     "name": "LIN ESXi Recreate Virtual Machine", 

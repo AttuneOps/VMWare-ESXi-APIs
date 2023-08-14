@@ -324,8 +324,8 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
         
 
                     <p class="text-muted pt-2">
-                        <a href="#winwinrmhttpswait120s">
-                            <strong>Step 12 -</strong> WIN WinRM HTTPS Wait 120s
+                        <a href="#linesxisshwait">
+                            <strong>Step 12 -</strong> LIN ESXi SSH Wait
                         </a>
                     </p>
 
@@ -1365,20 +1365,13 @@ EOF
 
 
                     <div class="row pt-5">
-                        <h3 id="winwinrmhttpswait120s">
-                            <a href="#winwinrmhttpswait120s">
-                                <strong>Step 12 -</strong> WIN WinRM HTTPS Wait 120s
+                        <h3 id="linesxisshwait">
+                            <a href="#linesxisshwait">
+                                <strong>Step 12 -</strong> LIN ESXi SSH Wait
                             </a>
                         </h3>
                     </div>
 
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                <p>Waits for the WinRM to be enabled by the PowerShell scripts in <code>autounattend.xml</code>. Then post waits 120 seconds to give time for the remaining scripts to run.</p>
-                            </p>
-                        </div>
-                    </div>
 
 
 
@@ -1396,7 +1389,7 @@ EOF
     <div class="row">
         <p class="mb-0">
             Check if TCP Port <strong>0</strong> is listening.
-            When the TCP Port is up, wait <strong>120</strong>
+            When the TCP Port is up, wait <strong>5</strong>
             seconds.
         </p>
         <p>Use Telnet to check if the TCP Service is accepting connections.</p>

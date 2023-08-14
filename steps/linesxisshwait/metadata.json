@@ -1,0 +1,13 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "2b8bf049-d40c-4691-83ba-0bc0c892643d", 
+    "key": "linesxisshwait", 
+    "minDowntime": 0, 
+    "name": "LIN ESXi SSH Wait", 
+    "postWait": 5, 
+    "preWait": 0, 
+    "serverKey": "targetserver", 
+    "tcpPort": 22, 
+    "type": "com.servertribe.attune.tuples.StepTcpPingTuple"
+}
