@@ -1,0 +1,64 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "18af1c16-5ee0-4a2d-ae12-5e52aeb25287", 
+    "isBlueprint": true, 
+    "key": "linesxiuefirecreatevirtualmachine", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "linesxisetoptions"
+        }, 
+        {
+            "order": 50, 
+            "stepKey": "linesxideletevmfqn"
+        }, 
+        {
+            "order": 100, 
+            "stepKey": "linesxideletevmhostname"
+        }, 
+        {
+            "order": 150, 
+            "stepKey": "linesxicreatevm"
+        }, 
+        {
+            "order": 200, 
+            "stepKey": "linesxienableuefisecureboot"
+        }, 
+        {
+            "order": 250, 
+            "stepKey": "linesxienablesas"
+        }, 
+        {
+            "order": 300, 
+            "stepKey": "linesxienable3d"
+        }, 
+        {
+            "order": 350, 
+            "stepKey": "linesxiwinsetbootorder"
+        }, 
+        {
+            "order": 400, 
+            "stepKey": "linesxiwinsetnetworkadaptertovmxnet3"
+        }, 
+        {
+            "order": 450, 
+            "stepKey": "linesxicopyisotohost"
+        }, 
+        {
+            "order": 500, 
+            "stepKey": "linesxiloadisointovm"
+        }, 
+        {
+            "order": 550, 
+            "stepKey": "linesxistartvm"
+        }, 
+        {
+            "order": 600, 
+            "stepKey": "linesxisshwait"
+        }
+    ], 
+    "name": "LIN ESXi UEFI Recreate Virtual Machine", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

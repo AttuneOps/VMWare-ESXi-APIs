@@ -1,0 +1,20 @@
+pwsh <<'EOF'
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User "{vmwareVcenterUser.user}" `
+    -Password '{vmwareVcenterUser.password}'
+
+if ($? -eq $false) {
+    Write-Host "Error: Not connected."
+    exit 1
+}
+
+$vm = Get-VM -Name "{targetServer.fqn}"
+
+$spec = New-Object VMware.Vim.VirtualMachineConfigSpec
+$spec.Firmware = [VMware.Vim.GuestOsDescriptorFirmwareType]::efi
+$vm.ExtensionData.ReconfigVM($spec)
+
+EOF

@@ -66,7 +66,7 @@ Creates a Windows virtual machine from two ISOs.
 ### LIN Deploy VMWare Drivers - Group
 
 
-### LIN ESXi Recreate Virtual Machine
+### LIN ESXi BIOS Recreate Virtual Machine
 
 Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
 
@@ -76,6 +76,9 @@ sudo pwsh -Command "Install-Module VMware.PowerCLI"
 
 PowerCLI reference is available at : 
 https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html
+
+### LIN ESXi UEFI Recreate Virtual Machine
+
 
 
 
