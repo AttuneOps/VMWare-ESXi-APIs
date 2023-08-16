@@ -11,7 +11,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vm = Get-VM -Name "{targetServer.fqn}"
+$vm = Get-VM -Name "{kickstartedNode.fqn}"
 
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
 $spec.Firmware = [VMware.Vim.GuestOsDescriptorFirmwareType]::efi

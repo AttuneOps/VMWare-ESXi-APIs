@@ -6,7 +6,7 @@
     "key": "linesxisetoptions", 
     "name": "LIN ESXi Set Options", 
     "osCredKey": "linuxattuneuser", 
-    "serverKey": "attuneosbuildserver", 
+    "serverKey": "kickstartworkerlinuxnode", 
     "successExitCode": 0, 
     "type": "com.servertribe.attune.tuples.StepSshTuple"
 }

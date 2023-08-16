@@ -16,7 +16,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{targetServer.fqn}$"}
+$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{kickstartedNode.fqn}$"}
  
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
 $dc = New-Object VMware.Vim.VirtualDeviceConfigSpec

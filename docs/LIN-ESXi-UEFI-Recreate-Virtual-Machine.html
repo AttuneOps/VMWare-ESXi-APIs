@@ -428,7 +428,7 @@
                         </div>
                         <div class="row py-1">
                             <code class="language-sql">
-ssh {linuxattuneuser}@{attuneosbuildserver}
+ssh {linuxattuneuser}@{kickstartworkerlinuxnode}
                             </code>
                         </div>
 
@@ -522,7 +522,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$existing = Get-VM &quot;{targetServer.fqn}&quot;
+$existing = Get-VM &quot;{kickstartedNode.fqn}&quot;
 
 if ( $existing.count -eq 1 ) {
     if ( $existing.PowerState -eq &quot;PoweredOn&quot; ) {
@@ -608,7 +608,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$existing = Get-VM &quot;{targetServer.hostname}&quot;
+$existing = Get-VM &quot;{kickstartedNode.hostname}&quot;
 
 if ( $existing.count -eq 1 ) {
     if ( $existing.PowerState -eq &quot;PoweredOn&quot; ) {
@@ -713,7 +713,7 @@ $memInMb = {ksVmRamSizeGb}*1024
 if ( &quot;{vmwareEsxiServer.fqn}&quot; -eq &quot;{vmwareVcenterServer.fqn}&quot; ) {
     Write-Host &quot;We&#x27;re talking to the ESXi host, don&#x27;t pass the -VMHost arg&quot;
     $vm = New-VM `
-        -Name &quot;{targetServer.fqn}&quot; `
+        -Name &quot;{kickstartedNode.fqn}&quot; `
         -Datastore &quot;{ksVmwareStoragePoolName}&quot; `
         -CoresPerSocket {ksVmCpuCount} `
         -NumCpu {ksVmCpuCount} `
@@ -729,7 +729,7 @@ if ( &quot;{vmwareEsxiServer.fqn}&quot; -eq &quot;{vmwareVcenterServer.fqn}&quot
     
     $vm = New-VM `
         -VMHost &quot;{vmwareEsxiServer.fqn}&quot; `
-        -Name &quot;{targetServer.fqn}&quot; `
+        -Name &quot;{kickstartedNode.fqn}&quot; `
         -Datastore &quot;$storagePool&quot; `
         -CoresPerSocket {ksVmCpuCount} `
         -NumCpu {ksVmCpuCount} `
@@ -801,7 +801,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
+$vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
 
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
 $spec.Firmware = [VMware.Vim.GuestOsDescriptorFirmwareType]::efi
@@ -879,7 +879,7 @@ if ($? -eq $false) {
     exit 1
 }
  
-$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
+$vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
  
 # Make the controller compatible with the Win2016 drivers
 Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
@@ -959,7 +959,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{targetServer.fqn}$&quot;}
+$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{kickstartedNode.fqn}$&quot;}
  
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
 $dc = New-Object VMware.Vim.VirtualDeviceConfigSpec
@@ -1042,8 +1042,8 @@ if ($? -eq $false) {
     exit 1
 }
 
-#$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{targetServer.fqn}$&quot;}
-$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
+#$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{kickstartedNode.fqn}$&quot;}
+$vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
 
 ## the device name of the hard disk to which to boot
 $strBootHDiskDeviceName = &quot;Hard disk 1&quot;
@@ -1066,7 +1066,7 @@ $spec = New-Object VMware.Vim.VirtualMachineConfigSpec -Property @{
 ## reconfig the VM to use the spec with the new BootOrder
 $vm.ExtensionData.ReconfigVM_Task($spec)
 
-##(Get-VM {targetServer.fqn}).Extensiondata.Config.BootOptions
+##(Get-VM {kickstartedNode.fqn}).Extensiondata.Config.BootOptions
 
 
 EOF
@@ -1136,7 +1136,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-Get-VM -name {targetServer.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1000E&quot;} | Set-NetworkAdapter -Type &quot;vmxnet3&quot;
+Get-VM -name {kickstartedNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1000E&quot;} | Set-NetworkAdapter -Type &quot;vmxnet3&quot;
 
 EOF
                 </code>
@@ -1238,7 +1238,7 @@ if (-Not (Test-Path &quot;$to&quot;)) {
 Set-Location {ksAttuneBaseDir}
 
 # Copy the ISO
-Copy-DatastoreItem kickstart_{targetServer.fqn}.iso $to `
+Copy-DatastoreItem kickstart_{kickstartedNode.fqn}.iso $to `
     -Force:$true -Confirm:$false 
     
 if ($? -eq $false) {
@@ -1317,8 +1317,8 @@ if ($? -eq $false) {
     exit 1
 }
 
-$cd = Get-VM -Name &quot;{targetServer.fqn}&quot; | Get-CDDrive
-$iso = &quot;[{ksVmwareStoragePoolName}] {ksVmwareBootIsoDir}/kickstart_{targetServer.fqn}.iso&quot;
+$cd = Get-VM -Name &quot;{kickstartedNode.fqn}&quot; | Get-CDDrive
+$iso = &quot;[{ksVmwareStoragePoolName}] {ksVmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso&quot;
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `
@@ -1392,7 +1392,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-Start-VM -VM (Get-VM -Name &quot;{targetServer.fqn}&quot;) -RunAsync
+Start-VM -VM (Get-VM -Name &quot;{kickstartedNode.fqn}&quot;) -RunAsync
 
 EOF
                 </code>

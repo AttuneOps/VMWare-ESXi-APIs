@@ -6,7 +6,7 @@
     "key": "linesxideletevmfqn", 
     "name": "LIN ESXi Delete VM FQN", 
     "osCredKey": "linuxattuneuser", 
-    "serverKey": "attuneosbuildserver", 
+    "serverKey": "kickstartworkerlinuxnode", 
     "successExitCode": 0, 
     "type": "com.servertribe.attune.tuples.StepSshTuple"
 }

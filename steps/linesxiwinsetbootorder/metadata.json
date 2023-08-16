@@ -6,7 +6,7 @@
     "key": "linesxiwinsetbootorder", 
     "name": "LIN ESXi Win Set Boot Order", 
     "osCredKey": "linuxattuneuser", 
-    "serverKey": "attuneosbuildserver", 
+    "serverKey": "kickstartworkerlinuxnode", 
     "successExitCode": 0, 
     "type": "com.servertribe.attune.tuples.StepSshTuple"
 }

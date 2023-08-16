@@ -88,7 +88,6 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
-| Attune OS Build Server | Linux/Unix Node | `attuneosbuildserver` | This variable is used in the "Kickstart" build procedures, so the "Attune Server" can be used to build Attune servers. |
 | KS: Attune Base Dir | Text | `ksattunebasedir` |  |
 | KS: VM CPU Count | Text | `ksvmcpucount` |  |
 | KS: VM Disk Size GB | Text | `ksvmdisksizegb` |  |
@@ -99,10 +98,11 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 | KS VMWare: Network Name | Text | `ksvmwarenetworkname` |  |
 | KS VMWare: Storage Pool Name | Text | `ksvmwarestoragepoolname` |  |
 | Linux: Attune User | Linux/Unix Credential | `linuxattuneuser` |  |
-| Target Server | Basic Node | `targetserver` |  |
 | VMWare: ESXi Server | Basic Node | `vmwareesxiserver` |  |
 | VMWare: vCenter Server | Basic Node | `vmwarevcenterserver` |  |
 | VMWare: vCenter User | Basic Credential | `vmwarevcenteruser` |  |
+| Kickstart Worker Linux Node | Linux/Unix Node | `kickstartworkerlinuxnode` | Linux refers to both Linux and MacOS |
+| Kickstarted Node | Basic Node | `kickstartednode` | Refers to the node being built |
 
 
 

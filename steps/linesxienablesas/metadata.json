@@ -6,7 +6,7 @@
     "key": "linesxienablesas", 
     "name": "LIN ESXi Enable SAS", 
     "osCredKey": "linuxattuneuser", 
-    "serverKey": "attuneosbuildserver", 
+    "serverKey": "kickstartworkerlinuxnode", 
     "successExitCode": 0, 
     "type": "com.servertribe.attune.tuples.StepSshTuple"
 }

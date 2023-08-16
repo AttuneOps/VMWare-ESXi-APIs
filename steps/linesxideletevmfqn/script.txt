@@ -13,7 +13,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$existing = Get-VM "{targetServer.fqn}"
+$existing = Get-VM "{kickstartedNode.fqn}"
 
 if ( $existing.count -eq 1 ) {
     if ( $existing.PowerState -eq "PoweredOn" ) {

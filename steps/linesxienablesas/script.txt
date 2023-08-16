@@ -17,7 +17,7 @@ if ($? -eq $false) {
     exit 1
 }
  
-$vm = Get-VM -Name "{targetServer.fqn}"
+$vm = Get-VM -Name "{kickstartedNode.fqn}"
  
 # Make the controller compatible with the Win2016 drivers
 Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS

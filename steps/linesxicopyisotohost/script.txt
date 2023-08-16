@@ -45,7 +45,7 @@ if (-Not (Test-Path "$to")) {
 Set-Location {ksAttuneBaseDir}
 
 # Copy the ISO
-Copy-DatastoreItem kickstart_{targetServer.fqn}.iso $to `
+Copy-DatastoreItem kickstart_{kickstartedNode.fqn}.iso $to `
     -Force:$true -Confirm:$false 
     
 if ($? -eq $false) {

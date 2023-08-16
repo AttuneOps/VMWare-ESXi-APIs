@@ -22,7 +22,7 @@ $memInMb = {ksVmRamSizeGb}*1024
 if ( "{vmwareEsxiServer.fqn}" -eq "{vmwareVcenterServer.fqn}" ) {
     Write-Host "We're talking to the ESXi host, don't pass the -VMHost arg"
     $vm = New-VM `
-        -Name "{targetServer.fqn}" `
+        -Name "{kickstartedNode.fqn}" `
         -Datastore "{ksVmwareStoragePoolName}" `
         -CoresPerSocket {ksVmCpuCount} `
         -NumCpu {ksVmCpuCount} `
@@ -38,7 +38,7 @@ if ( "{vmwareEsxiServer.fqn}" -eq "{vmwareVcenterServer.fqn}" ) {
     
     $vm = New-VM `
         -VMHost "{vmwareEsxiServer.fqn}" `
-        -Name "{targetServer.fqn}" `
+        -Name "{kickstartedNode.fqn}" `
         -Datastore "$storagePool" `
         -CoresPerSocket {ksVmCpuCount} `
         -NumCpu {ksVmCpuCount} `

@@ -7,7 +7,7 @@
     "key": "lindeployvmwaredrivers", 
     "name": "LIN Deploy VMWare Drivers", 
     "osCredKey": "linuxattuneuser", 
-    "serverKey": "attuneosbuildserver", 
+    "serverKey": "kickstartworkerlinuxnode", 
     "type": "com.servertribe.attune.tuples.StepPushDesignFileTuple", 
     "unpack": true
 }

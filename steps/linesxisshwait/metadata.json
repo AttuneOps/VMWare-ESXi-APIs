@@ -7,7 +7,7 @@
     "name": "LIN ESXi SSH Wait", 
     "postWait": 5, 
     "preWait": 0, 
-    "serverKey": "targetserver", 
+    "serverKey": "kickstartednode", 
     "tcpPort": 22, 
     "type": "com.servertribe.attune.tuples.StepTcpPingTuple"
 }

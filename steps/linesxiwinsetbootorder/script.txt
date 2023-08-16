@@ -14,8 +14,8 @@ if ($? -eq $false) {
     exit 1
 }
 
-#$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{targetServer.fqn}$"}
-$vm = Get-VM -Name "{targetServer.fqn}"
+#$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{kickstartedNode.fqn}$"}
+$vm = Get-VM -Name "{kickstartedNode.fqn}"
 
 ## the device name of the hard disk to which to boot
 $strBootHDiskDeviceName = "Hard disk 1"
@@ -38,7 +38,7 @@ $spec = New-Object VMware.Vim.VirtualMachineConfigSpec -Property @{
 ## reconfig the VM to use the spec with the new BootOrder
 $vm.ExtensionData.ReconfigVM_Task($spec)
 
-##(Get-VM {targetServer.fqn}).Extensiondata.Config.BootOptions
+##(Get-VM {kickstartedNode.fqn}).Extensiondata.Config.BootOptions
 
 
 EOF
