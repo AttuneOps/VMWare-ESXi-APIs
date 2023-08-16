@@ -238,8 +238,8 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#linesxienableuefisecureboot">
-                            <strong>Step 5 -</strong> LIN ESXi Enable UEFI Secure Boot
+                        <a href="#linesxienableuefiboot">
+                            <strong>Step 5 -</strong> LIN ESXi Enable UEFI Boot
                         </a>
                     </p>
 
@@ -650,10 +650,10 @@ EOF
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Creates the ESXi virtual machine using these paramters:</p>
+                                <p>Creates the ESXi virtual machine using these parameters:</p>
 <ol>
 <li>VMWare: ESXi Server</li>
-<li>Target Server</li>
+<li>Kickstarted Node</li>
 <li>KS VMWare: Storage Pool Name</li>
 <li>KS: VM CPU Count</li>
 <li>KS: VM Disk Size GB</li>
@@ -756,13 +756,20 @@ EOF
 
 
                     <div class="row pt-5">
-                        <h3 id="linesxienableuefisecureboot">
-                            <a href="#linesxienableuefisecureboot">
-                                <strong>Step 5 -</strong> LIN ESXi Enable UEFI Secure Boot
+                        <h3 id="linesxienableuefiboot">
+                            <a href="#linesxienableuefiboot">
+                                <strong>Step 5 -</strong> LIN ESXi Enable UEFI Boot
                             </a>
                         </h3>
                     </div>
 
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>Sets virtual machine to use UEFI boot.</p>
+                            </p>
+                        </div>
+                    </div>
 
 
 
@@ -1163,7 +1170,7 @@ EOF
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Uploads the WinPE/Windows/RHEL ISO to ESXi datastore specified in <code>KS VMWare: Storage Pool Name</code>.</p>
+                                <p>Uploads the WinPE, Windows or RHEL ISO to ESXi datastore specified in <code>KS VMWare: Storage Pool Name</code>.</p>
                             </p>
                         </div>
                     </div>

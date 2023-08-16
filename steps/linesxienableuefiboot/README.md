@@ -1,0 +1,1 @@
+Sets virtual machine to use UEFI boot.

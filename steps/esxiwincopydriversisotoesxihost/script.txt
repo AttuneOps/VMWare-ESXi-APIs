@@ -42,10 +42,10 @@ if (-Not (Test-Path "$to")) {
 }
 
 # Set the local path to the ISO
-Set-Location {ksAttuneBaseDir}/build-{targetServer.fqn}
+Set-Location {ksAttuneBaseDir}/build-{kickstartedNode.fqn}
 
 # Copy the ISO
-Copy-DatastoreItem {targetServer.fqn}-Drivers.iso $to `
+Copy-DatastoreItem {kickstartedNode.fqn}-Drivers.iso $to `
     -Force:$true -Confirm:$false 
 
     

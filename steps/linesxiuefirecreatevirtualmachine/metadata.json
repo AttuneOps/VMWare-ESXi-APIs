@@ -24,7 +24,7 @@
         }, 
         {
             "order": 200, 
-            "stepKey": "linesxienableuefisecureboot"
+            "stepKey": "linesxienableuefiboot"
         }, 
         {
             "order": 250, 
