@@ -1,7 +1,7 @@
 {
     "actionOnStepFail": null, 
     "archiveKey": "winvmwaredrivers", 
-    "deployPath": "{ksAttuneBaseDir}/build-{targetServer.fqn}", 
+    "deployPath": "{ksAttuneBaseDir}/build-{kickstartedNode.fqn}", 
     "enabled": true, 
     "externalUuid4": "c52a58f8-93a7-4d8b-8e31-2de757402d13", 
     "key": "lindeployvmwaredrivers", 
