@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "3e97c299-dc75-4052-9492-8fa10b1d583c", 
+    "isBlueprint": true, 
+    "key": "linesxideletevmfqngroup", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "linesxideletevmfqn"
+        }
+    ], 
+    "name": "LIN ESXi Delete VM FQN - Group", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

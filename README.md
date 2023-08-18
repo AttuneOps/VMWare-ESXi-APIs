@@ -80,6 +80,9 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 ### LIN ESXi UEFI Recreate Virtual Machine
 
 
+### LIN ESXi Delete VM FQN - Group
+
+
 
 
 
@@ -88,6 +91,8 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
+| Kickstarted Node | Basic Node | `kickstartednode` | Refers to the node being built |
+| Kickstart Worker Linux Node | Linux/Unix Node | `kickstartworkerlinuxnode` | Linux refers to both Linux and MacOS |
 | KS: Attune Base Dir | Text | `ksattunebasedir` |  |
 | KS: VM CPU Count | Text | `ksvmcpucount` |  |
 | KS: VM Disk Size GB | Text | `ksvmdisksizegb` |  |
@@ -101,8 +106,6 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 | VMWare: ESXi Server | Basic Node | `vmwareesxiserver` |  |
 | VMWare: vCenter Server | Basic Node | `vmwarevcenterserver` |  |
 | VMWare: vCenter User | Basic Credential | `vmwarevcenteruser` |  |
-| Kickstart Worker Linux Node | Linux/Unix Node | `kickstartworkerlinuxnode` | Linux refers to both Linux and MacOS |
-| Kickstarted Node | Basic Node | `kickstartednode` | Refers to the node being built |
 
 
 
