@@ -5,7 +5,7 @@
     "interpreter": 1, 
     "key": "linesxienable3d", 
     "name": "LIN ESXi Enable 3D", 
-    "osCredKey": "linuxattuneuser", 
+    "osCredKey": "kickstartworkerbuildlinuxuser", 
     "serverKey": "kickstartworkerlinuxnode", 
     "successExitCode": 0, 
     "type": "com.servertribe.attune.tuples.StepSshTuple"

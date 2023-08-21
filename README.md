@@ -77,10 +77,10 @@ sudo pwsh -Command "Install-Module VMware.PowerCLI"
 PowerCLI reference is available at : 
 https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html
 
-### LIN ESXi UEFI Recreate Virtual Machine
-
-
 ### LIN ESXi Delete VM FQN - Group
+
+
+### LIN ESXi UEFI Recreate Virtual Machine
 
 
 
@@ -106,6 +106,7 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 | VMWare: ESXi Server | Basic Node | `vmwareesxiserver` |  |
 | VMWare: vCenter Server | Basic Node | `vmwarevcenterserver` |  |
 | VMWare: vCenter User | Basic Credential | `vmwarevcenteruser` |  |
+| Kickstart Worker Build Linux User | Linux/Unix Credential | `kickstartworkerbuildlinuxuser` |  |
 
 
 
