@@ -2,9 +2,9 @@
     "actionOnStepFail": "stop", 
     "concurrency": 1, 
     "enabled": true, 
-    "externalUuid4": "18af1c16-5ee0-4a2d-ae12-5e52aeb25287", 
+    "externalUuid4": "7eac3284-9e7d-41e1-96dc-acf098416045", 
     "isBlueprint": true, 
-    "key": "linesxiuefirecreatevirtualmachine", 
+    "key": "esxiwinperecreatewinbiosvirtualmachinedelete", 
     "links": [
         {
             "order": 0, 
@@ -24,7 +24,7 @@
         }, 
         {
             "order": 200, 
-            "stepKey": "linesxienableuefiboot"
+            "stepKey": "linesxienable3d"
         }, 
         {
             "order": 250, 
@@ -32,33 +32,29 @@
         }, 
         {
             "order": 300, 
-            "stepKey": "linesxienable3d"
-        }, 
-        {
-            "order": 350, 
             "stepKey": "linesxiwinsetbootorder"
         }, 
         {
-            "order": 400, 
+            "order": 350, 
             "stepKey": "linesxiwinsetnetworkadaptertovmxnet3"
         }, 
         {
-            "order": 450, 
+            "order": 400, 
             "stepKey": "linesxicopyisotohost"
         }, 
         {
-            "order": 500, 
+            "order": 450, 
             "stepKey": "linesxiloadisointovm"
         }, 
         {
-            "order": 550, 
+            "order": 500, 
             "stepKey": "linesxistartvm"
         }, 
         {
-            "order": 600, 
-            "stepKey": "linesxisshwait"
+            "order": 550, 
+            "stepKey": "winwinrmhttpswait120s"
         }
     ], 
-    "name": "LIN ESXi UEFI Recreate Virtual Machine", 
+    "name": "ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE", 
     "type": "com.servertribe.attune.tuples.StepGroupTuple"
 }

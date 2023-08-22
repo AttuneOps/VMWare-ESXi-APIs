@@ -54,9 +54,6 @@ This Project contains the following Blueprints.
 
 
 
-### ESXi WinPE Recreate Virtual Machine
-
-
 ### ESXi Win Recreate Virtual Machine
 
 Creates a Windows virtual machine from two ISOs.
@@ -66,7 +63,13 @@ Creates a Windows virtual machine from two ISOs.
 ### LIN Deploy VMWare Drivers - Group
 
 
-### LIN ESXi BIOS Recreate Virtual Machine
+### LIN ESXi Delete VM FQN - Group
+
+
+### ESXi UEFI Recreate Virtual Machine
+
+
+### ESXi BIOS Recreate Virtual Machine
 
 Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
 
@@ -77,10 +80,7 @@ sudo pwsh -Command "Install-Module VMware.PowerCLI"
 PowerCLI reference is available at : 
 https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html
 
-### LIN ESXi Delete VM FQN - Group
-
-
-### LIN ESXi UEFI Recreate Virtual Machine
+### ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE
 
 
 
@@ -92,6 +92,7 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
 | Kickstarted Node | Basic Node | `kickstartednode` | Refers to the node being built |
+| Kickstart Worker Build Linux User | Linux/Unix Credential | `kickstartworkerbuildlinuxuser` |  |
 | Kickstart Worker Linux Node | Linux/Unix Node | `kickstartworkerlinuxnode` | Linux refers to both Linux and MacOS |
 | KS: Attune Base Dir | Text | `ksattunebasedir` |  |
 | KS: VM CPU Count | Text | `ksvmcpucount` |  |
@@ -106,7 +107,6 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 | VMWare: ESXi Server | Basic Node | `vmwareesxiserver` |  |
 | VMWare: vCenter Server | Basic Node | `vmwarevcenterserver` |  |
 | VMWare: vCenter User | Basic Credential | `vmwarevcenteruser` |  |
-| Kickstart Worker Build Linux User | Linux/Unix Credential | `kickstartworkerbuildlinuxuser` |  |
 
 
 

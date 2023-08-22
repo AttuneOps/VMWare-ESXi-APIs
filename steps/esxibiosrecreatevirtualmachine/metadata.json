@@ -1,10 +1,10 @@
 {
-    "actionOnStepFail": "stop", 
+    "actionOnStepFail": null, 
     "concurrency": 1, 
     "enabled": true, 
-    "externalUuid4": "7eac3284-9e7d-41e1-96dc-acf098416045", 
+    "externalUuid4": "a40fa396-7212-4dde-ac6a-43645cf09f17", 
     "isBlueprint": true, 
-    "key": "esxiwinperecreatevirtualmachine", 
+    "key": "esxibiosrecreatevirtualmachine", 
     "links": [
         {
             "order": 0, 
@@ -15,16 +15,12 @@
             "stepKey": "linesxideletevmfqn"
         }, 
         {
-            "order": 100, 
+            "order": 150, 
             "stepKey": "linesxideletevmhostname"
         }, 
         {
-            "order": 150, 
-            "stepKey": "linesxicreatevm"
-        }, 
-        {
             "order": 200, 
-            "stepKey": "linesxienable3d"
+            "stepKey": "linesxicreatevm"
         }, 
         {
             "order": 250, 
@@ -32,29 +28,29 @@
         }, 
         {
             "order": 300, 
-            "stepKey": "linesxiwinsetbootorder"
+            "stepKey": "linesxienable3d"
         }, 
         {
             "order": 350, 
-            "stepKey": "linesxiwinsetnetworkadaptertovmxnet3"
+            "stepKey": "linesxiwinsetbootorder"
         }, 
         {
             "order": 400, 
-            "stepKey": "linesxicopyisotohost"
+            "stepKey": "linesxiwinsetnetworkadaptertovmxnet3"
         }, 
         {
             "order": 450, 
-            "stepKey": "linesxiloadisointovm"
+            "stepKey": "linesxicopyisotohost"
         }, 
         {
             "order": 500, 
-            "stepKey": "linesxistartvm"
+            "stepKey": "linesxiloadisointovm"
         }, 
         {
             "order": 550, 
-            "stepKey": "winwinrmhttpswait120s"
+            "stepKey": "linesxistartvm"
         }
     ], 
-    "name": "ESXi WinPE Recreate Virtual Machine", 
+    "name": "ESXi BIOS Recreate Virtual Machine", 
     "type": "com.servertribe.attune.tuples.StepGroupTuple"
 }
