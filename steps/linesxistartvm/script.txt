@@ -2,7 +2,7 @@ pwsh <<'EOF'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User "{vmwareVcenterUser.user}" `
     -Password '{vmwareVcenterUser.password}'
 

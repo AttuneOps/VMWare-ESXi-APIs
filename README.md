@@ -54,21 +54,6 @@ This Project contains the following Blueprints.
 
 
 
-### ESXi Win Recreate Virtual Machine
-
-Creates a Windows virtual machine from two ISOs.
-1. Unaltered Windows ISO.
-2. ESXi Drivers ISO.
-
-### LIN Deploy VMWare Drivers - Group
-
-
-### LIN ESXi Delete VM FQN - Group
-
-
-### ESXi UEFI Recreate Virtual Machine
-
-
 ### ESXi BIOS Recreate Virtual Machine
 
 Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
@@ -80,7 +65,22 @@ sudo pwsh -Command "Install-Module VMware.PowerCLI"
 PowerCLI reference is available at : 
 https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html
 
+### ESXi UEFI Recreate Virtual Machine
+
+
 ### ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE
+
+
+### ESXi Win Recreate Virtual Machine
+
+Creates a Windows virtual machine from two ISOs.
+1. Unaltered Windows ISO.
+2. ESXi Drivers ISO.
+
+### LIN Deploy VMWare Drivers - Group
+
+
+### LIN ESXi Delete VM FQN - Group
 
 
 
@@ -94,19 +94,17 @@ https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdlet
 | Kickstarted Node | Basic Node | `kickstartednode` | Refers to the node being built |
 | Kickstart Worker Build Linux User | Linux/Unix Credential | `kickstartworkerbuildlinuxuser` |  |
 | Kickstart Worker Linux Node | Linux/Unix Node | `kickstartworkerlinuxnode` | Linux refers to both Linux and MacOS |
-| KS: Attune Base Dir | Text | `ksattunebasedir` |  |
-| KS: VM CPU Count | Text | `ksvmcpucount` |  |
-| KS: VM Disk Size GB | Text | `ksvmdisksizegb` |  |
-| KS: VM Ram Size GB | Text | `ksvmramsizegb` |  |
-| KS VMWare: Attune Base Dir | Text | `ksvmwareattunebasedir` |  |
-| KS VMWare: Boot ISO Dir | Text | `ksvmwarebootisodir` | The directory of where the kickstart ISOs are copied to. |
-| KS VMWare: Guest Type | Text | `ksvmwareguesttype` | https://vdc-download.vmware.com/vmwb-repository/dcr-public/8946c1b6-2861-4c12-a45f-f14ae0d3b1b9/a5b8094c-c222-4307-9399-3b606a04af55/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html<br><br>https://vdc-download.vmware.com/vmwb-repository/dcr-public/da47f910-60ac-438b-8b9b-6122f4d14524/16b7274a-bf8b-4b4c-a05e-746f2aa93c8c/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html |
-| KS VMWare: Network Name | Text | `ksvmwarenetworkname` |  |
-| KS VMWare: Storage Pool Name | Text | `ksvmwarestoragepoolname` |  |
-| Linux: Attune User | Linux/Unix Credential | `linuxattuneuser` |  |
-| VMWare: ESXi Server | Basic Node | `vmwareesxiserver` |  |
-| VMWare: vCenter Server | Basic Node | `vmwarevcenterserver` |  |
-| VMWare: vCenter User | Basic Credential | `vmwarevcenteruser` |  |
+| VMWare vCenter User | Basic Credential | `vmwarevcenteruser` |  |
+| VMWare ESXi Host | Basic Node | `vmwareesxihost` |  |
+| VMWare vCenter Node | Basic Node | `vmwarevcenternode` |  |
+| Kickstart VMWare Storage Pool Name | Text | `kickstartvmwarestoragepoolname` |  |
+| Kickstart Worker Base Dir | Text | `kickstartworkerbasedir` |  |
+| Kickstarted VM CPU Count | Text | `kickstartedvmcpucount` |  |
+| Kickstarted VM Disk Size GB | Text | `kickstartedvmdisksizegb` |  |
+| Kickstarted VM Ram Size GB | Text | `kickstartedvmramsizegb` |  |
+| Kickstarted VM Guest Type | Text | `kickstartedvmguesttype` | https://vdc-download.vmware.com/vmwb-repository/dcr-public/8946c1b6-2861-4c12-a45f-f14ae0d3b1b9/a5b8094c-c222-4307-9399-3b606a04af55/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html<br><br>https://vdc-download.vmware.com/vmwb-repository/dcr-public/da47f910-60ac-438b-8b9b-6122f4d14524/16b7274a-bf8b-4b4c-a05e-746f2aa93c8c/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html |
+| Kickstarted VM Network Name | Text | `kickstartedvmnetworkname` |  |
+| VMWare Boot ISO Dir | Text | `vmwarebootisodir` | The directory of where the kickstart ISOs are copied to. |
 
 
 

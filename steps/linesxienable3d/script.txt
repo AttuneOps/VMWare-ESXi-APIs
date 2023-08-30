@@ -1,4 +1,4 @@
-if [ '{ksVmwareGuestType}' != 'windows9_64Guest' ]; then
+if [ '{kickstartedVmGuestType}' != 'windows9_64Guest' ]; then
     echo "This isn't windows 10, 3D isn't required"
 else
     echo "Enabling 3d"
@@ -7,7 +7,7 @@ pwsh <<'EOF'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User "{vmwareVcenterUser.user}" `
     -Password '{vmwareVcenterUser.password}'
 

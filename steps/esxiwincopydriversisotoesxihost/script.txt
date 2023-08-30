@@ -3,7 +3,7 @@ pwsh <<'EOF' | grep -v 'Uploading'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
     
@@ -13,11 +13,11 @@ if ($? -eq $false) {
 }
 
 # Create the TO dir string
-$to = "ds:{ksVmwareBootIsoDir}"
+$to = "ds:{vmwareBootIsoDir}"
 $to = $to -Replace "/","\"
 
 # Get the Datastore
-$datastore = Get-Datastore -Name '{ksVmwareStoragePoolName}'
+$datastore = Get-Datastore -Name '{kickstartVmwareStoragePoolName}'
 $datastore
 
 # Create the DS drive
@@ -42,7 +42,7 @@ if (-Not (Test-Path "$to")) {
 }
 
 # Set the local path to the ISO
-Set-Location {ksAttuneBaseDir}/build-{kickstartedNode.fqn}
+Set-Location {kickstartWorkerBaseDir}/build-{kickstartedNode.fqn}
 
 # Copy the ISO
 Copy-DatastoreItem {kickstartedNode.fqn}-Drivers.iso $to `

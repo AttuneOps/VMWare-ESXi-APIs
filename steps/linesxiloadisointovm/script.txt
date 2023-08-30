@@ -3,7 +3,7 @@ pwsh <<'EOF'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User "{vmwareVcenterUser.user}" `
     -Password '{vmwareVcenterUser.password}'
 
@@ -13,7 +13,7 @@ if ($? -eq $false) {
 }
 
 $cd = Get-VM -Name "{kickstartedNode.fqn}" | Get-CDDrive
-$iso = "[{ksVmwareStoragePoolName}] {ksVmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso"
+$iso = "[{kickstartVmwareStoragePoolName}] {vmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso"
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `

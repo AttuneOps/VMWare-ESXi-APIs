@@ -1,5 +1,5 @@
 
-if [ '{ksVmwareGuestType}' != 'winNetStandard64Guest' ]; then
+if [ '{kickstartedVmGuestType}' != 'winNetStandard64Guest' ]; then
     echo "This isn't windows server VM, SAS not required"
 else
     echo "Switching to LSI Logic SAS Controller"
@@ -8,7 +8,7 @@ pwsh <<'EOF'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
 

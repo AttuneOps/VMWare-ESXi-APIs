@@ -536,7 +536,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User &quot;{vmwareVcenterUser.user}&quot; `
     -Password &quot;{vmwareVcenterUser.password}&quot;
 
@@ -622,7 +622,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User &quot;{vmwareVcenterUser.user}&quot; `
     -Password &#x27;{vmwareVcenterUser.password}&#x27;
 
@@ -722,7 +722,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User &quot;{vmwareVcenterUser.user}&quot; `
     -Password &#x27;{vmwareVcenterUser.password}&#x27;
 
@@ -731,35 +731,35 @@ if ($? -eq $false) {
     exit 1
 }
 
-$memInMb = {ksVmRamSizeGb}*1024  
+$memInMb = {kickstartedVmRamSizeGb}*1024  
 
-if ( &quot;{vmwareEsxiServer.fqn}&quot; -eq &quot;{vmwareVcenterServer.fqn}&quot; ) {
+if ( &quot;{vmwareEsxiHost.fqn}&quot; -eq &quot;{vmwareVcenterNode.fqn}&quot; ) {
     Write-Host &quot;We&#x27;re talking to the ESXi host, don&#x27;t pass the -VMHost arg&quot;
     $vm = New-VM `
         -Name &quot;{kickstartedNode.fqn}&quot; `
-        -Datastore &quot;{ksVmwareStoragePoolName}&quot; `
-        -CoresPerSocket {ksVmCpuCount} `
-        -NumCpu {ksVmCpuCount} `
+        -Datastore &quot;{kickstartVmwareStoragePoolName}&quot; `
+        -CoresPerSocket {kickstartedVmCpuCount} `
+        -NumCpu {kickstartedVmCpuCount} `
         -DiskMB 51200 `
         -MemoryMB $memInMb `
-        -NetworkName &quot;{ksVmwareNetworkName}&quot; `
-        -GuestId &#x27;{ksVmwareGuestType}&#x27; `
+        -NetworkName &quot;{kickstartedVmNetworkName}&quot; `
+        -GuestId &#x27;{kickstartedVmGuestType}&#x27; `
         -CD 
 
 } else {
     Write-Host &quot;We&#x27;re talking to a vCenter server, pass the -VMHost arg&quot;
-    $storagePool = Get-VMHost -Name &#x27;{vmwareEsxiServer.fqn}&#x27; | Get-Datastore -Name &#x27;{ksVmwareStoragePoolName}&#x27; 
+    $storagePool = Get-VMHost -Name &#x27;{vmwareEsxiHost.fqn}&#x27; | Get-Datastore -Name &#x27;{kickstartVmwareStoragePoolName}&#x27; 
     
     $vm = New-VM `
-        -VMHost &quot;{vmwareEsxiServer.fqn}&quot; `
+        -VMHost &quot;{vmwareEsxiHost.fqn}&quot; `
         -Name &quot;{kickstartedNode.fqn}&quot; `
         -Datastore &quot;$storagePool&quot; `
-        -CoresPerSocket {ksVmCpuCount} `
-        -NumCpu {ksVmCpuCount} `
+        -CoresPerSocket {kickstartedVmCpuCount} `
+        -NumCpu {kickstartedVmCpuCount} `
         -DiskMB 51200 `
         -MemoryMB $memInMb `
-        -NetworkName &quot;{ksVmwareNetworkName}&quot; `
-        -GuestId &#x27;{ksVmwareGuestType}&#x27; `
+        -NetworkName &quot;{kickstartedVmNetworkName}&quot; `
+        -GuestId &#x27;{kickstartedVmGuestType}&#x27; `
         -CD 
 
 }
@@ -818,7 +818,7 @@ EOF
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-if [ &#x27;{ksVmwareGuestType}&#x27; != &#x27;windows9_64Guest&#x27; ]; then
+if [ &#x27;{kickstartedVmGuestType}&#x27; != &#x27;windows9_64Guest&#x27; ]; then
     echo &quot;This isn&#x27;t windows 10, 3D isn&#x27;t required&quot;
 else
     echo &quot;Enabling 3d&quot;
@@ -827,7 +827,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User &quot;{vmwareVcenterUser.user}&quot; `
     -Password &#x27;{vmwareVcenterUser.password}&#x27;
 
@@ -904,7 +904,7 @@ fi
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-if [ &#x27;{ksVmwareGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
+if [ &#x27;{kickstartedVmGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
     echo &quot;This isn&#x27;t windows server VM, SAS not required&quot;
 else
     echo &quot;Switching to LSI Logic SAS Controller&quot;
@@ -913,7 +913,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
 
@@ -990,7 +990,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
 
@@ -1084,7 +1084,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
 
@@ -1154,7 +1154,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27; | grep -v &#x27;Uploading&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User &quot;{vmwareVcenterUser.user}&quot; `
     -Password &#x27;{vmwareVcenterUser.password}&#x27;
     
@@ -1164,11 +1164,11 @@ if ($? -eq $false) {
 }
 
 # Create the TO dir string
-$to = &quot;ds:{ksVmwareBootIsoDir}&quot;
+$to = &quot;ds:{vmwareBootIsoDir}&quot;
 $to = $to -Replace &quot;/&quot;,&quot;\&quot;
 
 # Get the Datastore
-$datastore = Get-Datastore -Name &#x27;{ksVmwareStoragePoolName}&#x27;
+$datastore = Get-Datastore -Name &#x27;{kickstartVmwareStoragePoolName}&#x27;
 $datastore
 
 # Create the DS drive
@@ -1192,7 +1192,7 @@ if (-Not (Test-Path &quot;$to&quot;)) {
 }
 
 # Set the local path to the ISO
-Set-Location {ksAttuneBaseDir}
+Set-Location {kickstartWorkerBaseDir}
 
 # Copy the ISO
 Copy-DatastoreItem kickstart_{kickstartedNode.fqn}.iso $to `
@@ -1244,18 +1244,7 @@ EOF
 
 
 
-
-                        <div class="row">
-                            <p>
-                                Connect via ssh:
-                            </p>
-                        </div>
-                        <div class="row py-1">
-                            <code class="language-sql">
-ssh {linuxattuneuser}@{kickstartworkerlinuxnode}
-                            </code>
-                        </div>
-
+    
 
 
     
@@ -1276,7 +1265,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27; | grep -v &#x27;Uploading&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
     
@@ -1286,11 +1275,11 @@ if ($? -eq $false) {
 }
 
 # Create the TO dir string
-$to = &quot;ds:{ksVmwareBootIsoDir}&quot;
+$to = &quot;ds:{vmwareBootIsoDir}&quot;
 $to = $to -Replace &quot;/&quot;,&quot;\&quot;
 
 # Get the Datastore
-$datastore = Get-Datastore -Name &#x27;{ksVmwareStoragePoolName}&#x27;
+$datastore = Get-Datastore -Name &#x27;{kickstartVmwareStoragePoolName}&#x27;
 $datastore
 
 # Create the DS drive
@@ -1315,7 +1304,7 @@ if (-Not (Test-Path &quot;$to&quot;)) {
 }
 
 # Set the local path to the ISO
-Set-Location {ksAttuneBaseDir}/build-{kickstartedNode.fqn}
+Set-Location {kickstartWorkerBaseDir}/build-{kickstartedNode.fqn}
 
 # Copy the ISO
 Copy-DatastoreItem {kickstartedNode.fqn}-Drivers.iso $to `
@@ -1363,18 +1352,7 @@ EOF
 
 
 
-
-                        <div class="row">
-                            <p>
-                                Connect via ssh:
-                            </p>
-                        </div>
-                        <div class="row py-1">
-                            <code class="language-sql">
-ssh {kickstartworkerbuildlinuxuser}@{kickstartworkerlinuxnode}
-                            </code>
-                        </div>
-
+    
 
 
     
@@ -1395,7 +1373,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User &quot;{vmwareVcenterUser.user}&quot; `
     -Password &#x27;{vmwareVcenterUser.password}&#x27;
 
@@ -1405,7 +1383,7 @@ if ($? -eq $false) {
 }
 
 $cd = Get-VM -Name &quot;{kickstartedNode.fqn}&quot; | Get-CDDrive
-$iso = &quot;[{ksVmwareStoragePoolName}] {ksVmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso&quot;
+$iso = &quot;[{kickstartVmwareStoragePoolName}] {vmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso&quot;
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `
@@ -1450,18 +1428,7 @@ EOF
 
 
 
-
-                        <div class="row">
-                            <p>
-                                Connect via ssh:
-                            </p>
-                        </div>
-                        <div class="row py-1">
-                            <code class="language-sql">
-ssh {linuxattuneuser}@{kickstartworkerlinuxnode}
-                            </code>
-                        </div>
-
+    
 
 
     
@@ -1481,7 +1448,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User {vmwareVcenterUser.user} `
     -Password {vmwareVcenterUser.password}
 
@@ -1490,8 +1457,8 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vm = Get-VM -Name &quot;{targetServer.fqn}&quot;
-$iso = &quot;[{ksVmwareStoragePoolName}] kickstart_isos/{targetServer.fqn}-Drivers.iso&quot;
+$vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
+$iso = &quot;[{kickstartVmwareStoragePoolName}] kickstart_isos/{kickstartedNode.fqn}-Drivers.iso&quot;
 
 New-CDDrive -VM $vm -IsoPath $iso -StartConnected
 
@@ -1533,18 +1500,7 @@ EOF
 
 
 
-
-                        <div class="row">
-                            <p>
-                                Connect via ssh:
-                            </p>
-                        </div>
-                        <div class="row py-1">
-                            <code class="language-sql">
-ssh {kickstartworkerbuildlinuxuser}@{kickstartworkerlinuxnode}
-                            </code>
-                        </div>
-
+    
 
 
     
@@ -1564,7 +1520,7 @@ pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterServer.ip} `
+Connect-VIServer {vmwareVcenterNode.ip} `
     -User &quot;{vmwareVcenterUser.user}&quot; `
     -Password &#x27;{vmwareVcenterUser.password}&#x27;
 

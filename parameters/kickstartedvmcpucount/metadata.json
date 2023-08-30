@@ -1,7 +1,7 @@
 {
     "externalUuid4": "b2e98472-e773-4738-b004-889f0ce3258f", 
-    "key": "ksvmcpucount", 
-    "name": "KS: VM CPU Count", 
+    "key": "kickstartedvmcpucount", 
+    "name": "Kickstarted VM CPU Count", 
     "showInPlan": true, 
     "type": "c.s.s.b.phv.Text"
 }
