@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "eb3aa3aa-1313-4e30-9339-1697467a566f", 
+    "interpreter": 1, 
+    "key": "loadisointovm", 
+    "name": "Load ISO into VM", 
+    "osCredKey": "kickstartworkerlinuxuser", 
+    "serverKey": "kickstartworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

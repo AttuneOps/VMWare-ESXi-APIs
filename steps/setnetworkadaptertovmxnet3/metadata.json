@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "eb9de62e-78ed-4f9d-ac0b-944dec4585dc", 
+    "interpreter": 1, 
+    "key": "setnetworkadaptertovmxnet3", 
+    "name": "Set Network Adapter to vmxnet3", 
+    "osCredKey": "kickstartworkerlinuxuser", 
+    "serverKey": "kickstartworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

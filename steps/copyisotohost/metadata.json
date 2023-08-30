@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "ed120c7c-6efd-4c3a-a41b-a1a9728d0bdf", 
+    "interpreter": 1, 
+    "key": "copyisotohost", 
+    "name": "Copy ISO To Host", 
+    "osCredKey": "kickstartworkerlinuxuser", 
+    "serverKey": "kickstartworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

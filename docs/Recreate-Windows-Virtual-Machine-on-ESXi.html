@@ -6,29 +6,35 @@
 
 
 <head>
-    <title>How to ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE - Attune Automation</title>
+    <title>How to Recreate Windows Virtual Machine on ESXi - Attune Automation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title"
-          content="How to ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE - Attune Automation">
+          content="How to Recreate Windows Virtual Machine on ESXi - Attune Automation">
     <meta name="description"
-          content="">
+          content="Creates a Windows virtual machine from two ISOs.
+1. Unaltered Windows ISO.
+2. ESXi Drivers ISO.">
     <meta name="robots"
           content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
 
     <meta property="og:locale" content="en_AU" />
     <meta property="og:type" content="article" />
     <meta property="og:title"
-          content="HowTo ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE - Attune Automation" />
-    <meta property="og:description" content="" />
+          content="HowTo Recreate Windows Virtual Machine on ESXi - Attune Automation" />
+    <meta property="og:description" content="Creates a Windows virtual machine from two ISOs.
+1. Unaltered Windows ISO.
+2. ESXi Drivers ISO." />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
-          content="How to ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE - Attune Automation" />
-    <meta name="twitter:description" content="" />
+          content="How to Recreate Windows Virtual Machine on ESXi - Attune Automation" />
+    <meta name="twitter:description" content="Creates a Windows virtual machine from two ISOs.
+1. Unaltered Windows ISO.
+2. ESXi Drivers ISO." />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-192x192.png" sizes="192x192">
@@ -119,7 +125,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <strong>ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE</strong>
+                    <strong>Recreate Windows Virtual Machine on ESXi</strong>
                 </li>
             </ol>
         </nav>
@@ -133,12 +139,21 @@
     <div class="row">
         <div class="col px-0">
             <h1 class="text-left">
-                How to ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE
+                How to Recreate Windows Virtual Machine on ESXi
             </h1>
         </div>
     </div>
 
 <!-- Blueprint Description -->
+    <div class="row">
+        <div class="description col px-0">
+            <p class="text-left">
+                <p>Creates a Windows virtual machine from two ISOs.
+1. Unaltered Windows ISO.
+2. ESXi Drivers ISO.</p>
+            </p>
+        </div>
+    </div>
     <div class="row pt-4">
         <div class="col-6 px-0">
             <h6 class="text-left">
@@ -197,7 +212,7 @@
                     </p>
                     <p class="text-muted">
                         <a href="#top">
-                            <strong>ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE</strong>
+                            <strong>Recreate Windows Virtual Machine on ESXi</strong>
                         </a>
                     </p>
 
@@ -278,8 +293,24 @@
         
 
                     <p class="text-muted pt-2">
+                        <a href="#esxiwincopydriversisotoesxihost">
+                            <strong>Step 10 -</strong> ESXi Win Copy Drivers ISO to ESXi Host
+                        </a>
+                    </p>
+
+        
+
+                    <p class="text-muted pt-2">
                         <a href="#loadisointovm">
-                            <strong>Step 10 -</strong> Load ISO into VM
+                            <strong>Step 11 -</strong> Load ISO into VM
+                        </a>
+                    </p>
+
+        
+
+                    <p class="text-muted pt-2">
+                        <a href="#esxiwinadddriverscdrom">
+                            <strong>Step 12 -</strong> ESXi Win Add Drivers CDROM
                         </a>
                     </p>
 
@@ -287,7 +318,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#startvm">
-                            <strong>Step 11 -</strong> Start VM
+                            <strong>Step 13 -</strong> Start VM
                         </a>
                     </p>
 
@@ -295,7 +326,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#winwinrmhttpswait120s">
-                            <strong>Step 12 -</strong> WIN WinRM HTTPS Wait 120s
+                            <strong>Step 14 -</strong> WIN WinRM HTTPS Wait 120s
                         </a>
                     </p>
 
@@ -358,7 +389,7 @@
                 </ol>
             </p>
             <p class="lead text-center">
-                You've automated: <strong>ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE</strong>
+                You've automated: <strong>Recreate Windows Virtual Machine on ESXi</strong>
             </p>
             <hr class="my-4 text-center">
             <div class="col px-0">
@@ -1194,9 +1225,117 @@ EOF
 
 
                     <div class="row pt-5">
+                        <h3 id="esxiwincopydriversisotoesxihost">
+                            <a href="#esxiwincopydriversisotoesxihost">
+                                <strong>Step 10 -</strong> ESXi Win Copy Drivers ISO to ESXi Host
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>Uploads the ESXi Drivers ISO to ESXi datastore specified in KS VMWare: Storage Pool Name.</p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+# Copy ISO to ESXi host
+pwsh &lt;&lt;&#x27;EOF&#x27; | grep -v &#x27;Uploading&#x27;
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+    
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+
+# Create the TO dir string
+$to = &quot;ds:{vmwareBootIsoDir}&quot;
+$to = $to -Replace &quot;/&quot;,&quot;\&quot;
+
+# Get the Datastore
+$datastore = Get-Datastore -Name &#x27;{kickstartedVmStoragePoolName}&#x27;
+$datastore
+
+# Create the DS drive
+if (Test-Path &quot;ds:&quot;) {
+    Remove-PSDrive ds -Force
+}
+
+if ($datastore -is [System.Array]) {
+    Write-Host &quot;Get-Datastore returned multiple datastores, using first item in array..&quot;
+    $datastore = $datastore[0]
+
+}
+
+New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root &quot;&quot;
+
+# Ensure the destination dir exists
+Set-Location &quot;ds:&quot;
+
+if (-Not (Test-Path &quot;$to&quot;)) {
+    &quot;Creating $to&quot;
+    New-Item  -ItemType Directory -Path &quot;$to&quot;
+}
+
+# Set the local path to the ISO
+Set-Location {kickstartWorkerBaseDir}/build-{kickstartedNode.fqn}
+
+# Copy the ISO
+Copy-DatastoreItem {kickstartedNode.fqn}-Drivers.iso $to `
+    -Force:$true -Confirm:$false 
+
+    
+# Remove the DS Drive
+Remove-PSDrive ds -Force
+
+EOF
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
                         <h3 id="loadisointovm">
                             <a href="#loadisointovm">
-                                <strong>Step 10 -</strong> Load ISO into VM
+                                <strong>Step 11 -</strong> Load ISO into VM
                             </a>
                         </h3>
                     </div>
@@ -1270,9 +1409,81 @@ EOF
 
 
                     <div class="row pt-5">
+                        <h3 id="esxiwinadddriverscdrom">
+                            <a href="#esxiwinadddriverscdrom">
+                                <strong>Step 12 -</strong> ESXi Win Add Drivers CDROM
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>Attaches the ESXi drivers ISO as a second CD-ROM.</p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+pwsh &lt;&lt;&#x27;EOF&#x27;
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+
+$vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
+$iso = &quot;[{kickstartedVmStoragePoolName}] kickstart_isos/{kickstartedNode.fqn}-Drivers.iso&quot;
+
+New-CDDrive -VM $vm -IsoPath $iso -StartConnected
+
+EOF
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
                         <h3 id="startvm">
                             <a href="#startvm">
-                                <strong>Step 11 -</strong> Start VM
+                                <strong>Step 13 -</strong> Start VM
                             </a>
                         </h3>
                     </div>
@@ -1341,7 +1552,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="winwinrmhttpswait120s">
                             <a href="#winwinrmhttpswait120s">
-                                <strong>Step 12 -</strong> WIN WinRM HTTPS Wait 120s
+                                <strong>Step 14 -</strong> WIN WinRM HTTPS Wait 120s
                             </a>
                         </h3>
                     </div>

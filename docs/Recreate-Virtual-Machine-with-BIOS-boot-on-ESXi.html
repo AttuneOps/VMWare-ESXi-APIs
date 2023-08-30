@@ -6,29 +6,47 @@
 
 
 <head>
-    <title>How to ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE - Attune Automation</title>
+    <title>How to Recreate Virtual Machine with BIOS boot on ESXi - Attune Automation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title"
-          content="How to ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE - Attune Automation">
+          content="How to Recreate Virtual Machine with BIOS boot on ESXi - Attune Automation">
     <meta name="description"
-          content="">
+          content="Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
+
+To install the PowerCLI for VMWare
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
+sudo pwsh -Command "Install-Module VMware.PowerCLI"
+
+PowerCLI reference is ava">
     <meta name="robots"
           content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
 
     <meta property="og:locale" content="en_AU" />
     <meta property="og:type" content="article" />
     <meta property="og:title"
-          content="HowTo ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE - Attune Automation" />
-    <meta property="og:description" content="" />
+          content="HowTo Recreate Virtual Machine with BIOS boot on ESXi - Attune Automation" />
+    <meta property="og:description" content="Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
+
+To install the PowerCLI for VMWare
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
+sudo pwsh -Command "Install-Module VMware.PowerCLI"
+
+PowerCLI reference is ava" />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
-          content="How to ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE - Attune Automation" />
-    <meta name="twitter:description" content="" />
+          content="How to Recreate Virtual Machine with BIOS boot on ESXi - Attune Automation" />
+    <meta name="twitter:description" content="Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
+
+To install the PowerCLI for VMWare
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
+sudo pwsh -Command "Install-Module VMware.PowerCLI"
+
+PowerCLI reference is ava" />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-192x192.png" sizes="192x192">
@@ -119,7 +137,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <strong>ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE</strong>
+                    <strong>Recreate Virtual Machine with BIOS boot on ESXi</strong>
                 </li>
             </ol>
         </nav>
@@ -133,12 +151,24 @@
     <div class="row">
         <div class="col px-0">
             <h1 class="text-left">
-                How to ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE
+                How to Recreate Virtual Machine with BIOS boot on ESXi
             </h1>
         </div>
     </div>
 
 <!-- Blueprint Description -->
+    <div class="row">
+        <div class="description col px-0">
+            <p class="text-left">
+                <p>Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.</p>
+<p>To install the PowerCLI for VMWare
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-1.rhel.7.x86_64.rpm
+sudo pwsh -Command "Install-Module VMware.PowerCLI"</p>
+<p>PowerCLI reference is available at : 
+https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html</p>
+            </p>
+        </div>
+    </div>
     <div class="row pt-4">
         <div class="col-6 px-0">
             <h6 class="text-left">
@@ -197,7 +227,7 @@
                     </p>
                     <p class="text-muted">
                         <a href="#top">
-                            <strong>ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE</strong>
+                            <strong>Recreate Virtual Machine with BIOS boot on ESXi</strong>
                         </a>
                     </p>
 
@@ -222,16 +252,16 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#linesxideletevmhostnamedelete">
-                            <strong>Step 3 -</strong> LIN ESXi Delete VM Hostname DELETE
+                        <a href="#createvm">
+                            <strong>Step 3 -</strong> Create VM
                         </a>
                     </p>
 
         
 
                     <p class="text-muted pt-2">
-                        <a href="#createvm">
-                            <strong>Step 4 -</strong> Create VM
+                        <a href="#enablesas">
+                            <strong>Step 4 -</strong> Enable SAS
                         </a>
                     </p>
 
@@ -246,16 +276,8 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#enablesas">
-                            <strong>Step 6 -</strong> Enable SAS
-                        </a>
-                    </p>
-
-        
-
-                    <p class="text-muted pt-2">
                         <a href="#setbootorder">
-                            <strong>Step 7 -</strong> Set Boot Order
+                            <strong>Step 6 -</strong> Set Boot Order
                         </a>
                     </p>
 
@@ -263,7 +285,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#setnetworkadaptertovmxnet3">
-                            <strong>Step 8 -</strong> Set Network Adapter to vmxnet3
+                            <strong>Step 7 -</strong> Set Network Adapter to vmxnet3
                         </a>
                     </p>
 
@@ -271,7 +293,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#copyisotohost">
-                            <strong>Step 9 -</strong> Copy ISO To Host
+                            <strong>Step 8 -</strong> Copy ISO To Host
                         </a>
                     </p>
 
@@ -279,7 +301,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#loadisointovm">
-                            <strong>Step 10 -</strong> Load ISO into VM
+                            <strong>Step 9 -</strong> Load ISO into VM
                         </a>
                     </p>
 
@@ -287,15 +309,15 @@
 
                     <p class="text-muted pt-2">
                         <a href="#startvm">
-                            <strong>Step 11 -</strong> Start VM
+                            <strong>Step 10 -</strong> Start VM
                         </a>
                     </p>
 
         
 
                     <p class="text-muted pt-2">
-                        <a href="#winwinrmhttpswait120s">
-                            <strong>Step 12 -</strong> WIN WinRM HTTPS Wait 120s
+                        <a href="#sshwait">
+                            <strong>Step 11 -</strong> SSH Wait
                         </a>
                     </p>
 
@@ -358,7 +380,7 @@
                 </ol>
             </p>
             <p class="lead text-center">
-                You've automated: <strong>ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE</strong>
+                You've automated: <strong>Recreate Virtual Machine with BIOS boot on ESXi</strong>
             </p>
             <hr class="my-4 text-center">
             <div class="col px-0">
@@ -550,95 +572,9 @@ EOF
 
 
                     <div class="row pt-5">
-                        <h3 id="linesxideletevmhostnamedelete">
-                            <a href="#linesxideletevmhostnamedelete">
-                                <strong>Step 3 -</strong> LIN ESXi Delete VM Hostname DELETE
-                            </a>
-                        </h3>
-                    </div>
-
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                <p>Deletes a ESXi virtual machine given the hostname.</p>
-                            </p>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-
-
-    <div class="row">
-        <p>
-            Execute the following script:
-        </p>
-    </div>
-    <div class="row">
-        <div class="col px-0">
-            <pre>
-                <code class="language-sql py-0">
-# Delete the VM if it exists
-
-pwsh &lt;&lt;&#x27;EOF&#x27;
-$ErrorActionPreference = &quot;Stop&quot;
-Import-Module VMware.VimAutomation.Core
-
-Connect-VIServer {vmwareVcenterNode.ip} `
-    -User &quot;{vmwareVcenterUser.user}&quot; `
-    -Password &#x27;{vmwareVcenterUser.password}&#x27;
-
-if ($? -eq $false) {
-    Write-Host &quot;Error: Not connected.&quot;
-    exit 1
-}
-
-$existing = Get-VM &quot;{kickstartedNode.hostname}&quot;
-
-if ( $existing.count -eq 1 ) {
-    if ( $existing.PowerState -eq &quot;PoweredOn&quot; ) {
-        &quot;Stopping the VM&quot;
-        Stop-VM -VM $existing -Confirm:$false
-    } else {
-        &quot;The VM is off&quot;
-    }
-    
-    &quot;Removing the VM&quot;
-    Remove-VM -DeleteFromDisk -VM $existing -Confirm:$false
-    
-} else {
-    &quot;The VM doesn&#x27;t exist&quot;
-}
-
-EOF
-                </code>
-            </pre>
-        </div>
-    </div>
-
-
-
-
-
-        
-
-
-
-                    <div class="row pt-5">
                         <h3 id="createvm">
                             <a href="#createvm">
-                                <strong>Step 4 -</strong> Create VM
+                                <strong>Step 3 -</strong> Create VM
                             </a>
                         </h3>
                     </div>
@@ -752,6 +688,86 @@ EOF
 
 
                     <div class="row pt-5">
+                        <h3 id="enablesas">
+                            <a href="#enablesas">
+                                <strong>Step 4 -</strong> Enable SAS
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>Enables SAS support if target build is Windows Server.</p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+if [ &#x27;{kickstartedVmGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
+    echo &quot;This isn&#x27;t windows server VM, SAS not required&quot;
+else
+    echo &quot;Switching to LSI Logic SAS Controller&quot;
+
+pwsh &lt;&lt;&#x27;EOF&#x27;
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+ 
+$vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
+ 
+# Make the controller compatible with the Win2016 drivers
+Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
+
+EOF
+
+
+fi
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
                         <h3 id="enable3d">
                             <a href="#enable3d">
                                 <strong>Step 5 -</strong> Enable 3D
@@ -838,89 +854,9 @@ fi
 
 
                     <div class="row pt-5">
-                        <h3 id="enablesas">
-                            <a href="#enablesas">
-                                <strong>Step 6 -</strong> Enable SAS
-                            </a>
-                        </h3>
-                    </div>
-
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                <p>Enables SAS support if target build is Windows Server.</p>
-                            </p>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-
-
-    <div class="row">
-        <p>
-            Execute the following script:
-        </p>
-    </div>
-    <div class="row">
-        <div class="col px-0">
-            <pre>
-                <code class="language-sql py-0">
-if [ &#x27;{kickstartedVmGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
-    echo &quot;This isn&#x27;t windows server VM, SAS not required&quot;
-else
-    echo &quot;Switching to LSI Logic SAS Controller&quot;
-
-pwsh &lt;&lt;&#x27;EOF&#x27;
-$ErrorActionPreference = &quot;Stop&quot;
-Import-Module VMware.VimAutomation.Core
-
-Connect-VIServer {vmwareVcenterNode.ip} `
-    -User {vmwareVcenterUser.user} `
-    -Password {vmwareVcenterUser.password}
-
-if ($? -eq $false) {
-    Write-Host &quot;Error: Not connected.&quot;
-    exit 1
-}
- 
-$vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
- 
-# Make the controller compatible with the Win2016 drivers
-Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
-
-EOF
-
-
-fi
-                </code>
-            </pre>
-        </div>
-    </div>
-
-
-
-
-
-        
-
-
-
-                    <div class="row pt-5">
                         <h3 id="setbootorder">
                             <a href="#setbootorder">
-                                <strong>Step 7 -</strong> Set Boot Order
+                                <strong>Step 6 -</strong> Set Boot Order
                             </a>
                         </h3>
                     </div>
@@ -1016,7 +952,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="setnetworkadaptertovmxnet3">
                             <a href="#setnetworkadaptertovmxnet3">
-                                <strong>Step 8 -</strong> Set Network Adapter to vmxnet3
+                                <strong>Step 7 -</strong> Set Network Adapter to vmxnet3
                             </a>
                         </h3>
                     </div>
@@ -1085,7 +1021,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="copyisotohost">
                             <a href="#copyisotohost">
-                                <strong>Step 9 -</strong> Copy ISO To Host
+                                <strong>Step 8 -</strong> Copy ISO To Host
                             </a>
                         </h3>
                     </div>
@@ -1196,7 +1132,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="loadisointovm">
                             <a href="#loadisointovm">
-                                <strong>Step 10 -</strong> Load ISO into VM
+                                <strong>Step 9 -</strong> Load ISO into VM
                             </a>
                         </h3>
                     </div>
@@ -1272,7 +1208,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="startvm">
                             <a href="#startvm">
-                                <strong>Step 11 -</strong> Start VM
+                                <strong>Step 10 -</strong> Start VM
                             </a>
                         </h3>
                     </div>
@@ -1339,20 +1275,13 @@ EOF
 
 
                     <div class="row pt-5">
-                        <h3 id="winwinrmhttpswait120s">
-                            <a href="#winwinrmhttpswait120s">
-                                <strong>Step 12 -</strong> WIN WinRM HTTPS Wait 120s
+                        <h3 id="sshwait">
+                            <a href="#sshwait">
+                                <strong>Step 11 -</strong> SSH Wait
                             </a>
                         </h3>
                     </div>
 
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                <p>Waits for the WinRM to be enabled by the PowerShell scripts in <code>autounattend.xml</code>. Then post waits 120 seconds to give time for the remaining scripts to run.</p>
-                            </p>
-                        </div>
-                    </div>
 
 
 
@@ -1370,7 +1299,7 @@ EOF
     <div class="row">
         <p class="mb-0">
             Check if TCP Port <strong>0</strong> is listening.
-            When the TCP Port is up, wait <strong>120</strong>
+            When the TCP Port is up, wait <strong>5</strong>
             seconds.
         </p>
         <p>Use Telnet to check if the TCP Service is accepting connections.</p>

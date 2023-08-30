@@ -206,8 +206,8 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#linesxideletevmfqn">
-                            <strong>Step 1 -</strong> LIN ESXi Delete VM FQN
+                        <a href="#deletevm">
+                            <strong>Step 1 -</strong> Delete VM
                         </a>
                     </p>
 
@@ -301,9 +301,9 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="linesxideletevmfqn">
-                            <a href="#linesxideletevmfqn">
-                                <strong>Step 1 -</strong> LIN ESXi Delete VM FQN
+                        <h3 id="deletevm">
+                            <a href="#deletevm">
+                                <strong>Step 1 -</strong> Delete VM
                             </a>
                         </h3>
                     </div>
@@ -367,6 +367,10 @@ if ($? -eq $false) {
 }
 
 $existing = Get-VM &quot;{kickstartedNode.fqn}&quot;
+if ( $existing.count -eq 1 ) {
+    } else {
+        $existing = Get-VM &quot;{kickstartedNode.hostname}&quot;
+    }
 
 if ( $existing.count -eq 1 ) {
     if ( $existing.PowerState -eq &quot;PoweredOn&quot; ) {

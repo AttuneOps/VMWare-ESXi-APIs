@@ -54,7 +54,16 @@ This Project contains the following Blueprints.
 
 
 
-### ESXi BIOS Recreate Virtual Machine
+### ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE
+
+
+### LIN Deploy VMWare Drivers - Group
+
+
+### LIN ESXi Delete VM FQN - Group
+
+
+### Recreate Virtual Machine with BIOS boot on ESXi
 
 Creates a ESXi virtual machine for Windows PE ISOs and RHEL ISOs.
 
@@ -65,23 +74,14 @@ sudo pwsh -Command "Install-Module VMware.PowerCLI"
 PowerCLI reference is available at : 
 https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html
 
-### ESXi UEFI Recreate Virtual Machine
+### Recreate Virtual Machine with UEFI boot on ESXi
 
 
-### ESXi WinPE Recreate Win BIOS Virtual Machine - DELETE
-
-
-### ESXi Win Recreate Virtual Machine
+### Recreate Windows Virtual Machine on ESXi
 
 Creates a Windows virtual machine from two ISOs.
 1. Unaltered Windows ISO.
 2. ESXi Drivers ISO.
-
-### LIN Deploy VMWare Drivers - Group
-
-
-### LIN ESXi Delete VM FQN - Group
-
 
 
 

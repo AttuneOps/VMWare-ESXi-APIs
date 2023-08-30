@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "905efc5c-8430-4648-ab45-f065eb42e618", 
+    "interpreter": 1, 
+    "key": "setpowerclioptions", 
+    "name": "Set PowerCLI Options", 
+    "osCredKey": "kickstartworkerlinuxuser", 
+    "serverKey": "kickstartworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}
