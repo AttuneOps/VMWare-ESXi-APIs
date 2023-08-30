@@ -5,7 +5,7 @@
     "interpreter": 1, 
     "key": "linesxienableuefiboot", 
     "name": "LIN ESXi Enable UEFI Boot", 
-    "osCredKey": "kickstartworkerbuildlinuxuser", 
+    "osCredKey": "kickstartworkerlinuxuser", 
     "serverKey": "kickstartworkerlinuxnode", 
     "successExitCode": 0, 
     "type": "com.servertribe.attune.tuples.StepSshTuple"

@@ -5,7 +5,7 @@
     "interpreter": 1, 
     "key": "linesxiwinsetnetworkadaptertovmxnet3", 
     "name": "LIN ESXi Win Set Network Adapter to vmxnet3", 
-    "osCredKey": "kickstartworkerbuildlinuxuser", 
+    "osCredKey": "kickstartworkerlinuxuser", 
     "serverKey": "kickstartworkerlinuxnode", 
     "successExitCode": 0, 
     "type": "com.servertribe.attune.tuples.StepSshTuple"

@@ -451,7 +451,7 @@
                         </div>
                         <div class="row py-1">
                             <code class="language-sql">
-ssh {kickstartworkerbuildlinuxuser}@{kickstartworkerlinuxnode}
+ssh {kickstartworkerlinuxuser}@{kickstartworkerlinuxnode}
                             </code>
                         </div>
 
@@ -737,7 +737,7 @@ if ( &quot;{vmwareEsxiHost.fqn}&quot; -eq &quot;{vmwareVcenterNode.fqn}&quot; ) 
     Write-Host &quot;We&#x27;re talking to the ESXi host, don&#x27;t pass the -VMHost arg&quot;
     $vm = New-VM `
         -Name &quot;{kickstartedNode.fqn}&quot; `
-        -Datastore &quot;{kickstartVmwareStoragePoolName}&quot; `
+        -Datastore &quot;{kickstartedVmStoragePoolName}&quot; `
         -CoresPerSocket {kickstartedVmCpuCount} `
         -NumCpu {kickstartedVmCpuCount} `
         -DiskMB 51200 `
@@ -748,7 +748,7 @@ if ( &quot;{vmwareEsxiHost.fqn}&quot; -eq &quot;{vmwareVcenterNode.fqn}&quot; ) 
 
 } else {
     Write-Host &quot;We&#x27;re talking to a vCenter server, pass the -VMHost arg&quot;
-    $storagePool = Get-VMHost -Name &#x27;{vmwareEsxiHost.fqn}&#x27; | Get-Datastore -Name &#x27;{kickstartVmwareStoragePoolName}&#x27; 
+    $storagePool = Get-VMHost -Name &#x27;{vmwareEsxiHost.fqn}&#x27; | Get-Datastore -Name &#x27;{kickstartedVmStoragePoolName}&#x27; 
     
     $vm = New-VM `
         -VMHost &quot;{vmwareEsxiHost.fqn}&quot; `
@@ -1168,7 +1168,7 @@ $to = &quot;ds:{vmwareBootIsoDir}&quot;
 $to = $to -Replace &quot;/&quot;,&quot;\&quot;
 
 # Get the Datastore
-$datastore = Get-Datastore -Name &#x27;{kickstartVmwareStoragePoolName}&#x27;
+$datastore = Get-Datastore -Name &#x27;{kickstartedVmStoragePoolName}&#x27;
 $datastore
 
 # Create the DS drive
@@ -1279,7 +1279,7 @@ $to = &quot;ds:{vmwareBootIsoDir}&quot;
 $to = $to -Replace &quot;/&quot;,&quot;\&quot;
 
 # Get the Datastore
-$datastore = Get-Datastore -Name &#x27;{kickstartVmwareStoragePoolName}&#x27;
+$datastore = Get-Datastore -Name &#x27;{kickstartedVmStoragePoolName}&#x27;
 $datastore
 
 # Create the DS drive
@@ -1383,7 +1383,7 @@ if ($? -eq $false) {
 }
 
 $cd = Get-VM -Name &quot;{kickstartedNode.fqn}&quot; | Get-CDDrive
-$iso = &quot;[{kickstartVmwareStoragePoolName}] {vmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso&quot;
+$iso = &quot;[{kickstartedVmStoragePoolName}] {vmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso&quot;
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `
@@ -1458,7 +1458,7 @@ if ($? -eq $false) {
 }
 
 $vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
-$iso = &quot;[{kickstartVmwareStoragePoolName}] kickstart_isos/{kickstartedNode.fqn}-Drivers.iso&quot;
+$iso = &quot;[{kickstartedVmStoragePoolName}] kickstart_isos/{kickstartedNode.fqn}-Drivers.iso&quot;
 
 New-CDDrive -VM $vm -IsoPath $iso -StartConnected
 

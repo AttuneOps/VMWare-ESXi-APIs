@@ -12,7 +12,7 @@ if ($? -eq $false) {
 }
 
 $vm = Get-VM -Name "{kickstartedNode.fqn}"
-$iso = "[{kickstartVmwareStoragePoolName}] kickstart_isos/{kickstartedNode.fqn}-Drivers.iso"
+$iso = "[{kickstartedVmStoragePoolName}] kickstart_isos/{kickstartedNode.fqn}-Drivers.iso"
 
 New-CDDrive -VM $vm -IsoPath $iso -StartConnected
 

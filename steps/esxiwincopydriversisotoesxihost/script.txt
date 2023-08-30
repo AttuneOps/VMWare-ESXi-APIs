@@ -17,7 +17,7 @@ $to = "ds:{vmwareBootIsoDir}"
 $to = $to -Replace "/","\"
 
 # Get the Datastore
-$datastore = Get-Datastore -Name '{kickstartVmwareStoragePoolName}'
+$datastore = Get-Datastore -Name '{kickstartedVmStoragePoolName}'
 $datastore
 
 # Create the DS drive

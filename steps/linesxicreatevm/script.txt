@@ -23,7 +23,7 @@ if ( "{vmwareEsxiHost.fqn}" -eq "{vmwareVcenterNode.fqn}" ) {
     Write-Host "We're talking to the ESXi host, don't pass the -VMHost arg"
     $vm = New-VM `
         -Name "{kickstartedNode.fqn}" `
-        -Datastore "{kickstartVmwareStoragePoolName}" `
+        -Datastore "{kickstartedVmStoragePoolName}" `
         -CoresPerSocket {kickstartedVmCpuCount} `
         -NumCpu {kickstartedVmCpuCount} `
         -DiskMB 51200 `
@@ -34,7 +34,7 @@ if ( "{vmwareEsxiHost.fqn}" -eq "{vmwareVcenterNode.fqn}" ) {
 
 } else {
     Write-Host "We're talking to a vCenter server, pass the -VMHost arg"
-    $storagePool = Get-VMHost -Name '{vmwareEsxiHost.fqn}' | Get-Datastore -Name '{kickstartVmwareStoragePoolName}' 
+    $storagePool = Get-VMHost -Name '{vmwareEsxiHost.fqn}' | Get-Datastore -Name '{kickstartedVmStoragePoolName}' 
     
     $vm = New-VM `
         -VMHost "{vmwareEsxiHost.fqn}" `

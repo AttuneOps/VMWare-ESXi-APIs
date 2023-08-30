@@ -13,7 +13,7 @@ if ($? -eq $false) {
 }
 
 $cd = Get-VM -Name "{kickstartedNode.fqn}" | Get-CDDrive
-$iso = "[{kickstartVmwareStoragePoolName}] {vmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso"
+$iso = "[{kickstartedVmStoragePoolName}] {vmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso"
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `

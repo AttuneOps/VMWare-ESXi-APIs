@@ -299,6 +299,14 @@
                         </a>
                     </p>
 
+        
+
+                    <p class="text-muted pt-2">
+                        <a href="#linesxisshwait">
+                            <strong>Step 13 -</strong> LIN ESXi SSH Wait
+                        </a>
+                    </p>
+
 
                 </div>
             </div>
@@ -420,7 +428,7 @@
                         </div>
                         <div class="row py-1">
                             <code class="language-sql">
-ssh {kickstartworkerbuildlinuxuser}@{kickstartworkerlinuxnode}
+ssh {kickstartworkerlinuxuser}@{kickstartworkerlinuxnode}
                             </code>
                         </div>
 
@@ -706,7 +714,7 @@ if ( &quot;{vmwareEsxiHost.fqn}&quot; -eq &quot;{vmwareVcenterNode.fqn}&quot; ) 
     Write-Host &quot;We&#x27;re talking to the ESXi host, don&#x27;t pass the -VMHost arg&quot;
     $vm = New-VM `
         -Name &quot;{kickstartedNode.fqn}&quot; `
-        -Datastore &quot;{kickstartVmwareStoragePoolName}&quot; `
+        -Datastore &quot;{kickstartedVmStoragePoolName}&quot; `
         -CoresPerSocket {kickstartedVmCpuCount} `
         -NumCpu {kickstartedVmCpuCount} `
         -DiskMB 51200 `
@@ -717,7 +725,7 @@ if ( &quot;{vmwareEsxiHost.fqn}&quot; -eq &quot;{vmwareVcenterNode.fqn}&quot; ) 
 
 } else {
     Write-Host &quot;We&#x27;re talking to a vCenter server, pass the -VMHost arg&quot;
-    $storagePool = Get-VMHost -Name &#x27;{vmwareEsxiHost.fqn}&#x27; | Get-Datastore -Name &#x27;{kickstartVmwareStoragePoolName}&#x27; 
+    $storagePool = Get-VMHost -Name &#x27;{vmwareEsxiHost.fqn}&#x27; | Get-Datastore -Name &#x27;{kickstartedVmStoragePoolName}&#x27; 
     
     $vm = New-VM `
         -VMHost &quot;{vmwareEsxiHost.fqn}&quot; `
@@ -1210,7 +1218,7 @@ $to = &quot;ds:{vmwareBootIsoDir}&quot;
 $to = $to -Replace &quot;/&quot;,&quot;\&quot;
 
 # Get the Datastore
-$datastore = Get-Datastore -Name &#x27;{kickstartVmwareStoragePoolName}&#x27;
+$datastore = Get-Datastore -Name &#x27;{kickstartedVmStoragePoolName}&#x27;
 $datastore
 
 # Create the DS drive
@@ -1317,7 +1325,7 @@ if ($? -eq $false) {
 }
 
 $cd = Get-VM -Name &quot;{kickstartedNode.fqn}&quot; | Get-CDDrive
-$iso = &quot;[{kickstartVmwareStoragePoolName}] {vmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso&quot;
+$iso = &quot;[{kickstartedVmStoragePoolName}] {vmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso&quot;
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `
@@ -1397,6 +1405,52 @@ EOF
                 </code>
             </pre>
         </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
+                        <h3 id="linesxisshwait">
+                            <a href="#linesxisshwait">
+                                <strong>Step 13 -</strong> LIN ESXi SSH Wait
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <div class="row">
+        <p class="mb-0">
+            Check if TCP Port <strong>0</strong> is listening.
+            When the TCP Port is up, wait <strong>5</strong>
+            seconds.
+        </p>
+        <p>Use Telnet to check if the TCP Service is accepting connections.</p>
     </div>
 
 

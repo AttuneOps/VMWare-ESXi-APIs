@@ -53,6 +53,10 @@
         {
             "order": 550, 
             "stepKey": "linesxistartvm"
+        }, 
+        {
+            "order": 600, 
+            "stepKey": "linesxisshwait"
         }
     ], 
     "name": "ESXi UEFI Recreate Virtual Machine", 

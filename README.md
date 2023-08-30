@@ -92,12 +92,10 @@ Creates a Windows virtual machine from two ISOs.
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
 | Kickstarted Node | Basic Node | `kickstartednode` | Refers to the node being built |
-| Kickstart Worker Build Linux User | Linux/Unix Credential | `kickstartworkerbuildlinuxuser` |  |
 | Kickstart Worker Linux Node | Linux/Unix Node | `kickstartworkerlinuxnode` | Linux refers to both Linux and MacOS |
 | VMWare vCenter User | Basic Credential | `vmwarevcenteruser` |  |
 | VMWare ESXi Host | Basic Node | `vmwareesxihost` |  |
 | VMWare vCenter Node | Basic Node | `vmwarevcenternode` |  |
-| Kickstart VMWare Storage Pool Name | Text | `kickstartvmwarestoragepoolname` |  |
 | Kickstart Worker Base Dir | Text | `kickstartworkerbasedir` |  |
 | Kickstarted VM CPU Count | Text | `kickstartedvmcpucount` |  |
 | Kickstarted VM Disk Size GB | Text | `kickstartedvmdisksizegb` |  |
@@ -105,6 +103,8 @@ Creates a Windows virtual machine from two ISOs.
 | Kickstarted VM Guest Type | Text | `kickstartedvmguesttype` | https://vdc-download.vmware.com/vmwb-repository/dcr-public/8946c1b6-2861-4c12-a45f-f14ae0d3b1b9/a5b8094c-c222-4307-9399-3b606a04af55/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html<br><br>https://vdc-download.vmware.com/vmwb-repository/dcr-public/da47f910-60ac-438b-8b9b-6122f4d14524/16b7274a-bf8b-4b4c-a05e-746f2aa93c8c/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html |
 | Kickstarted VM Network Name | Text | `kickstartedvmnetworkname` |  |
 | VMWare Boot ISO Dir | Text | `vmwarebootisodir` | The directory of where the kickstart ISOs are copied to. |
+| Kickstarted VM Storage Pool Name | Text | `kickstartedvmstoragepoolname` |  |
+| Kickstart Worker Linux User | Linux/Unix Credential | `kickstartworkerlinuxuser` |  |
 
 
 
