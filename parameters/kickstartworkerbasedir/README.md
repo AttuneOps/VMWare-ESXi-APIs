@@ -1,0 +1,1 @@
+Directory for storing kickstart files, eg: "~/kickstart".

@@ -1,1 +1,1 @@
-Refers to the node being built
+The node being kickstarted.

@@ -1,0 +1,1 @@
+The user to connect to vCenter.

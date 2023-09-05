@@ -1,0 +1,1 @@
+Kickstarted VM Disk Size GB.

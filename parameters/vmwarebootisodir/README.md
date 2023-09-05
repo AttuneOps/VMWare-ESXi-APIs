@@ -1,1 +1,1 @@
-The directory of where the kickstart ISOs are copied to.
+The directory of where the kickstart ISOs are copied to on vSPhere.
