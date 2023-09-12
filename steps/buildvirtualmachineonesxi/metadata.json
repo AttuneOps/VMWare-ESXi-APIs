@@ -4,7 +4,7 @@
     "enabled": true, 
     "externalUuid4": "18af1c16-5ee0-4a2d-ae12-5e52aeb25287", 
     "isBlueprint": true, 
-    "key": "recreatevirtualmachinewithuefibootonesxi", 
+    "key": "buildvirtualmachineonesxi", 
     "links": [
         {
             "order": 0, 
@@ -20,7 +20,7 @@
         }, 
         {
             "order": 200, 
-            "stepKey": "enableuefiboot"
+            "stepKey": "configurebootfirmware"
         }, 
         {
             "order": 250, 
@@ -49,12 +49,8 @@
         {
             "order": 550, 
             "stepKey": "startvm"
-        }, 
-        {
-            "order": 600, 
-            "stepKey": "sshwait"
         }
     ], 
-    "name": "Recreate Virtual Machine with UEFI boot on ESXi", 
+    "name": "Build Virtual Machine on ESXi", 
     "type": "com.servertribe.attune.tuples.StepGroupTuple"
 }
