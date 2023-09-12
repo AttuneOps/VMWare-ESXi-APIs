@@ -1,0 +1,7 @@
+{
+    "externalUuid4": "743c0b63-cffe-4168-833a-b72f88547a49", 
+    "key": "vmwarevcenterserver", 
+    "name": "VMWare vCenter Server", 
+    "showInPlan": false, 
+    "type": "c.s.s.b.phv.Server"
+}

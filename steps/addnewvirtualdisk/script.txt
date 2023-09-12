@@ -1,0 +1,16 @@
+
+
+pwsh <<'EOF'
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+$vm = Get-VM "{targetServer.fqn}"
+
+# Add 100gb of disks
+$vm | New-HardDisk -CapacityGB {ksVmwareAddDiskSizeGb} -StorageFormat Thin
+
+EOF

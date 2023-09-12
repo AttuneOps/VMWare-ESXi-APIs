@@ -1,0 +1,9 @@
+Set-Location c:\software\vmwaretools\
+
+$setupPath = "c:\software\vmwaretools\setup64.exe"
+
+$setupArgs = "/S /v /qn REBOOT=R ADDLOCAL=ALL"
+
+Start-Process $setupPath $setupArgs -Wait
+
+Get-Content -Path $env:TEMP/vminst.log
