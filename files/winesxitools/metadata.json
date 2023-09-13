@@ -1,0 +1,11 @@
+{
+    "externalUuid4": "40bfcafd-aec3-4410-8a43-e11c78e1a46e", 
+    "fileName": "WIN_ESXi_Tools.zip", 
+    "formatKey": "zip", 
+    "key": "winesxitools", 
+    "md5": "5f96bae56cf5862c25a443ae6ce32be4", 
+    "name": "WIN ESXi Tools", 
+    "remoteUri": null, 
+    "size": 124689289, 
+    "type": "com.servertribe.attune.tuples.FileArchiveLargeTuple"
+}
