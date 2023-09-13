@@ -11,6 +11,6 @@ if ($? -eq $false) {
     exit 1
 }
 
-Get-VM -name {kickstartedNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq "E1000E"} | Set-NetworkAdapter -Type "vmxnet3"
+Get-VM -name {newVmNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq "E1000E"} | Set-NetworkAdapter -Type "vmxnet3"
 
 EOF

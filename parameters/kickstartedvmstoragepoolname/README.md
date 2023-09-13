@@ -1,1 +1,0 @@
-Kickstarted VM vSphere Storage Pool Name.

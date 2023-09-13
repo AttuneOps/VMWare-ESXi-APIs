@@ -1,6 +1,3 @@
-
-# Set boot order soas to not boot from floppy
-
 pwsh <<'EOF'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
@@ -14,8 +11,8 @@ if ($? -eq $false) {
     exit 1
 }
 
-#$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{kickstartedNode.fqn}$"}
-$vm = Get-VM -Name "{kickstartedNode.fqn}"
+#$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{newVmNode.fqn}$"}
+$vm = Get-VM -Name "{newVmNode.fqn}"
 
 ## the device name of the hard disk to which to boot
 $strBootHDiskDeviceName = "Hard disk 1"
@@ -38,7 +35,7 @@ $spec = New-Object VMware.Vim.VirtualMachineConfigSpec -Property @{
 ## reconfig the VM to use the spec with the new BootOrder
 $vm.ExtensionData.ReconfigVM_Task($spec)
 
-##(Get-VM {kickstartedNode.fqn}).Extensiondata.Config.BootOptions
+##(Get-VM {newVmNode.fqn}).Extensiondata.Config.BootOptions
 
 
 EOF

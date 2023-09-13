@@ -451,7 +451,7 @@
                         </div>
                         <div class="row py-1">
                             <code class="language-sql">
-ssh {kickstartworkerlinuxuser}@{kickstartworkerlinuxnode}
+ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
                             </code>
                         </div>
 
@@ -475,7 +475,6 @@ $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false -Confirm:$false
 Set-PowerCLIConfiguration -InvalidCertificateAction ignore -Confirm:$false
-
 EOF
                 </code>
             </pre>
@@ -501,7 +500,8 @@ EOF
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Deletes a ESXi virtual machine given it's fully qualified domain name.</p>
+                                <p>Deletes a ESXi virtual machine given it's fully qualified domain 
+name or by it's hostname.</p>
                             </p>
                         </div>
                     </div>
@@ -530,8 +530,6 @@ EOF
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-# Delete the VM if it exists
-
 pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
@@ -545,10 +543,10 @@ if ($? -eq $false) {
     exit 1
 }
 
-$existing = Get-VM &quot;{kickstartedNode.fqn}&quot;
+$existing = Get-VM &quot;{newVmNode.fqn}&quot;
 if ( $existing.count -eq 1 ) {
     } else {
-        $existing = Get-VM &quot;{kickstartedNode.hostname}&quot;
+        $existing = Get-VM &quot;{newVmNode.hostname}&quot;
     }
 
 if ( $existing.count -eq 1 ) {
@@ -677,17 +675,9 @@ EOF
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Creates the ESXi virtual machine using these parameters:</p>
-<ol>
-<li>VMWare: ESXi Server</li>
-<li>Kickstarted Node</li>
-<li>KS VMWare: Storage Pool Name</li>
-<li>KS: VM CPU Count</li>
-<li>KS: VM Disk Size GB</li>
-<li>KS: VM Ram Size GB</li>
-<li>KS VMWare: Network Name</li>
-<li>KS VMWare: Guest Type</li>
-</ol>
+                                <p>All VMs are kickstarted with a default 50g disk. More disks are 
+added once the operating system is installed, via a subsequence 
+"add disk" vCenter call.</p>
                             </p>
                         </div>
                     </div>
@@ -716,12 +706,6 @@ EOF
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-# Create the new VM
-
-# NOTE: ALL VMs are kickstarted with a default 50g disk. More disks are added
-#       once the operating system is installed, via a subsequen &quot;add disk&quot;
-#       vCenter call
-
 pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
@@ -735,35 +719,40 @@ if ($? -eq $false) {
     exit 1
 }
 
-$memInMb = {kickstartedVmRamSizeGb}*1024  
+$name = &quot;{newVmNode.fqn}&quot;
+$storagePool = &quot;{vmStoragePoolName}&quot;
+$cpuCount = {vmCpuCount}
+$memInMb = {vmRamSizeGb}*1024
+$networkName = &quot;{vmNetworkName}&quot;
+$guestType = &quot;{vmGuestType}&quot;
 
 if ( &quot;{vmwareEsxiHost.fqn}&quot; -eq &quot;{vmwareVcenterNode.fqn}&quot; ) {
     Write-Host &quot;We&#x27;re talking to the ESXi host, don&#x27;t pass the -VMHost arg&quot;
     $vm = New-VM `
-        -Name &quot;{kickstartedNode.fqn}&quot; `
-        -Datastore &quot;{kickstartedVmStoragePoolName}&quot; `
-        -CoresPerSocket {kickstartedVmCpuCount} `
-        -NumCpu {kickstartedVmCpuCount} `
+        -Name &quot;$name&quot; `
+        -Datastore &quot;$storagePool&quot; `
+        -CoresPerSocket $cpuCount `
+        -NumCpu $cpuCount `
         -DiskMB 51200 `
         -MemoryMB $memInMb `
-        -NetworkName &quot;{kickstartedVmNetworkName}&quot; `
-        -GuestId &#x27;{kickstartedVmGuestType}&#x27; `
+        -NetworkName &quot;$networkName&quot; `
+        -GuestId &quot;$guestType&quot; `
         -CD 
 
 } else {
     Write-Host &quot;We&#x27;re talking to a vCenter server, pass the -VMHost arg&quot;
-    $storagePool = Get-VMHost -Name &#x27;{vmwareEsxiHost.fqn}&#x27; | Get-Datastore -Name &#x27;{kickstartedVmStoragePoolName}&#x27; 
+    $storagePool = Get-VMHost -Name &#x27;{vmwareEsxiHost.fqn}&#x27; | Get-Datastore -Name &#x27;{vmStoragePoolName}&#x27; 
     
     $vm = New-VM `
         -VMHost &quot;{vmwareEsxiHost.fqn}&quot; `
-        -Name &quot;{kickstartedNode.fqn}&quot; `
+        -Name &quot;$name&quot; `
         -Datastore &quot;$storagePool&quot; `
-        -CoresPerSocket {kickstartedVmCpuCount} `
-        -NumCpu {kickstartedVmCpuCount} `
+        -CoresPerSocket $cpuCount `
+        -NumCpu $cpuCount `
         -DiskMB 51200 `
         -MemoryMB $memInMb `
-        -NetworkName &quot;{kickstartedVmNetworkName}&quot; `
-        -GuestId &#x27;{kickstartedVmGuestType}&#x27; `
+        -NetworkName &quot;$networkName&quot; `
+        -GuestId &quot;$guestType&quot; `
         -CD 
 
 }
@@ -822,7 +811,7 @@ EOF
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-if [ &#x27;{kickstartedVmGuestType}&#x27; != &#x27;windows9_64Guest&#x27; ]; then
+if [ &#x27;{vmGuestType}&#x27; != &#x27;windows9_64Guest&#x27; ]; then
     echo &quot;This isn&#x27;t windows 10, 3D isn&#x27;t required&quot;
 else
     echo &quot;Enabling 3d&quot;
@@ -840,7 +829,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{kickstartedNode.fqn}$&quot;}
+$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{newVmNode.fqn}$&quot;}
  
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
 $dc = New-Object VMware.Vim.VirtualDeviceConfigSpec
@@ -908,7 +897,7 @@ fi
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-if [ &#x27;{kickstartedVmGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
+if [ &#x27;{vmGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
     echo &quot;This isn&#x27;t windows server VM, SAS not required&quot;
 else
     echo &quot;Switching to LSI Logic SAS Controller&quot;
@@ -926,14 +915,12 @@ if ($? -eq $false) {
     exit 1
 }
  
-$vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
+$vm = Get-VM -Name &quot;{newVmNode.fqn}&quot;
  
 # Make the controller compatible with the Win2016 drivers
 Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
 
 EOF
-
-
 fi
                 </code>
             </pre>
@@ -988,8 +975,6 @@ fi
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-# Set boot order soas to not boot from floppy
-
 pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
@@ -1003,8 +988,8 @@ if ($? -eq $false) {
     exit 1
 }
 
-#$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{kickstartedNode.fqn}$&quot;}
-$vm = Get-VM -Name &quot;{kickstartedNode.fqn}&quot;
+#$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{newVmNode.fqn}$&quot;}
+$vm = Get-VM -Name &quot;{newVmNode.fqn}&quot;
 
 ## the device name of the hard disk to which to boot
 $strBootHDiskDeviceName = &quot;Hard disk 1&quot;
@@ -1027,7 +1012,7 @@ $spec = New-Object VMware.Vim.VirtualMachineConfigSpec -Property @{
 ## reconfig the VM to use the spec with the new BootOrder
 $vm.ExtensionData.ReconfigVM_Task($spec)
 
-##(Get-VM {kickstartedNode.fqn}).Extensiondata.Config.BootOptions
+##(Get-VM {newVmNode.fqn}).Extensiondata.Config.BootOptions
 
 
 EOF
@@ -1097,7 +1082,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-Get-VM -name {kickstartedNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1000E&quot;} | Set-NetworkAdapter -Type &quot;vmxnet3&quot;
+Get-VM -name {newVmNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1000E&quot;} | Set-NetworkAdapter -Type &quot;vmxnet3&quot;
 
 EOF
                 </code>
@@ -1124,7 +1109,7 @@ EOF
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Uploads the WinPE, Windows or RHEL ISO to ESXi datastore specified in <code>KS VMWare: Storage Pool Name</code>.</p>
+                                <p>Uploads the files to the ESXi datastore.</p>
                             </p>
                         </div>
                     </div>
@@ -1168,11 +1153,11 @@ if ($? -eq $false) {
 }
 
 # Create the TO dir string
-$to = &quot;ds:{vmwareBootIsoDir}&quot;
+$to = &quot;ds:{vmwareBootIsoDirectory}&quot;
 $to = $to -Replace &quot;/&quot;,&quot;\&quot;
 
 # Get the Datastore
-$datastore = Get-Datastore -Name &#x27;{kickstartedVmStoragePoolName}&#x27;
+$datastore = Get-Datastore -Name &#x27;{vmStoragePoolName}&#x27;
 $datastore
 
 # Create the DS drive
@@ -1196,10 +1181,10 @@ if (-Not (Test-Path &quot;$to&quot;)) {
 }
 
 # Set the local path to the ISO
-Set-Location {kickstartWorkerBaseDir}
+Set-Location {automationWorkerBaseDirectory}
 
 # Copy the ISO
-Copy-DatastoreItem kickstart_{kickstartedNode.fqn}.iso $to `
+Copy-DatastoreItem kickstart_{newVmNode.fqn}.iso $to `
     -Force:$true -Confirm:$false 
     
 if ($? -eq $false) {
@@ -1386,8 +1371,8 @@ if ($? -eq $false) {
     exit 1
 }
 
-$cd = Get-VM -Name &quot;{kickstartedNode.fqn}&quot; | Get-CDDrive
-$iso = &quot;[{kickstartedVmStoragePoolName}] {vmwareBootIsoDir}/kickstart_{kickstartedNode.fqn}.iso&quot;
+$cd = Get-VM -Name &quot;{newVmNode.fqn}&quot; | Get-CDDrive
+$iso = &quot;[{vmStoragePoolName}] {vmwareBootIsoDirectory}/kickstart_{newVmNode.fqn}.iso&quot;
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `
@@ -1533,7 +1518,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-Start-VM -VM (Get-VM -Name &quot;{kickstartedNode.fqn}&quot;) -RunAsync
+Start-VM -VM (Get-VM -Name &quot;{newVmNode.fqn}&quot;) -RunAsync
 
 EOF
                 </code>

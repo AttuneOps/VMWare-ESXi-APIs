@@ -1,0 +1,1 @@
+vSphere VM Storage Pool Name.

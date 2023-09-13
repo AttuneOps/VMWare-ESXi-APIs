@@ -7,7 +7,7 @@
     "name": "SSH Wait", 
     "postWait": 5, 
     "preWait": 0, 
-    "serverKey": "kickstartednode", 
+    "serverKey": "newvmnode", 
     "tcpPort": 22, 
     "type": "com.servertribe.attune.tuples.StepTcpPingTuple"
 }

@@ -1,0 +1,7 @@
+{
+    "externalUuid4": "f07eeb0f-85dd-468d-969c-068de0f3d085", 
+    "key": "virtualmachinebootloaderisbios", 
+    "name": "Virtual Machine Boot Loader Is BIOS", 
+    "showInPlan": true, 
+    "type": "c.s.s.b.phv.Text"
+}

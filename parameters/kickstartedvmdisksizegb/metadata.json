@@ -1,7 +1,0 @@
-{
-    "externalUuid4": "58e6a826-5464-4313-b527-673c87926b98", 
-    "key": "kickstartedvmdisksizegb", 
-    "name": "Kickstarted VM Disk Size GB", 
-    "showInPlan": true, 
-    "type": "c.s.s.b.phv.Text"
-}

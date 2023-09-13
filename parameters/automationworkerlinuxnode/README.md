@@ -1,0 +1,1 @@
+The device used to connect to another device or perform tasks. This can be the devices Attune is running on.

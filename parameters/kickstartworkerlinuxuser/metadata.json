@@ -1,7 +1,0 @@
-{
-    "externalUuid4": "83731f64-f3b4-4e81-ad5d-3da4172fdf2b", 
-    "key": "kickstartworkerlinuxuser", 
-    "name": "Kickstart Worker Linux User", 
-    "showInPlan": true, 
-    "type": "c.s.s.b.phv.LinOsCred"
-}

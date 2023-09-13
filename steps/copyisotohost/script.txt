@@ -14,11 +14,11 @@ if ($? -eq $false) {
 }
 
 # Create the TO dir string
-$to = "ds:{vmwareBootIsoDir}"
+$to = "ds:{vmwareBootIsoDirectory}"
 $to = $to -Replace "/","\"
 
 # Get the Datastore
-$datastore = Get-Datastore -Name '{kickstartedVmStoragePoolName}'
+$datastore = Get-Datastore -Name '{vmStoragePoolName}'
 $datastore
 
 # Create the DS drive
@@ -42,10 +42,10 @@ if (-Not (Test-Path "$to")) {
 }
 
 # Set the local path to the ISO
-Set-Location {kickstartWorkerBaseDir}
+Set-Location {automationWorkerBaseDirectory}
 
 # Copy the ISO
-Copy-DatastoreItem kickstart_{kickstartedNode.fqn}.iso $to `
+Copy-DatastoreItem kickstart_{newVmNode.fqn}.iso $to `
     -Force:$true -Confirm:$false 
     
 if ($? -eq $false) {

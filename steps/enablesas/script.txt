@@ -1,5 +1,5 @@
 
-if [ '{kickstartedVmGuestType}' != 'winNetStandard64Guest' ]; then
+if [ '{vmGuestType}' != 'winNetStandard64Guest' ]; then
     echo "This isn't windows server VM, SAS not required"
 else
     echo "Switching to LSI Logic SAS Controller"
@@ -17,12 +17,10 @@ if ($? -eq $false) {
     exit 1
 }
  
-$vm = Get-VM -Name "{kickstartedNode.fqn}"
+$vm = Get-VM -Name "{newVmNode.fqn}"
  
 # Make the controller compatible with the Win2016 drivers
 Get-ScsiController -VM $vm | Set-ScsiController -Type VirtualLsiLogicSAS
 
 EOF
-
-
 fi

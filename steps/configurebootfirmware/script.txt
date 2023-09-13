@@ -11,13 +11,13 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vm = Get-VM -Name "{kickstartedNode.fqn}"
+$vm = Get-VM -Name "{newVmNode.fqn}"
 
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
-if ({newOsBootLoaderIsUefi} == 'true') {
+if ('{virtualMachineBootLoaderIsUefi}' -eq 'true') {
     $spec.Firmware = [VMware.Vim.GuestOsDescriptorFirmwareType]::efi
 }
-if ({newOsBootLoaderIsBios} == 'true') {
+if ('{virtualMachineBootLoaderIsBios}' -eq 'true') {
     $spec.Firmware = [VMware.Vim.GuestOsDescriptorFirmwareType]::bios
 }
 $vm.ExtensionData.ReconfigVM($spec)
