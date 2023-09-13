@@ -11,8 +11,6 @@ if ($? -eq $false) {
     exit 1
 }
 
-Start-VM -VM (Get-VM -Name "{kickstartedNode.fqn}") -RunAsync
+Start-VM -VM (Get-VM -Name "{newVmNode.fqn}") -RunAsync
 
 EOF
-
-

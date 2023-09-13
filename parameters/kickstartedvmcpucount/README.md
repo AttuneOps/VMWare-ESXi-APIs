@@ -1,1 +1,0 @@
-Kickstarted VM CPU Count.

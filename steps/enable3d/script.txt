@@ -1,4 +1,4 @@
-if [ '{kickstartedVmGuestType}' != 'windows9_64Guest' ]; then
+if [ '{vmGuestType}' != 'windows9_64Guest' ]; then
     echo "This isn't windows 10, 3D isn't required"
 else
     echo "Enabling 3d"
@@ -16,7 +16,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{kickstartedNode.fqn}$"}
+$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{newVmNode.fqn}$"}
  
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
 $dc = New-Object VMware.Vim.VirtualDeviceConfigSpec

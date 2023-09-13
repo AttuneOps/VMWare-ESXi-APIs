@@ -1,0 +1,7 @@
+{
+    "externalUuid4": "ff371771-d917-47a6-8ddc-5e6ce723b478", 
+    "key": "vmstoragepoolname", 
+    "name": "VM Storage Pool Name", 
+    "showInPlan": true, 
+    "type": "c.s.s.b.phv.Text"
+}

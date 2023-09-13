@@ -1,9 +1,3 @@
-# Create the new VM
-
-# NOTE: ALL VMs are kickstarted with a default 50g disk. More disks are added
-#       once the operating system is installed, via a subsequen "add disk"
-#       vCenter call
-
 pwsh <<'EOF'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
@@ -17,38 +11,42 @@ if ($? -eq $false) {
     exit 1
 }
 
-$memInMb = {kickstartedVmRamSizeGb}*1024  
+$name = "{newVmNode.fqn}"
+$storagePool = "{vmStoragePoolName}"
+$cpuCount = {vmCpuCount}
+$memInMb = {vmRamSizeGb}*1024
+$networkName = "{vmNetworkName}"
+$guestType = "{vmGuestType}"
 
 if ( "{vmwareEsxiHost.fqn}" -eq "{vmwareVcenterNode.fqn}" ) {
     Write-Host "We're talking to the ESXi host, don't pass the -VMHost arg"
     $vm = New-VM `
-        -Name "{kickstartedNode.fqn}" `
-        -Datastore "{kickstartedVmStoragePoolName}" `
-        -CoresPerSocket {kickstartedVmCpuCount} `
-        -NumCpu {kickstartedVmCpuCount} `
+        -Name "$name" `
+        -Datastore "$storagePool" `
+        -CoresPerSocket $cpuCount `
+        -NumCpu $cpuCount `
         -DiskMB 51200 `
         -MemoryMB $memInMb `
-        -NetworkName "{kickstartedVmNetworkName}" `
-        -GuestId '{kickstartedVmGuestType}' `
+        -NetworkName "$networkName" `
+        -GuestId "$guestType" `
         -CD 
 
 } else {
     Write-Host "We're talking to a vCenter server, pass the -VMHost arg"
-    $storagePool = Get-VMHost -Name '{vmwareEsxiHost.fqn}' | Get-Datastore -Name '{kickstartedVmStoragePoolName}' 
+    $storagePool = Get-VMHost -Name '{vmwareEsxiHost.fqn}' | Get-Datastore -Name '{vmStoragePoolName}' 
     
     $vm = New-VM `
         -VMHost "{vmwareEsxiHost.fqn}" `
-        -Name "{kickstartedNode.fqn}" `
+        -Name "$name" `
         -Datastore "$storagePool" `
-        -CoresPerSocket {kickstartedVmCpuCount} `
-        -NumCpu {kickstartedVmCpuCount} `
+        -CoresPerSocket $cpuCount `
+        -NumCpu $cpuCount `
         -DiskMB 51200 `
         -MemoryMB $memInMb `
-        -NetworkName "{kickstartedVmNetworkName}" `
-        -GuestId '{kickstartedVmGuestType}' `
+        -NetworkName "$networkName" `
+        -GuestId "$guestType" `
         -CD 
 
 }
 
 EOF
-

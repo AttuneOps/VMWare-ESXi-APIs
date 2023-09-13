@@ -1,0 +1,7 @@
+{
+    "externalUuid4": "90361907-6e0d-4a07-831c-4960b574063d", 
+    "key": "vmramsizegb", 
+    "name": "VM Ram Size GB", 
+    "showInPlan": true, 
+    "type": "c.s.s.b.phv.Text"
+}

@@ -1,0 +1,7 @@
+{
+    "externalUuid4": "514a0374-2814-4ffb-b663-cb8099f2d302", 
+    "key": "virtualmachinebootloaderisuefi", 
+    "name": "Virtual Machine Boot Loader Is UEFI", 
+    "showInPlan": true, 
+    "type": "c.s.s.b.phv.Text"
+}

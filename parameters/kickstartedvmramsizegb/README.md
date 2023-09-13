@@ -1,1 +1,0 @@
-Kickstarted VM Ram Size GB.

@@ -5,8 +5,8 @@
     "interpreter": 1, 
     "key": "setnetworkadaptertovmxnet3", 
     "name": "Set Network Adapter to vmxnet3", 
-    "osCredKey": "kickstartworkerlinuxuser", 
-    "serverKey": "kickstartworkerlinuxnode", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
     "successExitCode": 0, 
     "type": "com.servertribe.attune.tuples.StepSshTuple"
 }

@@ -1,7 +1,0 @@
-{
-    "externalUuid4": "f5704b5b-3890-4578-ae84-a6af55b2ee43", 
-    "key": "kickstartedvmnetworkname", 
-    "name": "Kickstarted VM Network Name", 
-    "showInPlan": true, 
-    "type": "c.s.s.b.phv.Text"
-}
