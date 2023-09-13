@@ -1,0 +1,1 @@
+Run the setup file for the VMWare Windows ESXi tools and display the log file for the installation.

@@ -1,0 +1,1 @@
+Deploy the VMWare Windows ESXi tools to the /software/vmwaretools directory on the C drive.
