@@ -1,1 +1,0 @@
-Waits for the WinRM to be enabled by the PowerShell scripts in `autounattend.xml`. Then post waits 120 seconds to give time for the remaining scripts to run.

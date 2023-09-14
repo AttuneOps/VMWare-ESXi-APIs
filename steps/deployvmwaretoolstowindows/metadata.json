@@ -1,0 +1,13 @@
+{
+    "actionOnStepFail": null, 
+    "archiveKey": "winesxitools", 
+    "deployPath": "/c$/software/vmwaretools/", 
+    "enabled": true, 
+    "externalUuid4": "6dd62046-dcff-4b35-9a61-b2675a9e74c2", 
+    "key": "deployvmwaretoolstowindows", 
+    "name": "Deploy VMWare Tools to Windows", 
+    "osCredKey": "newvmwindowsuseradministrator", 
+    "serverKey": "newvmwindowsnode", 
+    "type": "com.servertribe.attune.tuples.StepPushDesignFileTuple", 
+    "unpack": true
+}

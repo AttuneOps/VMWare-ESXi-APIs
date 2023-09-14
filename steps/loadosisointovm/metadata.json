@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "eef5e85e-6f4c-4ebd-93f0-e3b611299405", 
+    "externalUuid4": "eb3aa3aa-1313-4e30-9339-1697467a566f", 
     "interpreter": 1, 
-    "key": "addnewvirtualdisk", 
-    "name": "Add New Virtual Disk", 
+    "key": "loadosisointovm", 
+    "name": "Load OS ISO into VM", 
     "osCredKey": "automationworkerlinuxuser", 
     "serverKey": "automationworkerlinuxnode", 
     "successExitCode": 0, 

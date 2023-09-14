@@ -5,8 +5,8 @@
     "interpreter": 1, 
     "key": "addnewnetworkadaptor", 
     "name": "Add New Network Adaptor", 
-    "osCredKey": "linuxattuneuser", 
-    "serverKey": "attuneserver", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
     "successExitCode": 0, 
     "type": "com.servertribe.attune.tuples.StepSshTuple"
 }

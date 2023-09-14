@@ -1,7 +1,0 @@
-{
-    "externalUuid4": "ad830d39-5e1a-4cff-9fab-aea8b6ad662f", 
-    "key": "attuneserver", 
-    "name": "Attune Server", 
-    "showInPlan": true, 
-    "type": "c.s.s.b.phv.LinuxServer"
-}

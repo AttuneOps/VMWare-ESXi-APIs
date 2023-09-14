@@ -44,10 +44,18 @@
         }, 
         {
             "order": 500, 
-            "stepKey": "loadisointovm"
+            "stepKey": "copydriversisotoesxihost"
         }, 
         {
             "order": 550, 
+            "stepKey": "loadosisointovm"
+        }, 
+        {
+            "order": 600, 
+            "stepKey": "loaddriversisointovm"
+        }, 
+        {
+            "order": 650, 
             "stepKey": "startvm"
         }
     ], 

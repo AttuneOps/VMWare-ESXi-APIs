@@ -1,0 +1,20 @@
+{
+    "actionOnStepFail": null, 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "a46703c9-c327-43c2-8903-17c81423e79c", 
+    "isBlueprint": true, 
+    "key": "setupvmwaretoolsonwindows", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "deployvmwaretoolstowindows"
+        }, 
+        {
+            "order": 20, 
+            "stepKey": "installvmwaretoolsonwindows"
+        }
+    ], 
+    "name": "Setup VMWare Tools on Windows", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

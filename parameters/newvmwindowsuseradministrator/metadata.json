@@ -1,0 +1,7 @@
+{
+    "externalUuid4": "8f86c95b-5b7c-4332-8707-d448578401b0", 
+    "key": "newvmwindowsuseradministrator", 
+    "name": "New VM Windows User: Administrator", 
+    "showInPlan": true, 
+    "type": "c.s.s.b.phv.WinOsCred"
+}

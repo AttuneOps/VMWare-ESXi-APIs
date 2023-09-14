@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "67b6a9eb-5ff0-47f7-a7aa-9016879b5f16", 
+    "interpreter": 2, 
+    "interpreterCommand": null, 
+    "interpreterScriptExt": null, 
+    "interpreterScriptSyntax": "powershell", 
+    "key": "installvmwaretoolsonwindows", 
+    "name": "Install VMWare Tools on Windows", 
+    "osCredKey": "newvmwindowsuseradministrator", 
+    "serverKey": "newvmwindowsnode", 
+    "successExitCode": 0, 
+    "timeout": null, 
+    "type": "com.servertribe.attune.tuples.StepWinRmTuple"
+}

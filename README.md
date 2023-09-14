@@ -54,23 +54,19 @@ This Project contains the following Blueprints.
 
 
 
-### LIN Deploy VMWare Drivers - Group
+### Add New Network Adaptor on ESXi
 
 
-### Recreate Windows Virtual Machine on ESXi
-
-Creates a Windows virtual machine from two ISOs.
-1. Unaltered Windows ISO.
-2. ESXi Drivers ISO.
-
-### ESXi Add New Network Adaptor
+### Add New Virtual Disk on ESXi
 
 
-### ESXi Add New Virtual Disk
-
-
-### WIN Setup ESXi Tools
 ### Build Virtual Machine on ESXi
+
+
+### Setup VMWare Drivers on Linux
+
+
+### Setup VMWare Tools on Windows
 
 
 
@@ -81,22 +77,25 @@ Creates a Windows virtual machine from two ISOs.
 
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
-| VMWare vCenter User | Basic Credential | `vmwarevcenteruser` | The user to connect to vCenter. |
-| VMWare ESXi Host | Basic Node | `vmwareesxihost` | The ESXi Host details. |
-| VMWare vCenter Node | Basic Node | `vmwarevcenternode` | The vCenter Node details. |
-| Automation Worker Linux User | Linux/Unix Credential | `automationworkerlinuxuser` | non privilege user on the Automation Worker node. |
-| Automation Worker Linux Node | Linux/Unix Node | `automationworkerlinuxnode` | The device used to connect to another device or perform tasks. This can be the devices Attune is running on. |
 | Automation Worker Base Directory | Text | `automationworkerbasedirectory` | Directory for storing kickstart files, eg: "~/kickstart". |
-| VM Network Name | Text | `vmnetworkname` | vSphere VM Network Name. |
-| VM Ram Size GB | Text | `vmramsizegb` | VM Ram Size in GB. |
+| Automation Worker Linux Node | Linux/Unix Node | `automationworkerlinuxnode` | The device used to connect to another device or perform tasks. This can be the devices Attune is running on. |
+| Automation Worker Linux User | Linux/Unix Credential | `automationworkerlinuxuser` | non privilege user on the Automation Worker node. |
+| New VM Node | Basic Node | `newvmnode` | The virtual machine being worked on. |
+| New VM Windows Node | Windows Node | `newvmwindowsnode` |  |
+| New VM Windows User: Administrator | Windows Credential | `newvmwindowsuseradministrator` | The windows administrator user |
+| Virtual Machine Boot Loader Is BIOS | Text | `virtualmachinebootloaderisbios` |  |
+| Virtual Machine Boot Loader Is UEFI | Text | `virtualmachinebootloaderisuefi` |  |
+| VM CPU Count | Text | `vmcpucount` | VM CPU Count. |
 | VM Disk Size GB | Text | `vmdisksizegb` | VM Disk Size in GB. |
 | VM Guest Type | Text | `vmguesttype` | vSphere VM Guest Type.<br>https://vdc-download.vmware.com/vmwb-repository/dcr-public/8946c1b6-2861-4c12-a45f-f14ae0d3b1b9/a5b8094c-c222-4307-9399-3b606a04af55/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html<br><br>https://vdc-download.vmware.com/vmwb-repository/dcr-public/da47f910-60ac-438b-8b9b-6122f4d14524/16b7274a-bf8b-4b4c-a05e-746f2aa93c8c/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html |
+| VM Network Name | Text | `vmnetworkname` | vSphere VM Network Name. |
+| VM Ram Size GB | Text | `vmramsizegb` | VM Ram Size in GB. |
 | VM Storage Pool Name | Text | `vmstoragepoolname` | vSphere VM Storage Pool Name. |
 | VMWare Boot ISO Directory | Text | `vmwarebootisodirectory` | The directory of where the ISOs are copied to on vSphere. |
-| Virtual Machine Boot Loader Is UEFI | Text | `virtualmachinebootloaderisuefi` |  |
-| Virtual Machine Boot Loader Is BIOS | Text | `virtualmachinebootloaderisbios` |  |
-| New VM Node | Basic Node | `newvmnode` | The virtual machine being worked on. |
-| VM CPU Count | Text | `vmcpucount` | VM CPU Count. |
+| VMWare ESXi Host | Basic Node | `vmwareesxihost` | The ESXi Host details. |
+| VMWare vCenter Node | Basic Node | `vmwarevcenternode` | The vCenter Node details. |
+| VMWare vCenter Server | Basic Node | `vmwarevcenterserver` |  |
+| VMWare vCenter User | Basic Credential | `vmwarevcenteruser` | The user to connect to vCenter. |
 
 
 
@@ -105,8 +104,8 @@ Creates a Windows virtual machine from two ISOs.
 
 | Name | Type | Comment |
 | ---- | ---- | ------- |
-| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016 Std.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
 | WIN ESXi Tools | Large Archives |  |
+| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016 Std.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
 
 
 

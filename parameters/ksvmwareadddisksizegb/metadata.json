@@ -1,7 +1,0 @@
-{
-    "externalUuid4": "05f824e0-d027-4541-b8f2-cbff80edd4c5", 
-    "key": "ksvmwareadddisksizegb", 
-    "name": "KS VMWare: Add Disk Size Gb", 
-    "showInPlan": true, 
-    "type": "c.s.s.b.phv.Text"
-}
