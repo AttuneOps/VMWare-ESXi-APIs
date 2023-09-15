@@ -69,6 +69,9 @@ This Project contains the following Blueprints.
 ### Setup VMWare Tools on Windows
 
 
+### Delete the Virtual Machine on ESXi
+
+
 
 
 
