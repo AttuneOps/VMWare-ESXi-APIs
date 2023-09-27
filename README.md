@@ -54,35 +54,22 @@ This Project contains the following Blueprints.
 
 
 
-### Add New Network Adaptor on ESXi with macOS or Linux Worker
+### Add New Network Adaptor on ESXi
 
 
-### Add New Virtual Disk on ESXi with macOS or Linux Worker
+### Add New Virtual Disk on ESXi
 
 
-### Build Virtual Machine on ESXi with macOS or Linux Worker
+### Build Virtual Machine on ESXi
 
 
-### Delete the Virtual Machine on ESXi with macOS or Linux Worker
+### Delete the Virtual Machine on ESXi
 
 
-### Perform Delete ISOs on ESXi Host with macOS or Linux Worker
-
-
-### Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
-
-
-### Perform Test if VMWare Drivers Installed with macOS or Linux Worker
-
-
-### Setup VMWare Drivers on Linux with macOS or Linux Worker
+### Setup VMWare Drivers on Linux
 
 
 ### Setup VMWare Tools on Windows
-
-Post Windows install setup of VMWare tools for new VM Windows node.
-
-### Build Virtual Machine on ESXi with Windows Worker
 
 
 
@@ -93,7 +80,7 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
-| Automation Worker Linux Base Directory | Text | `automationworkerlinuxbasedirectory` | Directory for storing kickstart files, eg: "~/kickstart". |
+| Automation Worker Base Directory | Text | `automationworkerbasedirectory` | Directory for storing kickstart files, eg: "~/kickstart". |
 | Automation Worker Linux Node | Linux/Unix Node | `automationworkerlinuxnode` | The device used to connect to another device or perform tasks. This can be the devices Attune is running on. |
 | Automation Worker Linux User | Linux/Unix Credential | `automationworkerlinuxuser` | non privilege user on the Automation Worker node. |
 | New VM Node | Basic Node | `newvmnode` | The virtual machine being worked on. |
@@ -107,13 +94,11 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 | VM Network Name | Text | `vmnetworkname` | vSphere VM Network Name. |
 | VM Ram Size GB | Text | `vmramsizegb` | VM Ram Size in GB. |
 | VM Storage Pool Name | Text | `vmstoragepoolname` | vSphere VM Storage Pool Name. |
+| VMWare Boot ISO Directory | Text | `vmwarebootisodirectory` | The directory of where the ISOs are copied to on vSphere. |
 | VMWare ESXi Host | Basic Node | `vmwareesxihost` | The ESXi Host details. |
 | VMWare vCenter Node | Basic Node | `vmwarevcenternode` | The vCenter Node details. |
 | VMWare vCenter Server | Basic Node | `vmwarevcenterserver` |  |
 | VMWare vCenter User | Basic Credential | `vmwarevcenteruser` | The user to connect to vCenter. |
-| Automation Worker Windows Node | Windows Node | `automationworkerwindowsnode` | The Windows automation worker node used to perform tasks to create the ISO. |
-| Automation Worker Windows User: Administrator | Windows Credential | `automationworkerwindowsuseradministrator` | Administrator user on the Windows Automation Worker node. |
-| Automation Worker Windows Base Directory | Text | `automationworkerwindowsbasedirectory` | Base directory for deploying temporary files to build the kickstart ISO on Windows Worker. |
 
 
 
@@ -123,7 +108,7 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 | Name | Type | Comment |
 | ---- | ---- | ------- |
 | WIN ESXi Tools | Large Archives |  |
-| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016, 2019 and 2022.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
+| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016 Std.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
 
 
 
