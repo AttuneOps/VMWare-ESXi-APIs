@@ -316,13 +316,6 @@
                         </h3>
                     </div>
 
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                
-                            </p>
-                        </div>
-                    </div>
 
 
 
@@ -359,7 +352,7 @@ ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-mkdir --verbose --parents {automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}
+mkdir --parents ~/kickstart/drivers-{newOsNode.fqn}
                 </code>
             </pre>
         </div>
@@ -381,13 +374,6 @@ mkdir --verbose --parents {automationWorkerBaseDirectory}/drivers-{newVmNode.fqn
                         </h3>
                     </div>
 
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                <p>Deploys ESXi drivers to the drivers drop in directory at <code>{automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}</code>. </p>
-                            </p>
-                        </div>
-                    </div>
 
 
 
@@ -405,7 +391,7 @@ mkdir --verbose --parents {automationWorkerBaseDirectory}/drivers-{newVmNode.fqn
 
     <div class="row">
         <p>
-            <p>These drivers are compatible with Windows 10 and Windows Server 2016, 2019 and 2022.</p>
+            <p>These drivers are compatible with Windows 10 and Windows Server 2016 Std.</p>
 <p>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers</p>
         </p>
         <p>
@@ -414,12 +400,12 @@ mkdir --verbose --parents {automationWorkerBaseDirectory}/drivers-{newVmNode.fqn
             to the target node.
         </p>
         <p>
-            <strong>Extract and deploy the File(s)</strong> here:
+            <strong>Deploy the File(s)</strong> here:
         </p>
     </div>
     <div class="row py-1">
         <code class="language-bash">
-{automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}, relative to the home directory
+{kickstartWorkerBaseDir}/drivers-{newOsNode.fqn}, relative to the home directory
         </code>
     </div>
 
