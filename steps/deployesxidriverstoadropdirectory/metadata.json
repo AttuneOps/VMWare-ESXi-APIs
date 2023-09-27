@@ -1,0 +1,13 @@
+{
+    "actionOnStepFail": null, 
+    "archiveKey": "winvmwaredrivers", 
+    "deployPath": "{kickstartWorkerBaseDir}/drivers-{newOsNode.fqn}", 
+    "enabled": true, 
+    "externalUuid4": "0955e2a9-8e66-49fd-a517-d94c532f1e17", 
+    "key": "deployesxidriverstoadropdirectory", 
+    "name": "Deploy ESXi Drivers to a Drop Directory", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
+    "type": "com.servertribe.attune.tuples.StepPushDesignFileTuple", 
+    "unpack": false
+}
