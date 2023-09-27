@@ -1,27 +1,34 @@
-if [ '{vmGuestType}' != 'winNetStandard64Guest' ]; then
-    echo "This isn't Windows VM."
+cd {automationWorkerBaseDirectory}
+if [ ! -f drivers_{newOsNode.fqn}.iso ]
+then
+    echo "This build doesn't have a Drivers.iso."
 else
-    echo "Copying Windows Drivers..."
+
+    if [ '{vmGuestType}' != 'winNetStandard64Guest' ]; then
+        echo "This isn't Windows VM."
+    else
+        echo "Copying Windows Drivers..."
+        
+    pwsh <<'EOF'
+    $ErrorActionPreference = "Stop"
+    Import-Module VMware.VimAutomation.Core
     
-pwsh <<'EOF'
-$ErrorActionPreference = "Stop"
-Import-Module VMware.VimAutomation.Core
-
-Connect-VIServer {vmwareVcenterNode.ip} `
-    -User {vmwareVcenterUser.user} `
-    -Password {vmwareVcenterUser.password}
-
-if ($? -eq $false) {
-    Write-Host "Error: Not connected."
-    exit 1
-}
-
-$vm = Get-VM -Name "{newVmNode.fqn}"
-$iso = "[{vmStoragePoolName}] kickstart_isos/{newVmNode.fqn}-Drivers.iso"
-
-New-CDDrive -VM $vm -IsoPath $iso -StartConnected
-
-EOF
-
-
+    Connect-VIServer {vmwareVcenterNode.ip} `
+        -User {vmwareVcenterUser.user} `
+        -Password {vmwareVcenterUser.password}
+    
+    if ($? -eq $false) {
+        Write-Host "Error: Not connected."
+        exit 1
+    }
+    
+    $vm = Get-VM -Name "{newVmNode.fqn}"
+    $iso = "[{vmStoragePoolName}] kickstart_isos/drivers_{newOsNode.fqn}.iso"
+    
+    New-CDDrive -VM $vm -IsoPath $iso -StartConnected
+    
+    EOF
+    
+    
+    fi
 fi

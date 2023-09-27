@@ -63,13 +63,13 @@ This Project contains the following Blueprints.
 ### Build Virtual Machine on ESXi
 
 
+### Delete the Virtual Machine on ESXi
+
+
 ### Setup VMWare Drivers on Linux
 
 
 ### Setup VMWare Tools on Windows
-
-
-### Delete the Virtual Machine on ESXi
 
 
 
