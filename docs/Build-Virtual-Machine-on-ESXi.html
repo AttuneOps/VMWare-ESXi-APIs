@@ -1224,11 +1224,6 @@ then
     echo &quot;This build doesn&#x27;t have a Drivers.iso.&quot;
 else
 
-    if [ &#x27;{vmGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
-        echo &quot;This isn&#x27;t Windows VM.&quot;
-    else
-        echo &quot;Copying Windows Drivers...&quot;
-        
     pwsh &lt;&lt;&#x27;EOF&#x27; | grep -v &#x27;Uploading&#x27;
     $ErrorActionPreference = &quot;Stop&quot;
     Import-Module VMware.VimAutomation.Core
@@ -1284,8 +1279,6 @@ else
     
     EOF
     
-    
-    fi
 fi
                 </code>
             </pre>
@@ -1420,11 +1413,6 @@ if [ ! -f drivers_{newOsNode.fqn}.iso ]
 then
     echo &quot;This build doesn&#x27;t have a Drivers.iso.&quot;
 else
-
-    if [ &#x27;{vmGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
-        echo &quot;This isn&#x27;t Windows VM.&quot;
-    else
-        echo &quot;Copying Windows Drivers...&quot;
         
     pwsh &lt;&lt;&#x27;EOF&#x27;
     $ErrorActionPreference = &quot;Stop&quot;
@@ -1446,8 +1434,6 @@ else
     
     EOF
     
-    
-    fi
 fi
                 </code>
             </pre>

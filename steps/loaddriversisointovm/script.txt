@@ -3,11 +3,6 @@ if [ ! -f drivers_{newOsNode.fqn}.iso ]
 then
     echo "This build doesn't have a Drivers.iso."
 else
-
-    if [ '{vmGuestType}' != 'winNetStandard64Guest' ]; then
-        echo "This isn't Windows VM."
-    else
-        echo "Copying Windows Drivers..."
         
     pwsh <<'EOF'
     $ErrorActionPreference = "Stop"
@@ -29,6 +24,4 @@ else
     
     EOF
     
-    
-    fi
 fi
