@@ -54,7 +54,7 @@ This Project contains the following Blueprints.
 
 
 
-### Add New Network Adaptor on ESXi with macOS or Linux Worker
+### Add New Network Adaptor on ESXi
 
 
 ### Add New Network Adaptor on ESX with Windows Worker
@@ -110,7 +110,7 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
-| Automation Worker Linux Base Directory | Text | `automationworkerlinuxbasedirectory` | Directory for storing kickstart files, eg: "~/kickstart". |
+| Automation Worker Base Directory | Text | `automationworkerbasedirectory` | Directory for storing kickstart files, eg: "~/kickstart". |
 | Automation Worker Linux Node | Linux/Unix Node | `automationworkerlinuxnode` | The device used to connect to another device or perform tasks. This can be the devices Attune is running on. |
 | Automation Worker Linux User | Linux/Unix Credential | `automationworkerlinuxuser` | non privilege user on the Automation Worker node. |
 | Automation Worker Windows Base Directory | Text | `automationworkerwindowsbasedirectory` | Base directory for deploying temporary files to build the kickstart ISO on Windows Worker. |
@@ -127,6 +127,7 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 | VM Network Name | Text | `vmnetworkname` | vSphere VM Network Name. |
 | VM Ram Size GB | Text | `vmramsizegb` | VM Ram Size in GB. |
 | VM Storage Pool Name | Text | `vmstoragepoolname` | vSphere VM Storage Pool Name. |
+| VMWare Boot ISO Directory | Text | `vmwarebootisodirectory` | The directory of where the ISOs are copied to on vSphere. |
 | VMWare ESXi Host | Basic Node | `vmwareesxihost` | The ESXi Host details. |
 | VMWare vCenter Node | Basic Node | `vmwarevcenternode` | The vCenter Node details. |
 | VMWare vCenter Server | Basic Node | `vmwarevcenterserver` |  |
@@ -140,7 +141,7 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 | Name | Type | Comment |
 | ---- | ---- | ------- |
 | WIN ESXi Tools | Large Archives |  |
-| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016, 2019 and 2022.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
+| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016 Std.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
 
 
 

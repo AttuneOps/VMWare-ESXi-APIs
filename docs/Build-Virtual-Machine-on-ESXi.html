@@ -1121,10 +1121,8 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
-
 # Create the TO dir string
-$to = &quot;ds:$vmwareBootIsoDirectory&quot;
+$to = &quot;ds:{vmwareBootIsoDirectory}&quot;
 $to = $to -Replace &quot;/&quot;,&quot;\&quot;
 
 # Get the Datastore
@@ -1220,12 +1218,17 @@ EOF
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-cd &quot;{automationWorkerBaseDirectory}&quot;
-if [ ! -f drivers_{newVmNode.fqn}.iso ]
+cd {automationWorkerBaseDirectory}
+if [ ! -f drivers_{newOsNode.fqn}.iso ]
 then
-    echo &quot;This build doesn&#x27;t have a {automationWorkerBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
+    echo &quot;This build doesn&#x27;t have a Drivers.iso.&quot;
 else
 
+    if [ &#x27;{vmGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
+        echo &quot;This isn&#x27;t Windows VM.&quot;
+    else
+        echo &quot;Copying Windows Drivers...&quot;
+        
     pwsh &lt;&lt;&#x27;EOF&#x27; | grep -v &#x27;Uploading&#x27;
     $ErrorActionPreference = &quot;Stop&quot;
     Import-Module VMware.VimAutomation.Core
@@ -1239,10 +1242,8 @@ else
         exit 1
     }
     
-    $vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
-
     # Create the TO dir string
-    $to = &quot;ds:$vmwareBootIsoDirectory&quot;
+    $to = &quot;ds:{vmwareBootIsoDirectory}&quot;
     $to = $to -Replace &quot;/&quot;,&quot;\&quot;
     
     # Get the Datastore
@@ -1271,18 +1272,20 @@ else
     }
     
     # Set the local path to the ISO
-    Set-Location {automationWorkerBaseDirectory}
+    Set-Location {automationWorkerBaseDirectory}/build-{newVmNode.fqn}
     
     # Copy the ISO
-    Copy-DatastoreItem drivers_{newVmNode.fqn}.iso $to `
+    Copy-DatastoreItem drivers_{newOsNode.fqn}.iso $to `
         -Force:$true -Confirm:$false 
     
         
     # Remove the DS Drive
     Remove-PSDrive ds -Force
     
-EOF
+    EOF
     
+    
+    fi
 fi
                 </code>
             </pre>
@@ -1350,10 +1353,8 @@ if ($? -eq $false) {
     exit 1
 }
 
-$vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
-
 $cd = Get-VM -Name &quot;{newVmNode.fqn}&quot; | Get-CDDrive
-$iso = &quot;[{vmStoragePoolName}] $vmwareBootIsoDirectory/kickstart_{newVmNode.fqn}.iso&quot;
+$iso = &quot;[{vmStoragePoolName}] {vmwareBootIsoDirectory}/kickstart_{newVmNode.fqn}.iso&quot;
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `
@@ -1385,7 +1386,7 @@ EOF
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Attaches the ESXi drivers ISO at <code>{automationWorkerBaseDirectory}/drivers_{newVmNode.fqn}.iso</code> as a second CD-ROM.</p>
+                                <p>Attaches the ESXi drivers ISO as a second CD-ROM.</p>
                             </p>
                         </div>
                     </div>
@@ -1415,10 +1416,15 @@ EOF
             <pre>
                 <code class="language-sql py-0">
 cd {automationWorkerBaseDirectory}
-if [ ! -f drivers_{newVmNode.fqn}.iso ]
+if [ ! -f drivers_{newOsNode.fqn}.iso ]
 then
-    echo &quot;This build doesn&#x27;t have a {automationWorkerBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
+    echo &quot;This build doesn&#x27;t have a Drivers.iso.&quot;
 else
+
+    if [ &#x27;{vmGuestType}&#x27; != &#x27;winNetStandard64Guest&#x27; ]; then
+        echo &quot;This isn&#x27;t Windows VM.&quot;
+    else
+        echo &quot;Copying Windows Drivers...&quot;
         
     pwsh &lt;&lt;&#x27;EOF&#x27;
     $ErrorActionPreference = &quot;Stop&quot;
@@ -1434,14 +1440,14 @@ else
     }
     
     $vm = Get-VM -Name &quot;{newVmNode.fqn}&quot;
-    $vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
-    
-    $iso = &quot;[{vmStoragePoolName}] $vmwareBootIsoDirectory/drivers_{newVmNode.fqn}.iso&quot;
+    $iso = &quot;[{vmStoragePoolName}] kickstart_isos/drivers_{newOsNode.fqn}.iso&quot;
     
     New-CDDrive -VM $vm -IsoPath $iso -StartConnected
     
-EOF
+    EOF
     
+    
+    fi
 fi
                 </code>
             </pre>
