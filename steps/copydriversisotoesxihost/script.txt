@@ -1,5 +1,5 @@
 cd {automationWorkerBaseDirectory}
-if [ ! -f drivers_{newOsNode.fqn}.iso ]
+if [ ! -f drivers_{newVmNode.fqn}.iso ]
 then
     echo "This build doesn't have a Drivers.iso."
 else
@@ -50,7 +50,7 @@ else
     Set-Location {automationWorkerBaseDirectory}/build-{newVmNode.fqn}
     
     # Copy the ISO
-    Copy-DatastoreItem drivers_{newOsNode.fqn}.iso $to `
+    Copy-DatastoreItem drivers_{newVmNode.fqn}.iso $to `
         -Force:$true -Confirm:$false 
     
         

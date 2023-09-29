@@ -66,13 +66,13 @@ This Project contains the following Blueprints.
 ### Delete the Virtual Machine on ESXi
 
 
+### Perform Deploy ESXi Drivers to a Drop Directory
+
+
 ### Setup VMWare Drivers on Linux
 
 
 ### Setup VMWare Tools on Windows
-
-
-### Perform Deploy ESXi Drivers to a Drop Directory
 
 
 

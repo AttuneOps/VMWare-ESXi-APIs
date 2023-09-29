@@ -1219,7 +1219,7 @@ EOF
             <pre>
                 <code class="language-sql py-0">
 cd {automationWorkerBaseDirectory}
-if [ ! -f drivers_{newOsNode.fqn}.iso ]
+if [ ! -f drivers_{newVmNode.fqn}.iso ]
 then
     echo &quot;This build doesn&#x27;t have a Drivers.iso.&quot;
 else
@@ -1270,7 +1270,7 @@ else
     Set-Location {automationWorkerBaseDirectory}/build-{newVmNode.fqn}
     
     # Copy the ISO
-    Copy-DatastoreItem drivers_{newOsNode.fqn}.iso $to `
+    Copy-DatastoreItem drivers_{newVmNode.fqn}.iso $to `
         -Force:$true -Confirm:$false 
     
         
@@ -1409,7 +1409,7 @@ EOF
             <pre>
                 <code class="language-sql py-0">
 cd {automationWorkerBaseDirectory}
-if [ ! -f drivers_{newOsNode.fqn}.iso ]
+if [ ! -f drivers_{newVmNode.fqn}.iso ]
 then
     echo &quot;This build doesn&#x27;t have a Drivers.iso.&quot;
 else
@@ -1428,7 +1428,7 @@ else
     }
     
     $vm = Get-VM -Name &quot;{newVmNode.fqn}&quot;
-    $iso = &quot;[{vmStoragePoolName}] kickstart_isos/drivers_{newOsNode.fqn}.iso&quot;
+    $iso = &quot;[{vmStoragePoolName}] kickstart_isos/drivers_{newVmNode.fqn}.iso&quot;
     
     New-CDDrive -VM $vm -IsoPath $iso -StartConnected
     
