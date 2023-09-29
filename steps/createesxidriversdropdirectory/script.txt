@@ -1,1 +1,1 @@
-mkdir --parents {automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}
+mkdir --verbose --parents {automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}
