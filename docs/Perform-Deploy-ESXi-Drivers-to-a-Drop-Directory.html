@@ -352,7 +352,7 @@ ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-mkdir --parents ~/kickstart/drivers-{newOsNode.fqn}
+mkdir --parents {automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}
                 </code>
             </pre>
         </div>
@@ -374,6 +374,13 @@ mkdir --parents ~/kickstart/drivers-{newOsNode.fqn}
                         </h3>
                     </div>
 
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                
+                            </p>
+                        </div>
+                    </div>
 
 
 
@@ -405,7 +412,7 @@ mkdir --parents ~/kickstart/drivers-{newOsNode.fqn}
     </div>
     <div class="row py-1">
         <code class="language-bash">
-{kickstartWorkerBaseDir}/drivers-{newOsNode.fqn}, relative to the home directory
+{automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}, relative to the home directory
         </code>
     </div>
 

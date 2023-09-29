@@ -102,9 +102,6 @@ This Project contains the following Blueprints.
 
 Post Windows install setup of VMWare tools for new VM Windows node.
 
-### Perform Deploy ESXi Drivers to a Drop Directory
-
-
 
 
 
