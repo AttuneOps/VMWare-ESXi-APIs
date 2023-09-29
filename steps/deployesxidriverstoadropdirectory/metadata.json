@@ -1,7 +1,7 @@
 {
     "actionOnStepFail": null, 
     "archiveKey": "winvmwaredrivers", 
-    "deployPath": "{kickstartWorkerBaseDir}/drivers-{newOsNode.fqn}", 
+    "deployPath": "{automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}", 
     "enabled": true, 
     "externalUuid4": "0955e2a9-8e66-49fd-a517-d94c532f1e17", 
     "key": "deployesxidriverstoadropdirectory", 
