@@ -1,7 +1,7 @@
-cd {automationWorkerBaseDirectory}
+cd "{automationWorkerBaseDirectory}"
 if [ ! -f drivers_{newVmNode.fqn}.iso ]
 then
-    echo "This build doesn't have a Drivers.iso."
+    echo "This build doesn't have a {automationWorkerBaseDirectory}/drivers_{newVmNode.fqn}.iso."
 else
 
     pwsh <<'EOF' | grep -v 'Uploading'
@@ -57,6 +57,6 @@ else
     # Remove the DS Drive
     Remove-PSDrive ds -Force
     
-    EOF
+EOF
     
 fi
