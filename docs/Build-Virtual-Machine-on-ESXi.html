@@ -1218,10 +1218,10 @@ EOF
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-cd {automationWorkerBaseDirectory}
+cd &quot;{automationWorkerBaseDirectory}&quot;
 if [ ! -f drivers_{newVmNode.fqn}.iso ]
 then
-    echo &quot;This build doesn&#x27;t have a Drivers.iso.&quot;
+    echo &quot;This build doesn&#x27;t have a {automationWorkerBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
 else
 
     pwsh &lt;&lt;&#x27;EOF&#x27; | grep -v &#x27;Uploading&#x27;
@@ -1277,7 +1277,7 @@ else
     # Remove the DS Drive
     Remove-PSDrive ds -Force
     
-    EOF
+EOF
     
 fi
                 </code>
@@ -1379,7 +1379,7 @@ EOF
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Attaches the ESXi drivers ISO as a second CD-ROM.</p>
+                                <p>Attaches the ESXi drivers ISO at <code>{automationWorkerBaseDirectory}/drivers_{newVmNode.fqn}.iso</code> as a second CD-ROM.</p>
                             </p>
                         </div>
                     </div>
@@ -1411,7 +1411,7 @@ EOF
 cd {automationWorkerBaseDirectory}
 if [ ! -f drivers_{newVmNode.fqn}.iso ]
 then
-    echo &quot;This build doesn&#x27;t have a Drivers.iso.&quot;
+    echo &quot;This build doesn&#x27;t have a {automationWorkerBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
 else
         
     pwsh &lt;&lt;&#x27;EOF&#x27;
@@ -1432,7 +1432,7 @@ else
     
     New-CDDrive -VM $vm -IsoPath $iso -StartConnected
     
-    EOF
+EOF
     
 fi
                 </code>
