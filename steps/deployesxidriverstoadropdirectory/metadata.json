@@ -9,5 +9,5 @@
     "osCredKey": "automationworkerlinuxuser", 
     "serverKey": "automationworkerlinuxnode", 
     "type": "com.servertribe.attune.tuples.StepPushDesignFileTuple", 
-    "unpack": false
+    "unpack": true
 }
