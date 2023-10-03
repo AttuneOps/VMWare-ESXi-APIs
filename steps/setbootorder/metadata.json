@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "b2109f89-032e-4943-9993-313e1a297c20", 
+    "externalUuid4": "10d41c22-a53b-4a40-b719-e7ae5b85e959", 
     "interpreter": 1, 
-    "key": "setbootorderuefi", 
-    "name": "Set Boot Order UEFI", 
+    "key": "setbootorder", 
+    "name": "Set Boot Order", 
     "osCredKey": "automationworkerlinuxuser", 
     "serverKey": "automationworkerlinuxnode", 
     "successExitCode": 0, 

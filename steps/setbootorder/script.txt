@@ -1,10 +1,4 @@
-<<<<<<<< HEAD:steps/setbootorderwithwindowsworker/script.txt
-========
-if {virtualMachineBootLoaderIsBios}
-then
-
 pwsh <<'EOF'
->>>>>>>> df60d49 (AUSTA-218: Added step "Set Boot Order UEFI".):steps/setbootorderbios/script.txt
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
 
@@ -43,12 +37,5 @@ $vm.ExtensionData.ReconfigVM_Task($spec)
 
 ##(Get-VM {newVmNode.fqn}).Extensiondata.Config.BootOptions
 
-<<<<<<<< HEAD:steps/setbootorderwithwindowsworker/script.txt
-========
 
 EOF
-
-else
-    echo "Skipping for UEFI boot."
-fi
->>>>>>>> df60d49 (AUSTA-218: Added step "Set Boot Order UEFI".):steps/setbootorderbios/script.txt
