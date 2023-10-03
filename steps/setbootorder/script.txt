@@ -1,6 +1,3 @@
-if {virtualMachineBootLoaderIsUefi}
-then
-
 pwsh <<'EOF'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
@@ -31,7 +28,7 @@ $oBootableCDRom = New-Object -Type VMware.Vim.VirtualMachineBootOptionsBootableC
 
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec -Property @{
     "BootOptions" = New-Object VMware.Vim.VirtualMachineBootOptions -Property @{
-        BootOrder = $oBootableCDRom, $oBootableHDisk
+        BootOrder = $oBootableHDisk, $oBootableCDRom
     } ## end new-object
 } ## end new-object
 
@@ -42,7 +39,3 @@ $vm.ExtensionData.ReconfigVM_Task($spec)
 
 
 EOF
-
-else
-    echo "Skipping for BIOS boot."
-fi

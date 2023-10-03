@@ -254,16 +254,8 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#setbootorderbios">
-                            <strong>Step 7 -</strong> Set Boot Order BIOS
-                        </a>
-                    </p>
-
-        
-
-                    <p class="text-muted pt-2">
-                        <a href="#setbootorderuefi">
-                            <strong>Step 8 -</strong> Set Boot Order UEFI
+                        <a href="#setbootorder">
+                            <strong>Step 7 -</strong> Set Boot Order
                         </a>
                     </p>
 
@@ -271,7 +263,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#setnetworkadaptertovmxnet3">
-                            <strong>Step 9 -</strong> Set Network Adapter to vmxnet3
+                            <strong>Step 8 -</strong> Set Network Adapter to vmxnet3
                         </a>
                     </p>
 
@@ -279,7 +271,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#copyisotohost">
-                            <strong>Step 10 -</strong> Copy ISO To Host
+                            <strong>Step 9 -</strong> Copy ISO To Host
                         </a>
                     </p>
 
@@ -287,7 +279,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#copydriversisotoesxihost">
-                            <strong>Step 11 -</strong> Copy Drivers ISO to ESXi Host
+                            <strong>Step 10 -</strong> Copy Drivers ISO to ESXi Host
                         </a>
                     </p>
 
@@ -295,7 +287,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#loadosisointovm">
-                            <strong>Step 12 -</strong> Load OS ISO into VM
+                            <strong>Step 11 -</strong> Load OS ISO into VM
                         </a>
                     </p>
 
@@ -303,7 +295,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#loaddriversisointovm">
-                            <strong>Step 13 -</strong> Load Drivers ISO into VM
+                            <strong>Step 12 -</strong> Load Drivers ISO into VM
                         </a>
                     </p>
 
@@ -311,7 +303,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#startvm">
-                            <strong>Step 14 -</strong> Start VM
+                            <strong>Step 13 -</strong> Start VM
                         </a>
                     </p>
 
@@ -913,9 +905,9 @@ fi
 
 
                     <div class="row pt-5">
-                        <h3 id="setbootorderbios">
-                            <a href="#setbootorderbios">
-                                <strong>Step 7 -</strong> Set Boot Order BIOS
+                        <h3 id="setbootorder">
+                            <a href="#setbootorder">
+                                <strong>Step 7 -</strong> Set Boot Order
                             </a>
                         </h3>
                     </div>
@@ -952,9 +944,6 @@ fi
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-if {virtualMachineBootLoaderIsBios}
-then
-
 pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
@@ -996,111 +985,6 @@ $vm.ExtensionData.ReconfigVM_Task($spec)
 
 
 EOF
-
-else
-    echo &quot;Skipping for UEFI boot.&quot;
-fi
-                </code>
-            </pre>
-        </div>
-    </div>
-
-
-
-
-
-        
-
-
-
-                    <div class="row pt-5">
-                        <h3 id="setbootorderuefi">
-                            <a href="#setbootorderuefi">
-                                <strong>Step 8 -</strong> Set Boot Order UEFI
-                            </a>
-                        </h3>
-                    </div>
-
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                
-                            </p>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-
-
-    <div class="row">
-        <p>
-            Execute the following script:
-        </p>
-    </div>
-    <div class="row">
-        <div class="col px-0">
-            <pre>
-                <code class="language-sql py-0">
-if {virtualMachineBootLoaderIsUefi}
-then
-
-pwsh &lt;&lt;&#x27;EOF&#x27;
-$ErrorActionPreference = &quot;Stop&quot;
-Import-Module VMware.VimAutomation.Core
-
-Connect-VIServer {vmwareVcenterNode.ip} `
-    -User {vmwareVcenterUser.user} `
-    -Password {vmwareVcenterUser.password}
-
-if ($? -eq $false) {
-    Write-Host &quot;Error: Not connected.&quot;
-    exit 1
-}
-
-#$vm = Get-View -ViewType VirtualMachine -Filter @{&#x27;Name&#x27;=&quot;^{newVmNode.fqn}$&quot;}
-$vm = Get-VM -Name &quot;{newVmNode.fqn}&quot;
-
-## the device name of the hard disk to which to boot
-$strBootHDiskDeviceName = &quot;Hard disk 1&quot;
-
-## get the VirtualDisk device, then grab its Key (DeviceKey, used later)
-$intHDiskDeviceKey = ($vm.ExtensionData.Config.Hardware.Device | ?{$_.DeviceInfo.Label -eq $strBootHDiskDeviceName}).Key
-
-## bootable Disk BootOption device, for use in setting BootOrder (the corresponding VirtualDisk device is bootable, assumed)
-$oBootableHDisk = New-Object -TypeName VMware.Vim.VirtualMachineBootOptionsBootableDiskDevice -Property @{&quot;DeviceKey&quot; = $intHDiskDeviceKey}
-
-## bootable CDROM device (per the docs, the first CDROM with bootable media found is used)
-$oBootableCDRom = New-Object -Type VMware.Vim.VirtualMachineBootOptionsBootableCdromDevice
-
-$spec = New-Object VMware.Vim.VirtualMachineConfigSpec -Property @{
-    &quot;BootOptions&quot; = New-Object VMware.Vim.VirtualMachineBootOptions -Property @{
-        BootOrder = $oBootableCDRom, $oBootableHDisk
-    } ## end new-object
-} ## end new-object
-
-## reconfig the VM to use the spec with the new BootOrder
-$vm.ExtensionData.ReconfigVM_Task($spec)
-
-##(Get-VM {newVmNode.fqn}).Extensiondata.Config.BootOptions
-
-
-EOF
-
-else
-    echo &quot;Skipping for BIOS boot.&quot;
-fi
                 </code>
             </pre>
         </div>
@@ -1117,7 +1001,7 @@ fi
                     <div class="row pt-5">
                         <h3 id="setnetworkadaptertovmxnet3">
                             <a href="#setnetworkadaptertovmxnet3">
-                                <strong>Step 9 -</strong> Set Network Adapter to vmxnet3
+                                <strong>Step 8 -</strong> Set Network Adapter to vmxnet3
                             </a>
                         </h3>
                     </div>
@@ -1186,7 +1070,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="copyisotohost">
                             <a href="#copyisotohost">
-                                <strong>Step 10 -</strong> Copy ISO To Host
+                                <strong>Step 9 -</strong> Copy ISO To Host
                             </a>
                         </h3>
                     </div>
@@ -1297,7 +1181,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="copydriversisotoesxihost">
                             <a href="#copydriversisotoesxihost">
-                                <strong>Step 11 -</strong> Copy Drivers ISO to ESXi Host
+                                <strong>Step 10 -</strong> Copy Drivers ISO to ESXi Host
                             </a>
                         </h3>
                     </div>
@@ -1412,7 +1296,7 @@ fi
                     <div class="row pt-5">
                         <h3 id="loadosisointovm">
                             <a href="#loadosisointovm">
-                                <strong>Step 12 -</strong> Load OS ISO into VM
+                                <strong>Step 11 -</strong> Load OS ISO into VM
                             </a>
                         </h3>
                     </div>
@@ -1487,7 +1371,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="loaddriversisointovm">
                             <a href="#loaddriversisointovm">
-                                <strong>Step 13 -</strong> Load Drivers ISO into VM
+                                <strong>Step 12 -</strong> Load Drivers ISO into VM
                             </a>
                         </h3>
                     </div>
@@ -1567,7 +1451,7 @@ fi
                     <div class="row pt-5">
                         <h3 id="startvm">
                             <a href="#startvm">
-                                <strong>Step 14 -</strong> Start VM
+                                <strong>Step 13 -</strong> Start VM
                             </a>
                         </h3>
                     </div>
