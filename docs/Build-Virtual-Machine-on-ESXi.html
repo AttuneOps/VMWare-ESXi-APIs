@@ -1021,6 +1021,13 @@ fi
                         </h3>
                     </div>
 
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                
+                            </p>
+                        </div>
+                    </div>
 
 
 
@@ -1376,7 +1383,7 @@ else
     }
     
     # Set the local path to the ISO
-    Set-Location {automationWorkerBaseDirectory}/build-{newVmNode.fqn}
+    Set-Location {automationWorkerBaseDirectory}
     
     # Copy the ISO
     Copy-DatastoreItem drivers_{newVmNode.fqn}.iso $to `
