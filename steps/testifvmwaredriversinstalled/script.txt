@@ -1,0 +1,9 @@
+$SEARCH_STRING = "VMware"
+
+if (-Not (driverquery | Select-String -Pattern "vmware" `
+    | findstr $SEARCH_STRING)) {
+    Write-Host "VMWare drivers are not installed."
+    exit 1
+} else {
+    Write-Host "VMWare drivers are installed."
+}

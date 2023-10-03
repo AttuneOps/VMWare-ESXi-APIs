@@ -32,30 +32,34 @@
         }, 
         {
             "order": 350, 
-            "stepKey": "setbootorder"
+            "stepKey": "setbootorderbios"
         }, 
         {
             "order": 400, 
-            "stepKey": "setnetworkadaptertovmxnet3"
+            "stepKey": "setbootorderuefi"
         }, 
         {
             "order": 450, 
-            "stepKey": "copyisotohost"
+            "stepKey": "setnetworkadaptertovmxnet3"
         }, 
         {
             "order": 500, 
-            "stepKey": "copydriversisotoesxihost"
+            "stepKey": "copyisotohost"
         }, 
         {
             "order": 550, 
-            "stepKey": "loadosisointovm"
+            "stepKey": "copydriversisotoesxihost"
         }, 
         {
             "order": 600, 
-            "stepKey": "loaddriversisointovm"
+            "stepKey": "loadosisointovm"
         }, 
         {
             "order": 650, 
+            "stepKey": "loaddriversisointovm"
+        }, 
+        {
+            "order": 700, 
             "stepKey": "startvm"
         }
     ], 
