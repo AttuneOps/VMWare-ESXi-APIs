@@ -11,6 +11,6 @@
     "osCredKey": "newvmwindowsuseradministrator", 
     "serverKey": "newvmwindowsnode", 
     "successExitCode": 0, 
-    "timeout": 120, 
+    "timeout": 240, 
     "type": "com.servertribe.attune.tuples.StepWinRmTuple"
 }
