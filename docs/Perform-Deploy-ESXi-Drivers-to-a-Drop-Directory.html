@@ -6,13 +6,13 @@
 
 
 <head>
-    <title>How to Add New Network Adaptor on ESXi - Attune Automation</title>
+    <title>How to Perform Deploy ESXi Drivers to a Drop Directory - Attune Automation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title"
-          content="How to Add New Network Adaptor on ESXi - Attune Automation">
+          content="How to Perform Deploy ESXi Drivers to a Drop Directory - Attune Automation">
     <meta name="description"
           content="">
     <meta name="robots"
@@ -21,13 +21,13 @@
     <meta property="og:locale" content="en_AU" />
     <meta property="og:type" content="article" />
     <meta property="og:title"
-          content="HowTo Add New Network Adaptor on ESXi - Attune Automation" />
+          content="HowTo Perform Deploy ESXi Drivers to a Drop Directory - Attune Automation" />
     <meta property="og:description" content="" />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
-          content="How to Add New Network Adaptor on ESXi - Attune Automation" />
+          content="How to Perform Deploy ESXi Drivers to a Drop Directory - Attune Automation" />
     <meta name="twitter:description" content="" />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
@@ -119,7 +119,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <strong>Add New Network Adaptor on ESXi</strong>
+                    <strong>Perform Deploy ESXi Drivers to a Drop Directory</strong>
                 </li>
             </ol>
         </nav>
@@ -133,7 +133,7 @@
     <div class="row">
         <div class="col px-0">
             <h1 class="text-left">
-                How to Add New Network Adaptor on ESXi
+                How to Perform Deploy ESXi Drivers to a Drop Directory
             </h1>
         </div>
     </div>
@@ -197,7 +197,7 @@
                     </p>
                     <p class="text-muted">
                         <a href="#top">
-                            <strong>Add New Network Adaptor on ESXi</strong>
+                            <strong>Perform Deploy ESXi Drivers to a Drop Directory</strong>
                         </a>
                     </p>
 
@@ -206,8 +206,16 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#addnewnetworkadaptor">
-                            <strong>Step 1 -</strong> Add New Network Adaptor
+                        <a href="#createesxidriversdropdirectory">
+                            <strong>Step 1 -</strong> Create ESXi Drivers Drop Directory
+                        </a>
+                    </p>
+
+        
+
+                    <p class="text-muted pt-2">
+                        <a href="#deployesxidriverstoadropdirectory">
+                            <strong>Step 2 -</strong> Deploy ESXi Drivers to a Drop Directory
                         </a>
                     </p>
 
@@ -270,7 +278,7 @@
                 </ol>
             </p>
             <p class="lead text-center">
-                You've automated: <strong>Add New Network Adaptor on ESXi</strong>
+                You've automated: <strong>Perform Deploy ESXi Drivers to a Drop Directory</strong>
             </p>
             <hr class="my-4 text-center">
             <div class="col px-0">
@@ -301,9 +309,9 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="addnewnetworkadaptor">
-                            <a href="#addnewnetworkadaptor">
-                                <strong>Step 1 -</strong> Add New Network Adaptor
+                        <h3 id="createesxidriversdropdirectory">
+                            <a href="#createesxidriversdropdirectory">
+                                <strong>Step 1 -</strong> Create ESXi Drivers Drop Directory
                             </a>
                         </h3>
                     </div>
@@ -311,9 +319,7 @@
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Add network adapter</p>
-<p>PowerCLI reference is available at : 
-https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.powercli.cmdletref.doc%2FNew-VM.html</p>
+                                
                             </p>
                         </div>
                     </div>
@@ -353,22 +359,68 @@ ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-pwsh &lt;&lt;&#x27;EOF&#x27;
-$ErrorActionPreference = &quot;Stop&quot;
-Import-Module VMware.VimAutomation.Core
-
-Connect-VIServer {vmwareVcenterServer.ip} `
-    -User {vmwareVcenterUser.user} `
-    -Password {vmwareVcenterUser.password}
-
-$existing = Get-VM &quot;{newVmNode.fqn}&quot;
-
-New-NetworkAdapter -VM $existing -NetworkName &quot;{vmNetworkName.value}&quot; -type vmxnet3 -StartConnected
-
-EOF
+mkdir --verbose --parents {automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}
                 </code>
             </pre>
         </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
+                        <h3 id="deployesxidriverstoadropdirectory">
+                            <a href="#deployesxidriverstoadropdirectory">
+                                <strong>Step 2 -</strong> Deploy ESXi Drivers to a Drop Directory
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>Deploys ESXi drivers to the drivers drop in directory at <code>{automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}</code>. </p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+    <div class="row">
+        <p>
+            <p>These drivers are compatible with Windows 10 and Windows Server 2016, 2019 and 2022.</p>
+<p>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers</p>
+        </p>
+        <p>
+            Copy the File(s)
+            <strong>WIN_VMWare_Drivers.zip</strong>
+            to the target node.
+        </p>
+        <p>
+            <strong>Extract and deploy the File(s)</strong> here:
+        </p>
+    </div>
+    <div class="row py-1">
+        <code class="language-bash">
+{automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}, relative to the home directory
+        </code>
     </div>
 
 

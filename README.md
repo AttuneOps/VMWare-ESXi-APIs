@@ -63,14 +63,21 @@ This Project contains the following Blueprints.
 ### Build Virtual Machine on ESXi
 
 
+### Delete the Virtual Machine on ESXi
+
+
+### Perform Deploy ESXi Drivers to a Drop Directory
+
+
+### Perform Test if VMWare Drivers Installed
+
+
 ### Setup VMWare Drivers on Linux
 
 
 ### Setup VMWare Tools on Windows
 
-
-### Delete the Virtual Machine on ESXi
-
+Post Windows install setup of VMWare tools for new VM Windows node.
 
 
 
@@ -108,7 +115,7 @@ This Project contains the following Blueprints.
 | Name | Type | Comment |
 | ---- | ---- | ------- |
 | WIN ESXi Tools | Large Archives |  |
-| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016 Std.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
+| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016, 2019 and 2022.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
 
 
 

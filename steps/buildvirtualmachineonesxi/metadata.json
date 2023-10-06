@@ -35,27 +35,27 @@
             "stepKey": "setbootorder"
         }, 
         {
-            "order": 400, 
+            "order": 450, 
             "stepKey": "setnetworkadaptertovmxnet3"
         }, 
         {
-            "order": 450, 
+            "order": 500, 
             "stepKey": "copyisotohost"
         }, 
         {
-            "order": 500, 
+            "order": 550, 
             "stepKey": "copydriversisotoesxihost"
         }, 
         {
-            "order": 550, 
+            "order": 600, 
             "stepKey": "loadosisointovm"
         }, 
         {
-            "order": 600, 
+            "order": 650, 
             "stepKey": "loaddriversisointovm"
         }, 
         {
-            "order": 650, 
+            "order": 700, 
             "stepKey": "startvm"
         }
     ], 
