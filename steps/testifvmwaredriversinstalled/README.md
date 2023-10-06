@@ -1,0 +1,1 @@
+Tests if the VMWare ESXi drivers are installed on the new VM Windows node.

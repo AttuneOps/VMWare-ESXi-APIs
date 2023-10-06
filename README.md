@@ -141,7 +141,7 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 | Name | Type | Comment |
 | ---- | ---- | ------- |
 | WIN ESXi Tools | Large Archives |  |
-| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016 Std.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
+| WIN VMWare Drivers | Large Archives | These drivers are compatible with Windows 10 and Windows Server 2016, 2019 and 2022.<br><br>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers |
 
 
 
