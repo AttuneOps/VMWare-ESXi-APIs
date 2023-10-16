@@ -35,20 +35,22 @@ Set-Location "$KICKSTART_ISOS_DIR"
 
 # Create the ISO_TO_DELETE string
 $ISO_TO_DELETE = "kickstart_{newVmNode.fqn}.iso"
-$ISO_TO_DELETE = $ISO_TO_DELETE -Replace "/","\"
 Write-Host "ISO_TO_DELETE = $ISO_TO_DELETE"
 
 Get-Location
-Write-Host "Get-ChildItem -Force $ISO_TO_DELETE - Before"
-Get-ChildItem -Force "$ISO_TO_DELETE"
-
-Remove-iTem "$ISO_TO_DELETE"
 
 if (Test-Path $ISO_TO_DELETE) {
-    Write-Host "$ISO_TO_DELETE deletion failed"
-    exit 1
+    Remove-iTem "$ISO_TO_DELETE"
+
+    if (Test-Path $ISO_TO_DELETE) {
+        Write-Host "$ISO_TO_DELETE deletion failed"
+        exit 1
+    } else {
+        Write-host "$ISO_TO_DELETE deletion successful"
+    }
+
 } else {
-    Write-host "$ISO_TO_DELETE deletion successful"
+    Write-host "$ISO_TO_DELETE already deleted, ok."
 }
 
 # Remove the DS Drive
