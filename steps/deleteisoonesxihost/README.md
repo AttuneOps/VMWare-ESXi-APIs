@@ -1,0 +1,1 @@
+The trick here is to make sure the ISO that you want to delete from the ESXi datastore is not currently loaded onto the CD ROMs of any virtual machines.
