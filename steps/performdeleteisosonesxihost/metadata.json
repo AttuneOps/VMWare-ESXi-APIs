@@ -4,13 +4,17 @@
     "enabled": true, 
     "externalUuid4": "6ad6762c-acdb-48c0-9686-45dfeddfa2a2", 
     "isBlueprint": true, 
-    "key": "performdeleteisoonesxihost", 
+    "key": "performdeleteisosonesxihost", 
     "links": [
         {
             "order": 0, 
             "stepKey": "deleteisoonesxihost"
+        }, 
+        {
+            "order": 50, 
+            "stepKey": "deletedriversisoonesxihost"
         }
     ], 
-    "name": "Perform Delete ISO on ESXi Host", 
+    "name": "Perform Delete ISOs on ESXi Host", 
     "type": "com.servertribe.attune.tuples.StepGroupTuple"
 }

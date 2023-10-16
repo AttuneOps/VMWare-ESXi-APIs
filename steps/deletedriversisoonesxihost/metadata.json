@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "e924b369-85ba-4ba2-a3e4-8415faa3fb9d", 
+    "interpreter": 1, 
+    "key": "deletedriversisoonesxihost", 
+    "name": "Delete Drivers ISO on ESXi Host", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

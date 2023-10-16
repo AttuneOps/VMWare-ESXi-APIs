@@ -206,16 +206,8 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#detachallcddrives">
-                            <strong>Step 1 -</strong> Detach All CD Drives
-                        </a>
-                    </p>
-
-        
-
-                    <p class="text-muted pt-2">
-                        <a href="#deleteosisoonesxihost">
-                            <strong>Step 2 -</strong> Delete OS ISO on ESXi Host
+                        <a href="#deleteisoonesxihost">
+                            <strong>Step 1 -</strong> Delete ISO on ESXi Host
                         </a>
                     </p>
 
@@ -223,7 +215,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#deletedriversisoonesxihost">
-                            <strong>Step 3 -</strong> Delete Drivers ISO on ESXi Host
+                            <strong>Step 2 -</strong> Delete Drivers ISO on ESXi Host
                         </a>
                     </p>
 
@@ -317,9 +309,9 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="detachallcddrives">
-                            <a href="#detachallcddrives">
-                                <strong>Step 1 -</strong> Detach All CD Drives
+                        <h3 id="deleteisoonesxihost">
+                            <a href="#deleteisoonesxihost">
+                                <strong>Step 1 -</strong> Delete ISO on ESXi Host
                             </a>
                         </h3>
                     </div>
@@ -327,8 +319,7 @@
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Loops through each CD Drive of the virtual machine and detaches any attached media.</p>
-<p><a href="https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/set-cddrive/#Default">https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/set-cddrive/#Default</a></p>
+                                <p>The trick here is to make sure the ISO that you want to delete from the ESXi datastore is not currently loaded onto the CD ROMs of any virtual machines.</p>
                             </p>
                         </div>
                     </div>
@@ -380,92 +371,6 @@ if ($? -eq $false) {
     Write-Host &quot;Error: Not connected.&quot;
     exit 1
 }
-
-$existing = Get-VM &quot;{newVmNode.fqn}&quot;
-if ( $existing.count -eq 0 ) {
-    Write-Host &quot;VM does not exist, skipping.&quot;
-} else {
-    $cds = Get-VM -Name &quot;{newVmNode.fqn}&quot; | Get-CDDrive
-    
-    foreach ($cd in $cds) {
-        Write-Host $cd
-        
-        Set-CDDrive -CD $cd `
-            -NoMedia `
-            -Confirm:$false
-    }
-}
-
-
-
-EOF
-                </code>
-            </pre>
-        </div>
-    </div>
-
-
-
-
-
-        
-
-
-
-                    <div class="row pt-5">
-                        <h3 id="deleteosisoonesxihost">
-                            <a href="#deleteosisoonesxihost">
-                                <strong>Step 2 -</strong> Delete OS ISO on ESXi Host
-                            </a>
-                        </h3>
-                    </div>
-
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                <p>The trick here is to make sure the ISO that you want to delete from the ESXi datastore is not currently loaded onto the CD ROMs of any virtual machines.</p>
-<p>Change into the PSDrive location of the datasostore of the kickstart ISOs directory.</p>
-<p>Then call Remove-Item to delete the ISO.</p>
-                            </p>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-
-
-    <div class="row">
-        <p>
-            Execute the following script:
-        </p>
-    </div>
-    <div class="row">
-        <div class="col px-0">
-            <pre>
-                <code class="language-sql py-0">
-pwsh &lt;&lt;&#x27;EOF&#x27;
-$ErrorActionPreference = &quot;Stop&quot;
-Import-Module VMware.VimAutomation.Core
-
-Connect-VIServer {vmwareVcenterNode.ip} `
-    -User &quot;{vmwareVcenterUser.user}&quot; `
-    -Password &#x27;{vmwareVcenterUser.password}&#x27;
-
-if ($? -eq $false) {
-    Write-Host &quot;Error: Not connected.&quot;
-    exit 1
-}
     
 # Get the Datastore
 $datastore = Get-Datastore -Name &#x27;{vmStoragePoolName}&#x27;
@@ -484,9 +389,7 @@ if ($datastore -is [System.Array]) {
 New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root &quot;&quot;
 
 # Ensure the destination dir exists
-$vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
-
-$KICKSTART_ISOS_DIR=&quot;ds:$vmwareBootIsoDirectory/&quot;
+$KICKSTART_ISOS_DIR=&quot;ds:{vmwareBootIsoDirectory}/&quot;
 $KICKSTART_ISOS_DIR = $KICKSTART_ISOS_DIR -Replace &quot;/&quot;,&quot;\&quot;
 Write-Host &quot;KICKSTART_ISOS_DIR=$KICKSTART_ISOS_DIR&quot;
 Set-Location &quot;$KICKSTART_ISOS_DIR&quot;
@@ -531,18 +434,11 @@ EOF
                     <div class="row pt-5">
                         <h3 id="deletedriversisoonesxihost">
                             <a href="#deletedriversisoonesxihost">
-                                <strong>Step 3 -</strong> Delete Drivers ISO on ESXi Host
+                                <strong>Step 2 -</strong> Delete Drivers ISO on ESXi Host
                             </a>
                         </h3>
                     </div>
 
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                <p>This is the same as for step <code>Delete OS ISO on ESXi Host</code> but deletes the driver's ISO instead.</p>
-                            </p>
-                        </div>
-                    </div>
 
 
 
@@ -602,10 +498,8 @@ else
 
     New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root &quot;&quot;
 
-    $vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
-    
     # Ensure the destination dir exists
-    $KICKSTART_ISOS_DIR=&quot;ds:$vmwareBootIsoDirectory/&quot;
+    $KICKSTART_ISOS_DIR=&quot;ds:{vmwareBootIsoDirectory}/&quot;
     $KICKSTART_ISOS_DIR = $KICKSTART_ISOS_DIR -Replace &quot;/&quot;,&quot;\&quot;
     Write-Host &quot;KICKSTART_ISOS_DIR=$KICKSTART_ISOS_DIR&quot;
     Set-Location &quot;$KICKSTART_ISOS_DIR&quot;
