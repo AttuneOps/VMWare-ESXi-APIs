@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "eb96a7a3-f6c2-44de-97cc-1f5f004d0925", 
+    "externalUuid4": "46ad8004-ab5e-4b45-9247-415ae661a31b", 
     "interpreter": 1, 
-    "key": "deleteisoonesxihost", 
-    "name": "Delete ISO on ESXi Host", 
+    "key": "detachallcddrives", 
+    "name": "Detach All CD Drives", 
     "osCredKey": "automationworkerlinuxuser", 
     "serverKey": "automationworkerlinuxnode", 
     "successExitCode": 0, 
