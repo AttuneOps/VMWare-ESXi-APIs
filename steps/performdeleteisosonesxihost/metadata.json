@@ -8,10 +8,14 @@
     "links": [
         {
             "order": 0, 
-            "stepKey": "deleteisoonesxihost"
+            "stepKey": "detachallcddrives"
         }, 
         {
             "order": 50, 
+            "stepKey": "deleteosisoonesxihost"
+        }, 
+        {
+            "order": 100, 
             "stepKey": "deletedriversisoonesxihost"
         }
     ], 

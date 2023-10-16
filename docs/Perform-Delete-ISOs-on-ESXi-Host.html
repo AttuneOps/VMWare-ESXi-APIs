@@ -206,8 +206,16 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#deleteisoonesxihost">
-                            <strong>Step 1 -</strong> Delete ISO on ESXi Host
+                        <a href="#detachallcddrives">
+                            <strong>Step 1 -</strong> Detach All CD Drives
+                        </a>
+                    </p>
+
+        
+
+                    <p class="text-muted pt-2">
+                        <a href="#deleteosisoonesxihost">
+                            <strong>Step 2 -</strong> Delete OS ISO on ESXi Host
                         </a>
                     </p>
 
@@ -215,7 +223,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#deletedriversisoonesxihost">
-                            <strong>Step 2 -</strong> Delete Drivers ISO on ESXi Host
+                            <strong>Step 3 -</strong> Delete Drivers ISO on ESXi Host
                         </a>
                     </p>
 
@@ -309,20 +317,13 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="deleteisoonesxihost">
-                            <a href="#deleteisoonesxihost">
-                                <strong>Step 1 -</strong> Delete ISO on ESXi Host
+                        <h3 id="detachallcddrives">
+                            <a href="#detachallcddrives">
+                                <strong>Step 1 -</strong> Detach All CD Drives
                             </a>
                         </h3>
                     </div>
 
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                <p>The trick here is to make sure the ISO that you want to delete from the ESXi datastore is not currently loaded onto the CD ROMs of any virtual machines.</p>
-                            </p>
-                        </div>
-                    </div>
 
 
 
@@ -344,6 +345,90 @@ ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
                             </code>
                         </div>
 
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+pwsh &lt;&lt;&#x27;EOF&#x27;
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User &quot;{vmwareVcenterUser.user}&quot; `
+    -Password &#x27;{vmwareVcenterUser.password}&#x27;
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+
+$existing = Get-VM &quot;{newVmNode.fqn}&quot;
+if ( $existing.count -eq 0 ) {
+    Write-Host &quot;VM does not exist, skipping.&quot;
+} else {
+    $cds = Get-VM -Name &quot;{newVmNode.fqn}&quot; | Get-CDDrive
+    
+    foreach ($cd in $cds) {
+        Write-Host $cd
+        
+        Set-CDDrive -CD $cd `
+            -NoMedia `
+            -Confirm:$false
+    }
+}
+
+
+
+EOF
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
+                        <h3 id="deleteosisoonesxihost">
+                            <a href="#deleteosisoonesxihost">
+                                <strong>Step 2 -</strong> Delete OS ISO on ESXi Host
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>The trick here is to make sure the ISO that you want to delete from the ESXi datastore is not currently loaded onto the CD ROMs of any virtual machines.</p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
 
 
     
@@ -434,7 +519,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="deletedriversisoonesxihost">
                             <a href="#deletedriversisoonesxihost">
-                                <strong>Step 2 -</strong> Delete Drivers ISO on ESXi Host
+                                <strong>Step 3 -</strong> Delete Drivers ISO on ESXi Host
                             </a>
                         </h3>
                     </div>
