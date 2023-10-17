@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "46ad8004-ab5e-4b45-9247-415ae661a31b", 
+    "interpreter": 1, 
+    "key": "detachallcddrives", 
+    "name": "Detach All CD Drives", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

@@ -79,6 +79,9 @@ This Project contains the following Blueprints.
 
 Post Windows install setup of VMWare tools for new VM Windows node.
 
+### Perform Delete ISOs on ESXi Host
+
+
 
 
 
