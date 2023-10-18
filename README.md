@@ -104,7 +104,6 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 | VM Network Name | Text | `vmnetworkname` | vSphere VM Network Name. |
 | VM Ram Size GB | Text | `vmramsizegb` | VM Ram Size in GB. |
 | VM Storage Pool Name | Text | `vmstoragepoolname` | vSphere VM Storage Pool Name. |
-| VMWare Boot ISO Directory | Text | `vmwarebootisodirectory` | The directory of where the ISOs are copied to on vSphere. |
 | VMWare ESXi Host | Basic Node | `vmwareesxihost` | The ESXi Host details. |
 | VMWare vCenter Node | Basic Node | `vmwarevcenternode` | The vCenter Node details. |
 | VMWare vCenter Server | Basic Node | `vmwarevcenterserver` |  |
