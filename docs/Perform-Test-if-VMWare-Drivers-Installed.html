@@ -357,10 +357,11 @@ mstsc /admin /v:{newvmwindowsnode}
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
+driverquery
+
 $SEARCH_STRING = &quot;VMware&quot;
 
-if (-Not (driverquery | Select-String -Pattern &quot;vmware&quot; `
-    | findstr $SEARCH_STRING)) {
+if (-Not (driverquery | findstr &quot;$SEARCH_STRING&quot;)) {
     Write-Host &quot;VMWare drivers are not installed.&quot;
     exit 1
 } else {
