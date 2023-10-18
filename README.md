@@ -66,6 +66,9 @@ This Project contains the following Blueprints.
 ### Delete the Virtual Machine on ESXi
 
 
+### Perform Delete ISOs on ESXi Host
+
+
 ### Perform Deploy ESXi Drivers to a Drop Directory
 
 
@@ -78,9 +81,6 @@ This Project contains the following Blueprints.
 ### Setup VMWare Tools on Windows
 
 Post Windows install setup of VMWare tools for new VM Windows node.
-
-### Perform Delete ISOs on ESXi Host
-
 
 
 
