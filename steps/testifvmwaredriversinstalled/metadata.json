@@ -1,5 +1,5 @@
 {
-    "actionOnStepFail": null, 
+    "actionOnStepFail": "continue", 
     "enabled": true, 
     "externalUuid4": "789e861f-fad3-4b6c-91d5-c85e5b0376ba", 
     "interpreter": 2, 
@@ -11,6 +11,6 @@
     "osCredKey": "newvmwindowsuseradministrator", 
     "serverKey": "newvmwindowsnode", 
     "successExitCode": 0, 
-    "timeout": 600, 
+    "timeout": 660, 
     "type": "com.servertribe.attune.tuples.StepWinRmTuple"
 }
