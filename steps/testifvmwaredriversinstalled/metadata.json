@@ -7,7 +7,7 @@
     "interpreterScriptExt": null, 
     "interpreterScriptSyntax": "", 
     "key": "testifvmwaredriversinstalled", 
-    "name": " Test if VMWare Drivers Installed", 
+    "name": "Test if VMWare Drivers Installed", 
     "osCredKey": "newvmwindowsuseradministrator", 
     "serverKey": "newvmwindowsnode", 
     "successExitCode": 0, 

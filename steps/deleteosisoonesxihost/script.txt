@@ -28,7 +28,9 @@ if ($datastore -is [System.Array]) {
 New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root ""
 
 # Ensure the destination dir exists
-$KICKSTART_ISOS_DIR="ds:{vmwareBootIsoDirectory}/"
+$vmwareBootIsoDirectory = "/kickstart_isos"
+
+$KICKSTART_ISOS_DIR="ds:$vmwareBootIsoDirectory/"
 $KICKSTART_ISOS_DIR = $KICKSTART_ISOS_DIR -Replace "/","\"
 Write-Host "KICKSTART_ISOS_DIR=$KICKSTART_ISOS_DIR"
 Set-Location "$KICKSTART_ISOS_DIR"
