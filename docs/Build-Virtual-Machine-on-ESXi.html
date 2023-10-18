@@ -1121,8 +1121,10 @@ if ($? -eq $false) {
     exit 1
 }
 
+$vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
+
 # Create the TO dir string
-$to = &quot;ds:{vmwareBootIsoDirectory}&quot;
+$to = &quot;ds:$vmwareBootIsoDirectory&quot;
 $to = $to -Replace &quot;/&quot;,&quot;\&quot;
 
 # Get the Datastore
@@ -1237,8 +1239,10 @@ else
         exit 1
     }
     
+    $vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
+
     # Create the TO dir string
-    $to = &quot;ds:{vmwareBootIsoDirectory}&quot;
+    $to = &quot;ds:$vmwareBootIsoDirectory&quot;
     $to = $to -Replace &quot;/&quot;,&quot;\&quot;
     
     # Get the Datastore
@@ -1346,8 +1350,10 @@ if ($? -eq $false) {
     exit 1
 }
 
+$vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
+
 $cd = Get-VM -Name &quot;{newVmNode.fqn}&quot; | Get-CDDrive
-$iso = &quot;[{vmStoragePoolName}] {vmwareBootIsoDirectory}/kickstart_{newVmNode.fqn}.iso&quot;
+$iso = &quot;[{vmStoragePoolName}] $vmwareBootIsoDirectory/kickstart_{newVmNode.fqn}.iso&quot;
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `
@@ -1428,7 +1434,9 @@ else
     }
     
     $vm = Get-VM -Name &quot;{newVmNode.fqn}&quot;
-    $iso = &quot;[{vmStoragePoolName}] kickstart_isos/drivers_{newVmNode.fqn}.iso&quot;
+    $vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
+    
+    $iso = &quot;[{vmStoragePoolName}] $vmwareBootIsoDirectory/drivers_{newVmNode.fqn}.iso&quot;
     
     New-CDDrive -VM $vm -IsoPath $iso -StartConnected
     

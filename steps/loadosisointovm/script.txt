@@ -11,8 +11,10 @@ if ($? -eq $false) {
     exit 1
 }
 
+$vmwareBootIsoDirectory = "/kickstart_isos"
+
 $cd = Get-VM -Name "{newVmNode.fqn}" | Get-CDDrive
-$iso = "[{vmStoragePoolName}] {vmwareBootIsoDirectory}/kickstart_{newVmNode.fqn}.iso"
+$iso = "[{vmStoragePoolName}] $vmwareBootIsoDirectory/kickstart_{newVmNode.fqn}.iso"
 
 Set-CDDrive -CD $cd `
     -IsoPath $iso `

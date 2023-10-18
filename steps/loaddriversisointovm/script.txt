@@ -18,7 +18,9 @@ else
     }
     
     $vm = Get-VM -Name "{newVmNode.fqn}"
-    $iso = "[{vmStoragePoolName}] kickstart_isos/drivers_{newVmNode.fqn}.iso"
+    $vmwareBootIsoDirectory = "/kickstart_isos"
+    
+    $iso = "[{vmStoragePoolName}] $vmwareBootIsoDirectory/drivers_{newVmNode.fqn}.iso"
     
     New-CDDrive -VM $vm -IsoPath $iso -StartConnected
     
