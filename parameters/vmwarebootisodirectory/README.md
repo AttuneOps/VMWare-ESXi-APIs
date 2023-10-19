@@ -1,1 +1,0 @@
-The directory of where the ISOs are copied to on vSphere.

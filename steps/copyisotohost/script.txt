@@ -13,8 +13,10 @@ if ($? -eq $false) {
     exit 1
 }
 
+$vmwareBootIsoDirectory = "/kickstart_isos"
+
 # Create the TO dir string
-$to = "ds:{vmwareBootIsoDirectory}"
+$to = "ds:$vmwareBootIsoDirectory"
 $to = $to -Replace "/","\"
 
 # Get the Datastore
