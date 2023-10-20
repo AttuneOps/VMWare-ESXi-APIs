@@ -1,1 +1,0 @@
-This is the same as for step `Delete OS ISO on ESXi Host` but deletes the driver's ISO instead.
