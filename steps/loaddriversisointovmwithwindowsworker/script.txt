@@ -1,0 +1,26 @@
+Set-Location {automationWorkerLinuxBaseDirectory}
+if ( -Not (Test-Path "drivers_{newVmNode.fqn}.iso" `
+    -PathType Leaf) ) {
+    Write-Host "This build doesn't have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso."
+} else {
+        
+    $ErrorActionPreference = "Stop"
+    Import-Module VMware.VimAutomation.Core
+    
+    Connect-VIServer {vmwareVcenterNode.ip} `
+        -User {vmwareVcenterUser.user} `
+        -Password {vmwareVcenterUser.password}
+    
+    if ($? -eq $false) {
+        Write-Host "Error: Not connected."
+        exit 1
+    }
+    
+    $vm = Get-VM -Name "{newVmNode.fqn}"
+    $vmwareBootIsoDirectory = "/kickstart_isos"
+    
+    $iso = "[{vmStoragePoolName}] $vmwareBootIsoDirectory/drivers_{newVmNode.fqn}.iso"
+    
+    New-CDDrive -VM $vm -IsoPath $iso -StartConnected
+    
+}
