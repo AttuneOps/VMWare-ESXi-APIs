@@ -1,10 +1,10 @@
 {
     "actionOnStepFail": null, 
     "enabled": true, 
-    "externalUuid4": "46ad8004-ab5e-4b45-9247-415ae661a31b", 
+    "externalUuid4": "2515efa2-7c20-478e-bffc-0fab369d5abc", 
     "interpreter": 1, 
-    "key": "detachallcddrives", 
-    "name": "Detach All CD Drives", 
+    "key": "createesxidriversdropdirectorywithmacosorlinuxworker", 
+    "name": "Create ESXi Drivers Drop Directory with macOS or Linux Worker", 
     "osCredKey": "automationworkerlinuxuser", 
     "serverKey": "automationworkerlinuxnode", 
     "successExitCode": 0, 
