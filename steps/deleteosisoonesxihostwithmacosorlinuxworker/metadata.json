@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "eb96a7a3-f6c2-44de-97cc-1f5f004d0925", 
+    "interpreter": 1, 
+    "key": "deleteosisoonesxihostwithmacosorlinuxworker", 
+    "name": "Delete OS ISO on ESXi Host with macOS or Linux Worker", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}
