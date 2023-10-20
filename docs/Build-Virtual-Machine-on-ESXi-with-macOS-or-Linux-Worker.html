@@ -676,7 +676,9 @@ EOF
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>All VMs are kickstarted with a default 50g disk. More disks can be added once the operating system is installed with subsequent "add disk" vCenter calls.</p>
+                                <p>All VMs are kickstarted with a default 50g disk. More disks are 
+added once the operating system is installed, via a subsequence 
+"add disk" vCenter call.</p>
                             </p>
                         </div>
                     </div>
@@ -1267,7 +1269,7 @@ if (-Not (Test-Path &quot;$to&quot;)) {
 }
 
 # Set the local path to the ISO
-Set-Location {automationWorkerLinuxBaseDirectory}
+Set-Location {automationWorkerBaseDirectory}
 
 # Copy the ISO
 Copy-DatastoreItem kickstart_{newVmNode.fqn}.iso $to `

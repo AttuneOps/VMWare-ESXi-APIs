@@ -1,1 +1,0 @@
-Sets the ESXi network adapter type to vmxnet3 for the target Windows virtual machine.
