@@ -1,0 +1,13 @@
+{
+    "actionOnStepFail": null, 
+    "archiveKey": "winvmwaredrivers", 
+    "deployPath": "{automationWorkerLinuxBaseDirectory}/build-{newVmNode.fqn}", 
+    "enabled": true, 
+    "externalUuid4": "f86e57c8-d4d8-44db-a081-98cfd35d4f3e", 
+    "key": "deployvmwaredriveronmacosorlinuxworker", 
+    "name": "Deploy VMWare Driver on macOS or Linux Worker", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
+    "type": "com.servertribe.attune.tuples.StepPushDesignFileTuple", 
+    "unpack": true
+}

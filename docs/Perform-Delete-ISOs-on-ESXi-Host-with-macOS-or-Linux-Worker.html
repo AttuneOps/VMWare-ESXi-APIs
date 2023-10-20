@@ -423,7 +423,7 @@ EOF
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>The trick here is to make sure the ISO that you want to delete from the ESXi datastore is not currently loaded onto the CD ROMs of any virtual machines.</p>
+                                <p>Make sure the ISO that you want to delete from the ESXi datastore is not currently loaded onto the CD ROMs of any virtual machines.</p>
 <p>Change into the PSDrive location of the datasostore of the kickstart ISOs directory.</p>
 <p>Then call Remove-Item to delete the ISO.</p>
                             </p>
@@ -568,10 +568,10 @@ EOF
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-cd &quot;{automationWorkerBaseDirectory}&quot;
+cd &quot;{automationWorkerLinuxBaseDirectory}&quot;
 if [ ! -f drivers_{newVmNode.fqn}.iso ]
 then
-    echo &quot;This build doesn&#x27;t have a {automationWorkerBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
+    echo &quot;This build doesn&#x27;t have a {automationWorkerLinuxBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
 else
     pwsh &lt;&lt;&#x27;EOF&#x27;
     $ErrorActionPreference = &quot;Stop&quot;

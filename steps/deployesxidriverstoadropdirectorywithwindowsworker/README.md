@@ -1,0 +1,1 @@
+Deploys ESXi drivers to the drivers drop in directory at `{automationWorkerWindowsBaseDirectory}/drivers-{newVmNode.fqn}`. 

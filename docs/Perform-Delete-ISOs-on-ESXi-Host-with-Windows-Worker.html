@@ -6,13 +6,13 @@
 
 
 <head>
-    <title>How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation</title>
+    <title>How to Perform Delete ISOs on ESXi Host with Windows Worker - Attune Automation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title"
-          content="How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation">
+          content="How to Perform Delete ISOs on ESXi Host with Windows Worker - Attune Automation">
     <meta name="description"
           content="">
     <meta name="robots"
@@ -21,13 +21,13 @@
     <meta property="og:locale" content="en_AU" />
     <meta property="og:type" content="article" />
     <meta property="og:title"
-          content="HowTo Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation" />
+          content="HowTo Perform Delete ISOs on ESXi Host with Windows Worker - Attune Automation" />
     <meta property="og:description" content="" />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
-          content="How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation" />
+          content="How to Perform Delete ISOs on ESXi Host with Windows Worker - Attune Automation" />
     <meta name="twitter:description" content="" />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
@@ -119,7 +119,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                    <strong>Perform Delete ISOs on ESXi Host with Windows Worker</strong>
                 </li>
             </ol>
         </nav>
@@ -133,7 +133,7 @@
     <div class="row">
         <div class="col px-0">
             <h1 class="text-left">
-                How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                How to Perform Delete ISOs on ESXi Host with Windows Worker
             </h1>
         </div>
     </div>
@@ -197,7 +197,7 @@
                     </p>
                     <p class="text-muted">
                         <a href="#top">
-                            <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                            <strong>Perform Delete ISOs on ESXi Host with Windows Worker</strong>
                         </a>
                     </p>
 
@@ -206,8 +206,24 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                            <strong>Step 1 -</strong> Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                        <a href="#detachallcddriveswithwindowsworker">
+                            <strong>Step 1 -</strong> Detach All CD Drives with Windows Worker
+                        </a>
+                    </p>
+
+        
+
+                    <p class="text-muted pt-2">
+                        <a href="#deleteosisoonesxihostwithwindowsworker">
+                            <strong>Step 2 -</strong> Delete OS ISO on ESXi Host with Windows Worker
+                        </a>
+                    </p>
+
+        
+
+                    <p class="text-muted pt-2">
+                        <a href="#deletedriversisoonesxihostwithwindowsworker">
+                            <strong>Step 3 -</strong> Delete Drivers ISO on ESXi Host with Windows Worker
                         </a>
                     </p>
 
@@ -270,7 +286,7 @@
                 </ol>
             </p>
             <p class="lead text-center">
-                You've automated: <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                You've automated: <strong>Perform Delete ISOs on ESXi Host with Windows Worker</strong>
             </p>
             <hr class="my-4 text-center">
             <div class="col px-0">
@@ -301,9 +317,9 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                            <a href="#deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                                <strong>Step 1 -</strong> Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                        <h3 id="detachallcddriveswithwindowsworker">
+                            <a href="#detachallcddriveswithwindowsworker">
+                                <strong>Step 1 -</strong> Detach All CD Drives with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -311,7 +327,8 @@
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Deploys ESXi drivers to the drivers drop in directory at <code>{automationWorkerLinuxBaseDirectory}/drivers-{newVmNode.fqn}</code>. </p>
+                                <p>Loops through each CD Drive of the virtual machine and detaches any attached media.</p>
+<p><a href="https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/set-cddrive/#Default">https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/set-cddrive/#Default</a></p>
                             </p>
                         </div>
                     </div>
@@ -327,14 +344,21 @@
 
                         <div class="row">
                             <p>
-                                Connect via ssh:
+                                Connect via RDP:
                             </p>
                         </div>
                         <div class="row py-1">
                             <code class="language-sql">
-ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
+mstsc /admin /v:{automationworkerwindowsnode}
                             </code>
                         </div>
+                        <div class="row">
+                            <p>
+                                Login as user {automationworkerwindowsuseradministrator} and open a
+                                command prompt.
+                            </p>
+                        </div>
+
 
 
     
@@ -343,22 +367,274 @@ ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
 
     <div class="row">
         <p>
-            <p>These drivers are compatible with Windows 10 and Windows Server 2016, 2019 and 2022.</p>
-<p>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers</p>
-        </p>
-        <p>
-            Copy the File(s)
-            <strong>WIN_VMWare_Drivers.zip</strong>
-            to the target node.
-        </p>
-        <p>
-            <strong>Extract and deploy the File(s)</strong> here:
+            Execute the following script:
         </p>
     </div>
-    <div class="row py-1">
-        <code class="language-bash">
-{automationWorkerLinuxBaseDirectory}/drivers-{newVmNode.fqn}, relative to the home directory
-        </code>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User &quot;{vmwareVcenterUser.user}&quot; `
+    -Password &#x27;{vmwareVcenterUser.password}&#x27;
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+
+$existing = Get-VM &quot;{newVmNode.fqn}&quot;
+if ( $existing.count -eq 0 ) {
+    Write-Host &quot;VM does not exist, skipping.&quot;
+} else {
+    $cds = Get-VM -Name &quot;{newVmNode.fqn}&quot; | Get-CDDrive
+    
+    foreach ($cd in $cds) {
+        Write-Host $cd
+        
+        Set-CDDrive -CD $cd `
+            -NoMedia `
+            -Confirm:$false
+    }
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
+                        <h3 id="deleteosisoonesxihostwithwindowsworker">
+                            <a href="#deleteosisoonesxihostwithwindowsworker">
+                                <strong>Step 2 -</strong> Delete OS ISO on ESXi Host with Windows Worker
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>Make sure the ISO that you want to delete from the ESXi datastore is not currently loaded onto the CD ROMs of any virtual machines.</p>
+<p>Change into the PSDrive location of the datasostore of the kickstart ISOs directory.</p>
+<p>Then call Remove-Item to delete the ISO.</p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User &quot;{vmwareVcenterUser.user}&quot; `
+    -Password &#x27;{vmwareVcenterUser.password}&#x27;
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+    
+# Get the Datastore
+$datastore = Get-Datastore -Name &#x27;{vmStoragePoolName}&#x27;
+$datastore
+
+# Create the DS drive
+if (Test-Path &quot;ds:&quot;) {
+    Remove-PSDrive ds -Force
+}
+
+if ($datastore -is [System.Array]) {
+    Write-Host &quot;Get-Datastore returned multiple datastores, using first item in array..&quot;
+    $datastore = $datastore[0]
+}
+
+New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root &quot;&quot;
+
+# Ensure the destination dir exists
+$vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
+
+$KICKSTART_ISOS_DIR=&quot;ds:$vmwareBootIsoDirectory/&quot;
+$KICKSTART_ISOS_DIR = $KICKSTART_ISOS_DIR -Replace &quot;/&quot;,&quot;\&quot;
+Write-Host &quot;KICKSTART_ISOS_DIR=$KICKSTART_ISOS_DIR&quot;
+Set-Location &quot;$KICKSTART_ISOS_DIR&quot;
+
+# Create the ISO_TO_DELETE string
+$ISO_TO_DELETE = &quot;kickstart_{newVmNode.fqn}.iso&quot;
+Write-Host &quot;ISO_TO_DELETE = $ISO_TO_DELETE&quot;
+
+Get-Location
+
+if (Test-Path $ISO_TO_DELETE) {
+    Remove-iTem &quot;$ISO_TO_DELETE&quot;
+
+    if (Test-Path $ISO_TO_DELETE) {
+        Write-Host &quot;$ISO_TO_DELETE deletion failed&quot;
+        exit 1
+    } else {
+        Write-host &quot;$ISO_TO_DELETE deletion successful&quot;
+    }
+
+} else {
+    Write-host &quot;$ISO_TO_DELETE already deleted, ok.&quot;
+}
+
+# Remove the DS Drive
+Remove-PSDrive ds -Force
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
+                        <h3 id="deletedriversisoonesxihostwithwindowsworker">
+                            <a href="#deletedriversisoonesxihostwithwindowsworker">
+                                <strong>Step 3 -</strong> Delete Drivers ISO on ESXi Host with Windows Worker
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>This is the same as for step <code>Delete OS ISO on ESXi Host</code> but deletes the driver's ISO instead.</p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+Set-Location &quot;{automationWorkerWindowsBaseDirectory}&quot;
+if ( -Not (Test-Path &quot;drivers_{newVmNode.fqn}.iso&quot; `
+    -PathType Leaf) ) {
+    Write-Host &quot;This build doesn&#x27;t have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
+} else {
+    pwsh &lt;&lt;&#x27;EOF&#x27;
+    $ErrorActionPreference = &quot;Stop&quot;
+    Import-Module VMware.VimAutomation.Core
+    
+    Connect-VIServer {vmwareVcenterNode.ip} `
+        -User &quot;{vmwareVcenterUser.user}&quot; `
+        -Password &#x27;{vmwareVcenterUser.password}&#x27;
+    
+    if ($? -eq $false) {
+        Write-Host &quot;Error: Not connected.&quot;
+        exit 1
+    }
+
+    # Get the Datastore
+    $datastore = Get-Datastore -Name &#x27;{vmStoragePoolName}&#x27;
+    $datastore
+
+    # Create the DS drive
+    if (Test-Path &quot;ds:&quot;) {
+        Remove-PSDrive ds -Force
+    }
+
+    if ($datastore -is [System.Array]) {
+        Write-Host &quot;Get-Datastore returned multiple datastores, using first item in array..&quot;
+        $datastore = $datastore[0]
+    }
+
+    New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root &quot;&quot;
+
+    $vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
+    
+    # Ensure the destination dir exists
+    $KICKSTART_ISOS_DIR=&quot;ds:$vmwareBootIsoDirectory/&quot;
+    $KICKSTART_ISOS_DIR = $KICKSTART_ISOS_DIR -Replace &quot;/&quot;,&quot;\&quot;
+    Write-Host &quot;KICKSTART_ISOS_DIR=$KICKSTART_ISOS_DIR&quot;
+    Set-Location &quot;$KICKSTART_ISOS_DIR&quot;
+
+    # Create the ISO_TO_DELETE string
+    $ISO_TO_DELETE = &quot;drivers_{newVmNode.fqn}.iso&quot;
+    Write-Host &quot;ISO_TO_DELETE = $ISO_TO_DELETE&quot;
+
+    Get-Location
+
+    if (Test-Path $ISO_TO_DELETE) {
+        Remove-iTem &quot;$ISO_TO_DELETE&quot;
+
+        if (Test-Path $ISO_TO_DELETE) {
+            Write-Host &quot;$ISO_TO_DELETE deletion failed&quot;
+            exit 1
+        } else {
+            Write-host &quot;$ISO_TO_DELETE deletion successful&quot;
+        }
+
+    } else {
+        Write-host &quot;$ISO_TO_DELETE already deleted, ok.&quot;
+    }
+
+    # Remove the DS Drive
+    Remove-PSDrive ds -Force
+
+}
+                </code>
+            </pre>
+        </div>
     </div>
 
 

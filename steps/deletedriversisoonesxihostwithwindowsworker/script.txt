@@ -1,8 +1,8 @@
-cd "{automationWorkerLinuxBaseDirectory}"
-if [ ! -f drivers_{newVmNode.fqn}.iso ]
-then
-    echo "This build doesn't have a {automationWorkerLinuxBaseDirectory}/drivers_{newVmNode.fqn}.iso."
-else
+Set-Location "{automationWorkerWindowsBaseDirectory}"
+if ( -Not (Test-Path "drivers_{newVmNode.fqn}.iso" `
+    -PathType Leaf) ) {
+    Write-Host "This build doesn't have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso."
+} else {
     pwsh <<'EOF'
     $ErrorActionPreference = "Stop"
     Import-Module VMware.VimAutomation.Core
@@ -63,6 +63,4 @@ else
     # Remove the DS Drive
     Remove-PSDrive ds -Force
 
-EOF
-
-fi
+}
