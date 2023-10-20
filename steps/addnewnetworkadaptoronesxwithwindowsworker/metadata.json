@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "d0bc4b5a-cb52-4d2d-ac3b-a9881e343aa1", 
+    "isBlueprint": true, 
+    "key": "addnewnetworkadaptoronesxwithwindowsworker", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "addnewnetworkadaptorwithwindowsworker"
+        }
+    ], 
+    "name": "Add New Network Adaptor on ESX with Windows Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

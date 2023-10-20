@@ -1,0 +1,10 @@
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterServer.ip} `
+    -User {vmwareVcenterUser.user} `
+    -Password {vmwareVcenterUser.password}
+
+$existing = Get-VM "{newVmNode.fqn}"
+
+New-NetworkAdapter -VM $existing -NetworkName "{vmNetworkName.value}" -type vmxnet3 -StartConnected

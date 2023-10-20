@@ -1,1 +1,1 @@
-Deploys ESXi drivers to the drivers drop in directory at `{automationWorkerBaseDirectory}/drivers-{newVmNode.fqn}`. 
+Deploys ESXi drivers to the drivers drop in directory at `{automationWorkerLinuxBaseDirectory}/drivers-{newVmNode.fqn}`. 

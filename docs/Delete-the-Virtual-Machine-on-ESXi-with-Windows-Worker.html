@@ -6,13 +6,13 @@
 
 
 <head>
-    <title>How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation</title>
+    <title>How to Delete the Virtual Machine on ESXi with Windows Worker - Attune Automation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title"
-          content="How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation">
+          content="How to Delete the Virtual Machine on ESXi with Windows Worker - Attune Automation">
     <meta name="description"
           content="">
     <meta name="robots"
@@ -21,13 +21,13 @@
     <meta property="og:locale" content="en_AU" />
     <meta property="og:type" content="article" />
     <meta property="og:title"
-          content="HowTo Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation" />
+          content="HowTo Delete the Virtual Machine on ESXi with Windows Worker - Attune Automation" />
     <meta property="og:description" content="" />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
-          content="How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation" />
+          content="How to Delete the Virtual Machine on ESXi with Windows Worker - Attune Automation" />
     <meta name="twitter:description" content="" />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
@@ -119,7 +119,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                    <strong>Delete the Virtual Machine on ESXi with Windows Worker</strong>
                 </li>
             </ol>
         </nav>
@@ -133,7 +133,7 @@
     <div class="row">
         <div class="col px-0">
             <h1 class="text-left">
-                How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                How to Delete the Virtual Machine on ESXi with Windows Worker
             </h1>
         </div>
     </div>
@@ -197,7 +197,7 @@
                     </p>
                     <p class="text-muted">
                         <a href="#top">
-                            <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                            <strong>Delete the Virtual Machine on ESXi with Windows Worker</strong>
                         </a>
                     </p>
 
@@ -206,8 +206,8 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                            <strong>Step 1 -</strong> Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                        <a href="#deletevmwithwindowsworker">
+                            <strong>Step 1 -</strong> Delete VM with Windows Worker
                         </a>
                     </p>
 
@@ -270,7 +270,7 @@
                 </ol>
             </p>
             <p class="lead text-center">
-                You've automated: <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                You've automated: <strong>Delete the Virtual Machine on ESXi with Windows Worker</strong>
             </p>
             <hr class="my-4 text-center">
             <div class="col px-0">
@@ -301,9 +301,9 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                            <a href="#deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                                <strong>Step 1 -</strong> Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                        <h3 id="deletevmwithwindowsworker">
+                            <a href="#deletevmwithwindowsworker">
+                                <strong>Step 1 -</strong> Delete VM with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -311,7 +311,7 @@
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Deploys ESXi drivers to the drivers drop in directory at <code>{automationWorkerLinuxBaseDirectory}/drivers-{newVmNode.fqn}</code>. </p>
+                                <p>Deletes a ESXi virtual machine given it's fully qualified domain name or by it's hostname.</p>
                             </p>
                         </div>
                     </div>
@@ -327,14 +327,21 @@
 
                         <div class="row">
                             <p>
-                                Connect via ssh:
+                                Connect via RDP:
                             </p>
                         </div>
                         <div class="row py-1">
                             <code class="language-sql">
-ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
+mstsc /admin /v:{automationworkerwindowsnode}
                             </code>
                         </div>
+                        <div class="row">
+                            <p>
+                                Login as user {automationworkerwindowsuseradministrator} and open a
+                                command prompt.
+                            </p>
+                        </div>
+
 
 
     
@@ -343,22 +350,48 @@ ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
 
     <div class="row">
         <p>
-            <p>These drivers are compatible with Windows 10 and Windows Server 2016, 2019 and 2022.</p>
-<p>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers</p>
-        </p>
-        <p>
-            Copy the File(s)
-            <strong>WIN_VMWare_Drivers.zip</strong>
-            to the target node.
-        </p>
-        <p>
-            <strong>Extract and deploy the File(s)</strong> here:
+            Execute the following script:
         </p>
     </div>
-    <div class="row py-1">
-        <code class="language-bash">
-{automationWorkerLinuxBaseDirectory}/drivers-{newVmNode.fqn}, relative to the home directory
-        </code>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User &quot;{vmwareVcenterUser.user}&quot; `
+    -Password &quot;{vmwareVcenterUser.password}&quot;
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+
+$existing = Get-VM &quot;{newVmNode.fqn}&quot;
+if ( $existing.count -eq 1 ) {
+    } else {
+        $existing = Get-VM &quot;{newVmNode.hostname}&quot;
+    }
+
+if ( $existing.count -eq 1 ) {
+    if ( $existing.PowerState -eq &quot;PoweredOn&quot; ) {
+        &quot;Stopping the VM&quot;
+        Stop-VM -VM $existing -Confirm:$false
+    } else {
+        &quot;The VM is off&quot;
+    }
+    
+    &quot;Removing the VM&quot;
+    Remove-VM -DeleteFromDisk -VM $existing -Confirm:$false
+    
+} else {
+    &quot;The VM doesn&#x27;t exist&quot;
+}
+                </code>
+            </pre>
+        </div>
     </div>
 
 

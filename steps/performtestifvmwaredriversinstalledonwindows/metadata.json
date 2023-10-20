@@ -4,13 +4,13 @@
     "enabled": true, 
     "externalUuid4": "2b9e822f-5b70-4352-b0b0-cdd8e7404d50", 
     "isBlueprint": true, 
-    "key": "performtestifvmwaredriversinstalledwithmacosorlinuxworker", 
+    "key": "performtestifvmwaredriversinstalledonwindows", 
     "links": [
         {
             "order": 0, 
-            "stepKey": "testifvmwaredriversinstalledwithmacosorlinuxworker"
+            "stepKey": "testifvmwaredriversinstalledonwindows"
         }
     ], 
-    "name": "Perform Test if VMWare Drivers Installed with macOS or Linux Worker", 
+    "name": "Perform Test if VMWare Drivers Installed on Windows", 
     "type": "com.servertribe.attune.tuples.StepGroupTuple"
 }

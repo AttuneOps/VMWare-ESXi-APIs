@@ -1,0 +1,24 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "a5866ccd-9bda-4729-bb8b-a55eccc9ecd1", 
+    "isBlueprint": true, 
+    "key": "performdeleteisosonesxihostwithwindowsworker", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "detachallcddriveswithwindowsworker"
+        }, 
+        {
+            "order": 50, 
+            "stepKey": "deleteosisoonesxihostwithwindowsworker"
+        }, 
+        {
+            "order": 100, 
+            "stepKey": "deletedriversisoonesxihostwithwindowsworker"
+        }
+    ], 
+    "name": "Perform Delete ISOs on ESXi Host with Windows Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

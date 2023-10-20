@@ -6,13 +6,13 @@
 
 
 <head>
-    <title>How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation</title>
+    <title>How to Deploy VMWare Drivers on macOS or Linux Worker - Attune Automation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title"
-          content="How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation">
+          content="How to Deploy VMWare Drivers on macOS or Linux Worker - Attune Automation">
     <meta name="description"
           content="">
     <meta name="robots"
@@ -21,13 +21,13 @@
     <meta property="og:locale" content="en_AU" />
     <meta property="og:type" content="article" />
     <meta property="og:title"
-          content="HowTo Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation" />
+          content="HowTo Deploy VMWare Drivers on macOS or Linux Worker - Attune Automation" />
     <meta property="og:description" content="" />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
-          content="How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation" />
+          content="How to Deploy VMWare Drivers on macOS or Linux Worker - Attune Automation" />
     <meta name="twitter:description" content="" />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
@@ -119,7 +119,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                    <strong>Deploy VMWare Drivers on macOS or Linux Worker</strong>
                 </li>
             </ol>
         </nav>
@@ -133,7 +133,7 @@
     <div class="row">
         <div class="col px-0">
             <h1 class="text-left">
-                How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                How to Deploy VMWare Drivers on macOS or Linux Worker
             </h1>
         </div>
     </div>
@@ -197,7 +197,7 @@
                     </p>
                     <p class="text-muted">
                         <a href="#top">
-                            <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                            <strong>Deploy VMWare Drivers on macOS or Linux Worker</strong>
                         </a>
                     </p>
 
@@ -206,8 +206,8 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                            <strong>Step 1 -</strong> Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                        <a href="#deployvmwaredriveronmacosorlinuxworker">
+                            <strong>Step 1 -</strong> Deploy VMWare Driver on macOS or Linux Worker
                         </a>
                     </p>
 
@@ -270,7 +270,7 @@
                 </ol>
             </p>
             <p class="lead text-center">
-                You've automated: <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                You've automated: <strong>Deploy VMWare Drivers on macOS or Linux Worker</strong>
             </p>
             <hr class="my-4 text-center">
             <div class="col px-0">
@@ -301,9 +301,9 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                            <a href="#deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                                <strong>Step 1 -</strong> Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                        <h3 id="deployvmwaredriveronmacosorlinuxworker">
+                            <a href="#deployvmwaredriveronmacosorlinuxworker">
+                                <strong>Step 1 -</strong> Deploy VMWare Driver on macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -311,7 +311,8 @@
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Deploys ESXi drivers to the drivers drop in directory at <code>{automationWorkerLinuxBaseDirectory}/drivers-{newVmNode.fqn}</code>. </p>
+                                <p>Deploys VMWare ESXi drivers to the <code>{automationWorkerLinuxBaseDirectory}/build-{newVmNode.fqn}</code> folder.</p>
+<p>Please ensure that the file archive has a <code>Drivers</code> folder as the root folder as that's the folder where <code>autounattned.xml</code> file will specify to search for the drivers.</p>
                             </p>
                         </div>
                     </div>
@@ -357,7 +358,7 @@ ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
     </div>
     <div class="row py-1">
         <code class="language-bash">
-{automationWorkerLinuxBaseDirectory}/drivers-{newVmNode.fqn}, relative to the home directory
+{automationWorkerLinuxBaseDirectory}/build-{newVmNode.fqn}, relative to the home directory
         </code>
     </div>
 

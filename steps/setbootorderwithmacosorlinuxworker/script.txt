@@ -1,3 +1,6 @@
+if {virtualMachineBootLoaderIsBios}
+then
+
 pwsh <<'EOF'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
@@ -39,3 +42,7 @@ $vm.ExtensionData.ReconfigVM_Task($spec)
 
 
 EOF
+
+else
+    echo "Skipping for UEFI boot."
+fi

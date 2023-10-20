@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "79bb1310-489f-452c-b6d2-ebed685a9212", 
+    "isBlueprint": true, 
+    "key": "deletethevirtualmachineonesxiwithwindowsworker", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "deletevmwithwindowsworker"
+        }
+    ], 
+    "name": "Delete the Virtual Machine on ESXi with Windows Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

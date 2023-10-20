@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "27c92175-edc0-4268-ab54-4141f28c1827", 
+    "isBlueprint": true, 
+    "key": "deployvmwaredriversonwindowsworker", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "deployvmwaredriveronwindowsworker"
+        }
+    ], 
+    "name": "Deploy VMWare Drivers on Windows Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}
