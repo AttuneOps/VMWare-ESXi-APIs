@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "22e9bd74-f23a-4637-a55d-126a061a9af1", 
+    "interpreter": 1, 
+    "key": "copydriversisotoesxihostwithmacosorlinuxworker", 
+    "name": "Copy Drivers ISO to ESXi Host with macOS or Linux Worker", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

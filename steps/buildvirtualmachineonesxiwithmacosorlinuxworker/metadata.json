@@ -1,0 +1,64 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "18af1c16-5ee0-4a2d-ae12-5e52aeb25287", 
+    "isBlueprint": true, 
+    "key": "buildvirtualmachineonesxiwithmacosorlinuxworker", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "setpowerclioptionswithmacosorlinuxworker"
+        }, 
+        {
+            "order": 50, 
+            "stepKey": "deletevmwithmacosorlinuxworker"
+        }, 
+        {
+            "order": 150, 
+            "stepKey": "createvmwithmacosorlinuxworker"
+        }, 
+        {
+            "order": 200, 
+            "stepKey": "configurebootfirmwarewithmacosorlinuxworker"
+        }, 
+        {
+            "order": 250, 
+            "stepKey": "enablesaswithmacosorlinuxworker"
+        }, 
+        {
+            "order": 300, 
+            "stepKey": "enable3dwithmacosorlinuxworker"
+        }, 
+        {
+            "order": 350, 
+            "stepKey": "setbootorderwithmacosorlinuxworker"
+        }, 
+        {
+            "order": 450, 
+            "stepKey": "setnetworkadaptertovmxnet3withmacosorlinuxworker"
+        }, 
+        {
+            "order": 500, 
+            "stepKey": "copyisotohostwithmacosorlinuxworker"
+        }, 
+        {
+            "order": 550, 
+            "stepKey": "copydriversisotoesxihostwithmacosorlinuxworker"
+        }, 
+        {
+            "order": 600, 
+            "stepKey": "loadosisointovmwithmacosorlinuxworker"
+        }, 
+        {
+            "order": 650, 
+            "stepKey": "loaddriversisointovmwithmacosorlinuxworker"
+        }, 
+        {
+            "order": 700, 
+            "stepKey": "startvmwithmacosorlinuxworker"
+        }
+    ], 
+    "name": "Build Virtual Machine on ESXi with macOS or Linux Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

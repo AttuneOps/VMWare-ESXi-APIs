@@ -1,1 +1,0 @@
-Attaches the ESXi drivers ISO at `{automationWorkerBaseDirectory}/drivers_{newVmNode.fqn}.iso` as a second CD-ROM.

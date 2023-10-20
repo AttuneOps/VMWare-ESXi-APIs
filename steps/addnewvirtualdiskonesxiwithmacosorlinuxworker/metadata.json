@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": null, 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "5669a03d-85fe-4f3e-8b95-da02cfc998dc", 
+    "isBlueprint": true, 
+    "key": "addnewvirtualdiskonesxiwithmacosorlinuxworker", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "addnewvirtualdiskwithmacosorlinuxworker"
+        }
+    ], 
+    "name": "Add New Virtual Disk on ESXi with macOS or Linux Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}

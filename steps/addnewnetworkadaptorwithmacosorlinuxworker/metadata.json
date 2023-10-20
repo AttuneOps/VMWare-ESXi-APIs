@@ -1,0 +1,12 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "fb8dd2da-628a-48ae-a876-01ed45ef335f", 
+    "interpreter": 1, 
+    "key": "addnewnetworkadaptorwithmacosorlinuxworker", 
+    "name": "Add New Network Adaptor with macOS or Linux Worker", 
+    "osCredKey": "automationworkerlinuxuser", 
+    "serverKey": "automationworkerlinuxnode", 
+    "successExitCode": 0, 
+    "type": "com.servertribe.attune.tuples.StepSshTuple"
+}

@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "d40dcf43-e9e5-46bf-a612-7e61b482be64", 
+    "isBlueprint": true, 
+    "key": "deletethevirtualmachineonesxiwithmacosorlinuxworker", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "deletevmwithmacosorlinuxworker"
+        }
+    ], 
+    "name": "Delete the Virtual Machine on ESXi with macOS or Linux Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}
