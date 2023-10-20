@@ -81,6 +81,9 @@ This Project contains the following Blueprints.
 ### Deploy VMWare Drivers on macOS or Linux Worker
 
 
+### Deploy VMWare Drivers on Windows Worker
+
+
 ### Perform Delete ISOs on ESXi Host with macOS or Linux Worker
 
 
@@ -93,15 +96,12 @@ This Project contains the following Blueprints.
 ### Perform Deploy ESXi Drivers to a Drop Directory with Windows Worker
 
 
+### Perform Test if VMWare Drivers Installed on Windows
+
+
 ### Setup VMWare Tools on Windows
 
 Post Windows install setup of VMWare tools for new VM Windows node.
-
-### Deploy VMWare Drivers on Windows Worker
-
-
-### Perform Test if VMWare Drivers Installed on Windows
-
 
 
 

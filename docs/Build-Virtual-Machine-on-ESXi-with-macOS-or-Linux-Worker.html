@@ -206,8 +206,16 @@
         
 
                     <p class="text-muted pt-2">
+                        <a href="#checkifkickstartisosexistonesxihostwithmacosorlinuxworker">
+                            <strong>Step 1 -</strong> Check if kickstart_isos Exist on ESXi Host with macOS or Linux Worker
+                        </a>
+                    </p>
+
+        
+
+                    <p class="text-muted pt-2">
                         <a href="#setpowerclioptionswithmacosorlinuxworker">
-                            <strong>Step 1 -</strong> Set PowerCLI Options with macOS or Linux Worker
+                            <strong>Step 2 -</strong> Set PowerCLI Options with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -215,7 +223,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#deletevmwithmacosorlinuxworker">
-                            <strong>Step 2 -</strong> Delete VM with macOS or Linux Worker
+                            <strong>Step 3 -</strong> Delete VM with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -223,7 +231,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#createvmwithmacosorlinuxworker">
-                            <strong>Step 3 -</strong> Create VM with macOS or Linux Worker
+                            <strong>Step 4 -</strong> Create VM with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -231,7 +239,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#configurebootfirmwarewithmacosorlinuxworker">
-                            <strong>Step 4 -</strong> Configure Boot Firmware with macOS or Linux Worker
+                            <strong>Step 5 -</strong> Configure Boot Firmware with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -239,7 +247,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#enablesaswithmacosorlinuxworker">
-                            <strong>Step 5 -</strong> Enable SAS with macOS or Linux Worker
+                            <strong>Step 6 -</strong> Enable SAS with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -247,7 +255,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#enable3dwithmacosorlinuxworker">
-                            <strong>Step 6 -</strong> Enable 3D with macOS or Linux Worker
+                            <strong>Step 7 -</strong> Enable 3D with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -255,7 +263,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#setbootorderwithmacosorlinuxworker">
-                            <strong>Step 7 -</strong> Set Boot Order with macOS or Linux Worker
+                            <strong>Step 8 -</strong> Set Boot Order with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -263,7 +271,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#setnetworkadaptertovmxnet3withmacosorlinuxworker">
-                            <strong>Step 8 -</strong> Set Network Adapter to vmxnet3 with macOS or Linux Worker
+                            <strong>Step 9 -</strong> Set Network Adapter to vmxnet3 with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -271,7 +279,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#copyisotohostwithmacosorlinuxworker">
-                            <strong>Step 9 -</strong> Copy ISO To Host with macOS or Linux Worker
+                            <strong>Step 10 -</strong> Copy ISO To Host with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -279,7 +287,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#copydriversisotoesxihostwithmacosorlinuxworker">
-                            <strong>Step 10 -</strong> Copy Drivers ISO to ESXi Host with macOS or Linux Worker
+                            <strong>Step 11 -</strong> Copy Drivers ISO to ESXi Host with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -287,7 +295,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#loadosisointovmwithmacosorlinuxworker">
-                            <strong>Step 11 -</strong> Load OS ISO into VM with macOS or Linux Worker
+                            <strong>Step 12 -</strong> Load OS ISO into VM with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -295,7 +303,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#loaddriversisointovmwithmacosorlinuxworker">
-                            <strong>Step 12 -</strong> Load Drivers ISO into VM with macOS or Linux Worker
+                            <strong>Step 13 -</strong> Load Drivers ISO into VM with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -303,7 +311,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#startvmwithmacosorlinuxworker">
-                            <strong>Step 13 -</strong> Start VM with macOS or Linux Worker
+                            <strong>Step 14 -</strong> Start VM with macOS or Linux Worker
                         </a>
                     </p>
 
@@ -397,9 +405,9 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="setpowerclioptionswithmacosorlinuxworker">
-                            <a href="#setpowerclioptionswithmacosorlinuxworker">
-                                <strong>Step 1 -</strong> Set PowerCLI Options with macOS or Linux Worker
+                        <h3 id="checkifkickstartisosexistonesxihostwithmacosorlinuxworker">
+                            <a href="#checkifkickstartisosexistonesxihostwithmacosorlinuxworker">
+                                <strong>Step 1 -</strong> Check if kickstart_isos Exist on ESXi Host with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -407,7 +415,7 @@
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Sets PowerShell CLI options.</p>
+                                <p>Checks if the <code>/kickstart_isos</code> directory exists on the ESXi host.</p>
                             </p>
                         </div>
                     </div>
@@ -450,6 +458,108 @@ ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
 pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User &quot;{vmwareVcenterUser.user}&quot; `
+    -Password &#x27;{vmwareVcenterUser.password}&#x27;
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+
+# Get the Datastore
+$datastore = Get-Datastore -Name &#x27;{vmStoragePoolName}&#x27;
+$datastore
+
+# Create the DS drive
+if (Test-Path &quot;ds:&quot;) {
+    Remove-PSDrive ds -Force
+}
+
+if ($datastore -is [System.Array]) {
+    Write-Host &quot;Get-Datastore returned multiple datastores, using first item in array..&quot;
+    $datastore = $datastore[0]
+}
+
+New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root &quot;&quot;
+
+$vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
+
+# Ensure the destination dir exists
+$KICKSTART_ISOS_DIR=&quot;ds:$vmwareBootIsoDirectory/&quot;
+$KICKSTART_ISOS_DIR = $KICKSTART_ISOS_DIR -Replace &quot;/&quot;,&quot;\&quot;
+Write-Host &quot;KICKSTART_ISOS_DIR=$KICKSTART_ISOS_DIR&quot;
+
+Get-Location
+
+if (-Not (Test-Path $KICKSTART_ISOS_DIR)) {
+    Write-host &quot;Please create a $vmwareBootIsoDirectory directory on the ESXi Host.&quot;
+    exit 1
+} else {
+    Write-host &quot;$vmwareBootIsoDirectory directory exists on the ESXi Host. Great.&quot;
+}
+
+# Remove the DS Drive
+Remove-PSDrive ds -Force
+
+EOF
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
+                        <h3 id="setpowerclioptionswithmacosorlinuxworker">
+                            <a href="#setpowerclioptionswithmacosorlinuxworker">
+                                <strong>Step 2 -</strong> Set PowerCLI Options with macOS or Linux Worker
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>Sets PowerShell CLI options.</p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+pwsh &lt;&lt;&#x27;EOF&#x27;
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false -Confirm:$false
 Set-PowerCLIConfiguration -InvalidCertificateAction ignore -Confirm:$false
 EOF
@@ -469,7 +579,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="deletevmwithmacosorlinuxworker">
                             <a href="#deletevmwithmacosorlinuxworker">
-                                <strong>Step 2 -</strong> Delete VM with macOS or Linux Worker
+                                <strong>Step 3 -</strong> Delete VM with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -558,7 +668,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="createvmwithmacosorlinuxworker">
                             <a href="#createvmwithmacosorlinuxworker">
-                                <strong>Step 3 -</strong> Create VM with macOS or Linux Worker
+                                <strong>Step 4 -</strong> Create VM with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -663,7 +773,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="configurebootfirmwarewithmacosorlinuxworker">
                             <a href="#configurebootfirmwarewithmacosorlinuxworker">
-                                <strong>Step 4 -</strong> Configure Boot Firmware with macOS or Linux Worker
+                                <strong>Step 5 -</strong> Configure Boot Firmware with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -741,7 +851,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="enablesaswithmacosorlinuxworker">
                             <a href="#enablesaswithmacosorlinuxworker">
-                                <strong>Step 5 -</strong> Enable SAS with macOS or Linux Worker
+                                <strong>Step 6 -</strong> Enable SAS with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -819,7 +929,7 @@ fi
                     <div class="row pt-5">
                         <h3 id="enable3dwithmacosorlinuxworker">
                             <a href="#enable3dwithmacosorlinuxworker">
-                                <strong>Step 6 -</strong> Enable 3D with macOS or Linux Worker
+                                <strong>Step 7 -</strong> Enable 3D with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -905,7 +1015,7 @@ fi
                     <div class="row pt-5">
                         <h3 id="setbootorderwithmacosorlinuxworker">
                             <a href="#setbootorderwithmacosorlinuxworker">
-                                <strong>Step 7 -</strong> Set Boot Order with macOS or Linux Worker
+                                <strong>Step 8 -</strong> Set Boot Order with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -942,6 +1052,9 @@ fi
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
+if {virtualMachineBootLoaderIsBios}
+then
+
 pwsh &lt;&lt;&#x27;EOF&#x27;
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
@@ -983,6 +1096,10 @@ $vm.ExtensionData.ReconfigVM_Task($spec)
 
 
 EOF
+
+else
+    echo &quot;Skipping for UEFI boot.&quot;
+fi
                 </code>
             </pre>
         </div>
@@ -999,7 +1116,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="setnetworkadaptertovmxnet3withmacosorlinuxworker">
                             <a href="#setnetworkadaptertovmxnet3withmacosorlinuxworker">
-                                <strong>Step 8 -</strong> Set Network Adapter to vmxnet3 with macOS or Linux Worker
+                                <strong>Step 9 -</strong> Set Network Adapter to vmxnet3 with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -1068,7 +1185,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="copyisotohostwithmacosorlinuxworker">
                             <a href="#copyisotohostwithmacosorlinuxworker">
-                                <strong>Step 9 -</strong> Copy ISO To Host with macOS or Linux Worker
+                                <strong>Step 10 -</strong> Copy ISO To Host with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -1181,7 +1298,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="copydriversisotoesxihostwithmacosorlinuxworker">
                             <a href="#copydriversisotoesxihostwithmacosorlinuxworker">
-                                <strong>Step 10 -</strong> Copy Drivers ISO to ESXi Host with macOS or Linux Worker
+                                <strong>Step 11 -</strong> Copy Drivers ISO to ESXi Host with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -1298,7 +1415,7 @@ fi
                     <div class="row pt-5">
                         <h3 id="loadosisointovmwithmacosorlinuxworker">
                             <a href="#loadosisointovmwithmacosorlinuxworker">
-                                <strong>Step 11 -</strong> Load OS ISO into VM with macOS or Linux Worker
+                                <strong>Step 12 -</strong> Load OS ISO into VM with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -1375,7 +1492,7 @@ EOF
                     <div class="row pt-5">
                         <h3 id="loaddriversisointovmwithmacosorlinuxworker">
                             <a href="#loaddriversisointovmwithmacosorlinuxworker">
-                                <strong>Step 12 -</strong> Load Drivers ISO into VM with macOS or Linux Worker
+                                <strong>Step 13 -</strong> Load Drivers ISO into VM with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>
@@ -1457,7 +1574,7 @@ fi
                     <div class="row pt-5">
                         <h3 id="startvmwithmacosorlinuxworker">
                             <a href="#startvmwithmacosorlinuxworker">
-                                <strong>Step 13 -</strong> Start VM with macOS or Linux Worker
+                                <strong>Step 14 -</strong> Start VM with macOS or Linux Worker
                             </a>
                         </h3>
                     </div>

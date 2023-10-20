@@ -8,54 +8,58 @@
     "links": [
         {
             "order": 0, 
-            "stepKey": "setpowerclioptionswithwindowsworker"
+            "stepKey": "checkifkickstartisosexistonesxihostwithwindowsworker"
         }, 
         {
             "order": 50, 
-            "stepKey": "deletevmwithwindowsworker"
+            "stepKey": "setpowerclioptionswithwindowsworker"
         }, 
         {
             "order": 100, 
-            "stepKey": "createvmwithwindowsworker"
+            "stepKey": "deletevmwithwindowsworker"
         }, 
         {
             "order": 150, 
-            "stepKey": "configurebootfirmwarewithwindowsworker"
+            "stepKey": "createvmwithwindowsworker"
         }, 
         {
             "order": 200, 
-            "stepKey": "enablesaswithwindowsworker"
+            "stepKey": "configurebootfirmwarewithwindowsworker"
         }, 
         {
             "order": 250, 
-            "stepKey": "enable3dwithwindowsworker"
+            "stepKey": "enablesaswithwindowsworker"
         }, 
         {
             "order": 300, 
-            "stepKey": "setbootorderwithwindowsworker"
+            "stepKey": "enable3dwithwindowsworker"
         }, 
         {
             "order": 350, 
-            "stepKey": "setnetworkadaptertovmxnet3"
+            "stepKey": "setbootorderwithwindowsworker"
         }, 
         {
             "order": 400, 
-            "stepKey": "copyisotohostwithwindowsworker"
+            "stepKey": "setnetworkadaptertovmxnet3"
         }, 
         {
             "order": 450, 
-            "stepKey": "copydriversisotoesxihostwithwindowsworker"
+            "stepKey": "copyisotohostwithwindowsworker"
         }, 
         {
             "order": 500, 
-            "stepKey": "loadosisointovmwithwindowsworker"
+            "stepKey": "copydriversisotoesxihostwithwindowsworker"
         }, 
         {
             "order": 550, 
-            "stepKey": "loaddriversisointovmwithwindowsworker"
+            "stepKey": "loadosisointovmwithwindowsworker"
         }, 
         {
             "order": 600, 
+            "stepKey": "loaddriversisointovmwithwindowsworker"
+        }, 
+        {
+            "order": 650, 
             "stepKey": "startvmwithwindowsworker"
         }
     ], 

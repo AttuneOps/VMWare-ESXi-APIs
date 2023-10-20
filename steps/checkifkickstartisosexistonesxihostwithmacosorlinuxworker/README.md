@@ -1,0 +1,1 @@
+Checks if the `/kickstart_isos` directory exists on the ESXi host.

@@ -206,8 +206,16 @@
         
 
                     <p class="text-muted pt-2">
+                        <a href="#checkifkickstartisosexistonesxihostwithwindowsworker">
+                            <strong>Step 1 -</strong> Check if kickstart_isos Exist on ESXi Host with Windows Worker
+                        </a>
+                    </p>
+
+        
+
+                    <p class="text-muted pt-2">
                         <a href="#setpowerclioptionswithwindowsworker">
-                            <strong>Step 1 -</strong> Set PowerCLI Options with Windows Worker
+                            <strong>Step 2 -</strong> Set PowerCLI Options with Windows Worker
                         </a>
                     </p>
 
@@ -215,7 +223,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#deletevmwithwindowsworker">
-                            <strong>Step 2 -</strong> Delete VM with Windows Worker
+                            <strong>Step 3 -</strong> Delete VM with Windows Worker
                         </a>
                     </p>
 
@@ -223,7 +231,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#createvmwithwindowsworker">
-                            <strong>Step 3 -</strong> Create VM with Windows Worker
+                            <strong>Step 4 -</strong> Create VM with Windows Worker
                         </a>
                     </p>
 
@@ -231,7 +239,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#configurebootfirmwarewithwindowsworker">
-                            <strong>Step 4 -</strong> Configure Boot Firmware with Windows Worker
+                            <strong>Step 5 -</strong> Configure Boot Firmware with Windows Worker
                         </a>
                     </p>
 
@@ -239,7 +247,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#enablesaswithwindowsworker">
-                            <strong>Step 5 -</strong> Enable SAS with Windows Worker
+                            <strong>Step 6 -</strong> Enable SAS with Windows Worker
                         </a>
                     </p>
 
@@ -247,7 +255,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#enable3dwithwindowsworker">
-                            <strong>Step 6 -</strong> Enable 3D with Windows Worker
+                            <strong>Step 7 -</strong> Enable 3D with Windows Worker
                         </a>
                     </p>
 
@@ -255,7 +263,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#setbootorderwithwindowsworker">
-                            <strong>Step 7 -</strong> Set Boot Order with Windows Worker
+                            <strong>Step 8 -</strong> Set Boot Order with Windows Worker
                         </a>
                     </p>
 
@@ -263,7 +271,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#setnetworkadaptertovmxnet3">
-                            <strong>Step 8 -</strong> Set Network Adapter to vmxnet3
+                            <strong>Step 9 -</strong> Set Network Adapter to vmxnet3
                         </a>
                     </p>
 
@@ -271,7 +279,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#copyisotohostwithwindowsworker">
-                            <strong>Step 9 -</strong> Copy ISO To Host with Windows Worker
+                            <strong>Step 10 -</strong> Copy ISO To Host with Windows Worker
                         </a>
                     </p>
 
@@ -279,7 +287,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#copydriversisotoesxihostwithwindowsworker">
-                            <strong>Step 10 -</strong> Copy Drivers ISO to ESXi Host with Windows Worker
+                            <strong>Step 11 -</strong> Copy Drivers ISO to ESXi Host with Windows Worker
                         </a>
                     </p>
 
@@ -287,7 +295,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#loadosisointovmwithwindowsworker">
-                            <strong>Step 11 -</strong> Load OS ISO into VM with Windows Worker
+                            <strong>Step 12 -</strong> Load OS ISO into VM with Windows Worker
                         </a>
                     </p>
 
@@ -295,7 +303,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#loaddriversisointovmwithwindowsworker">
-                            <strong>Step 12 -</strong> Load Drivers ISO into VM with Windows Worker
+                            <strong>Step 13 -</strong> Load Drivers ISO into VM with Windows Worker
                         </a>
                     </p>
 
@@ -303,7 +311,7 @@
 
                     <p class="text-muted pt-2">
                         <a href="#startvmwithwindowsworker">
-                            <strong>Step 13 -</strong> Start VM with Windows Worker
+                            <strong>Step 14 -</strong> Start VM with Windows Worker
                         </a>
                     </p>
 
@@ -397,9 +405,9 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="setpowerclioptionswithwindowsworker">
-                            <a href="#setpowerclioptionswithwindowsworker">
-                                <strong>Step 1 -</strong> Set PowerCLI Options with Windows Worker
+                        <h3 id="checkifkickstartisosexistonesxihostwithwindowsworker">
+                            <a href="#checkifkickstartisosexistonesxihostwithwindowsworker">
+                                <strong>Step 1 -</strong> Check if kickstart_isos Exist on ESXi Host with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -407,7 +415,7 @@
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Sets PowerShell CLI options.</p>
+                                <p>Checks if the <code>/kickstart_isos</code> directory exists on the ESXi host.</p>
                             </p>
                         </div>
                     </div>
@@ -455,6 +463,105 @@ mstsc /admin /v:{automationworkerwindowsnode}
                 <code class="language-sql py-0">
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User &quot;{vmwareVcenterUser.user}&quot; `
+    -Password &#x27;{vmwareVcenterUser.password}&#x27;
+
+if ($? -eq $false) {
+    Write-Host &quot;Error: Not connected.&quot;
+    exit 1
+}
+
+# Get the Datastore
+$datastore = Get-Datastore -Name &#x27;{vmStoragePoolName}&#x27;
+$datastore
+
+# Create the DS drive
+if (Test-Path &quot;ds:&quot;) {
+    Remove-PSDrive ds -Force
+}
+
+if ($datastore -is [System.Array]) {
+    Write-Host &quot;Get-Datastore returned multiple datastores, using first item in array..&quot;
+    $datastore = $datastore[0]
+}
+
+New-PSDrive -Location $datastore -Name ds -PSProvider VimDatastore -Root &quot;&quot;
+
+$vmwareBootIsoDirectory = &quot;/kickstart_isos&quot;
+
+# Ensure the destination dir exists
+$KICKSTART_ISOS_DIR=&quot;ds:$vmwareBootIsoDirectory/&quot;
+$KICKSTART_ISOS_DIR = $KICKSTART_ISOS_DIR -Replace &quot;/&quot;,&quot;\&quot;
+Write-Host &quot;KICKSTART_ISOS_DIR=$KICKSTART_ISOS_DIR&quot;
+
+Get-Location
+
+if (-Not (Test-Path $KICKSTART_ISOS_DIR)) {
+    Write-host &quot;Please create a $vmwareBootIsoDirectory directory on the ESXi Host.&quot;
+    exit 1
+} else {
+    Write-host &quot;$vmwareBootIsoDirectory directory exists on the ESXi Host. Great.&quot;
+}
+
+# Remove the DS Drive
+Remove-PSDrive ds -Force
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+
+        
+
+
+
+                    <div class="row pt-5">
+                        <h3 id="setpowerclioptionswithwindowsworker">
+                            <a href="#setpowerclioptionswithwindowsworker">
+                                <strong>Step 2 -</strong> Set PowerCLI Options with Windows Worker
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                <p>Sets PowerShell CLI options.</p>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+    <div class="row">
+        <p>
+            Execute the following script:
+        </p>
+    </div>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+$ErrorActionPreference = &quot;Stop&quot;
+Import-Module VMware.VimAutomation.Core
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false -Confirm:$false
 Set-PowerCLIConfiguration -InvalidCertificateAction ignore -Confirm:$false
                 </code>
@@ -473,7 +580,7 @@ Set-PowerCLIConfiguration -InvalidCertificateAction ignore -Confirm:$false
                     <div class="row pt-5">
                         <h3 id="deletevmwithwindowsworker">
                             <a href="#deletevmwithwindowsworker">
-                                <strong>Step 2 -</strong> Delete VM with Windows Worker
+                                <strong>Step 3 -</strong> Delete VM with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -558,7 +665,7 @@ if ( $existing.count -eq 1 ) {
                     <div class="row pt-5">
                         <h3 id="createvmwithwindowsworker">
                             <a href="#createvmwithwindowsworker">
-                                <strong>Step 3 -</strong> Create VM with Windows Worker
+                                <strong>Step 4 -</strong> Create VM with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -660,7 +767,7 @@ if ( &quot;{vmwareEsxiHost.fqn}&quot; -eq &quot;{vmwareVcenterNode.fqn}&quot; ) 
                     <div class="row pt-5">
                         <h3 id="configurebootfirmwarewithwindowsworker">
                             <a href="#configurebootfirmwarewithwindowsworker">
-                                <strong>Step 4 -</strong> Configure Boot Firmware with Windows Worker
+                                <strong>Step 5 -</strong> Configure Boot Firmware with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -735,7 +842,7 @@ $vm.ExtensionData.ReconfigVM($spec)
                     <div class="row pt-5">
                         <h3 id="enablesaswithwindowsworker">
                             <a href="#enablesaswithwindowsworker">
-                                <strong>Step 5 -</strong> Enable SAS with Windows Worker
+                                <strong>Step 6 -</strong> Enable SAS with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -811,7 +918,7 @@ if ( &#x27;{vmGuestType}&#x27; -ne &#x27;winNetStandard64Guest&#x27; ) {
                     <div class="row pt-5">
                         <h3 id="enable3dwithwindowsworker">
                             <a href="#enable3dwithwindowsworker">
-                                <strong>Step 6 -</strong> Enable 3D with Windows Worker
+                                <strong>Step 7 -</strong> Enable 3D with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -893,7 +1000,7 @@ if ( &#x27;{vmGuestType}&#x27; -ne &#x27;windows9_64Guest&#x27; ) {
                     <div class="row pt-5">
                         <h3 id="setbootorderwithwindowsworker">
                             <a href="#setbootorderwithwindowsworker">
-                                <strong>Step 7 -</strong> Set Boot Order with Windows Worker
+                                <strong>Step 8 -</strong> Set Boot Order with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -983,7 +1090,7 @@ $vm.ExtensionData.ReconfigVM_Task($spec)
                     <div class="row pt-5">
                         <h3 id="setnetworkadaptertovmxnet3">
                             <a href="#setnetworkadaptertovmxnet3">
-                                <strong>Step 8 -</strong> Set Network Adapter to vmxnet3
+                                <strong>Step 9 -</strong> Set Network Adapter to vmxnet3
                             </a>
                         </h3>
                     </div>
@@ -1049,7 +1156,7 @@ Get-VM -name {newVmNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1
                     <div class="row pt-5">
                         <h3 id="copyisotohostwithwindowsworker">
                             <a href="#copyisotohostwithwindowsworker">
-                                <strong>Step 9 -</strong> Copy ISO To Host with Windows Worker
+                                <strong>Step 10 -</strong> Copy ISO To Host with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -1159,7 +1266,7 @@ Remove-PSDrive ds -Force
                     <div class="row pt-5">
                         <h3 id="copydriversisotoesxihostwithwindowsworker">
                             <a href="#copydriversisotoesxihostwithwindowsworker">
-                                <strong>Step 10 -</strong> Copy Drivers ISO to ESXi Host with Windows Worker
+                                <strong>Step 11 -</strong> Copy Drivers ISO to ESXi Host with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -1273,7 +1380,7 @@ if ( -Not (Test-Path &quot;drivers_{newVmNode.fqn}.iso&quot; `
                     <div class="row pt-5">
                         <h3 id="loadosisointovmwithwindowsworker">
                             <a href="#loadosisointovmwithwindowsworker">
-                                <strong>Step 11 -</strong> Load OS ISO into VM with Windows Worker
+                                <strong>Step 12 -</strong> Load OS ISO into VM with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -1347,7 +1454,7 @@ Set-CDDrive -CD $cd `
                     <div class="row pt-5">
                         <h3 id="loaddriversisointovmwithwindowsworker">
                             <a href="#loaddriversisointovmwithwindowsworker">
-                                <strong>Step 12 -</strong> Load Drivers ISO into VM with Windows Worker
+                                <strong>Step 13 -</strong> Load Drivers ISO into VM with Windows Worker
                             </a>
                         </h3>
                     </div>
@@ -1426,7 +1533,7 @@ if ( -Not (Test-Path &quot;drivers_{newVmNode.fqn}.iso&quot; `
                     <div class="row pt-5">
                         <h3 id="startvmwithwindowsworker">
                             <a href="#startvmwithwindowsworker">
-                                <strong>Step 13 -</strong> Start VM with Windows Worker
+                                <strong>Step 14 -</strong> Start VM with Windows Worker
                             </a>
                         </h3>
                     </div>

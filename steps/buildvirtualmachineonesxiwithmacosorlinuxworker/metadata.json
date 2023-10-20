@@ -8,10 +8,14 @@
     "links": [
         {
             "order": 0, 
-            "stepKey": "setpowerclioptionswithmacosorlinuxworker"
+            "stepKey": "checkifkickstartisosexistonesxihostwithmacosorlinuxworker"
         }, 
         {
             "order": 50, 
+            "stepKey": "setpowerclioptionswithmacosorlinuxworker"
+        }, 
+        {
+            "order": 100, 
             "stepKey": "deletevmwithmacosorlinuxworker"
         }, 
         {
