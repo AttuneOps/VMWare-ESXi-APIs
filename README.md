@@ -54,32 +54,53 @@ This Project contains the following Blueprints.
 
 
 
-### Setup VMWare Tools on Windows
-
-Post Windows install setup of VMWare tools for new VM Windows node.
-
-### Build Virtual Machine on ESXi with macOS or Linux Worker
-
-
 ### Add New Network Adaptor on ESXi with macOS or Linux Worker
+
+
+### Add New Network Adaptor on ESX with Windows Worker
 
 
 ### Add New Virtual Disk on ESXi with macOS or Linux Worker
 
 
+### Add New Virtual Disk on ESXi with Windows Worker
+
+
+### Build Virtual Machine on ESXi with macOS or Linux Worker
+
+
+### Build Virtual Machine on ESXi with Windows Worker
+
+
 ### Delete the Virtual Machine on ESXi with macOS or Linux Worker
+
+
+### Delete the Virtual Machine on ESXi with Windows Worker
+
+
+### Deploy VMWare Drivers on macOS or Linux Worker
 
 
 ### Perform Delete ISOs on ESXi Host with macOS or Linux Worker
 
 
+### Perform Delete ISOs on ESXi Host with Windows Worker
+
+
 ### Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
 
 
-### Perform Test if VMWare Drivers Installed with macOS or Linux Worker
+### Perform Deploy ESXi Drivers to a Drop Directory with Windows Worker
 
 
-### Setup VMWare Drivers on Linux with macOS or Linux Worker
+### Setup VMWare Tools on Windows
+
+Post Windows install setup of VMWare tools for new VM Windows node.
+
+### Deploy VMWare Drivers on Windows Worker
+
+
+### Perform Test if VMWare Drivers Installed on Windows
 
 
 
@@ -90,8 +111,12 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 
 | Name | Type | Script Reference | Comment |
 | ---- | ---- | ---------------- | ------- |
+| Automation Worker Linux Base Directory | Text | `automationworkerlinuxbasedirectory` | Directory for storing kickstart files, eg: "~/kickstart". |
 | Automation Worker Linux Node | Linux/Unix Node | `automationworkerlinuxnode` | The device used to connect to another device or perform tasks. This can be the devices Attune is running on. |
 | Automation Worker Linux User | Linux/Unix Credential | `automationworkerlinuxuser` | non privilege user on the Automation Worker node. |
+| Automation Worker Windows Base Directory | Text | `automationworkerwindowsbasedirectory` | Base directory for deploying temporary files to build the kickstart ISO on Windows Worker. |
+| Automation Worker Windows Node | Windows Node | `automationworkerwindowsnode` | The Windows automation worker node used to perform tasks to create the ISO. |
+| Automation Worker Windows User: Administrator | Windows Credential | `automationworkerwindowsuseradministrator` | Administrator user on the Windows Automation Worker node. |
 | New VM Node | Basic Node | `newvmnode` | The virtual machine being worked on. |
 | New VM Windows Node | Windows Node | `newvmwindowsnode` |  |
 | New VM Windows User: Administrator | Windows Credential | `newvmwindowsuseradministrator` | The windows administrator user |
@@ -107,7 +132,6 @@ Post Windows install setup of VMWare tools for new VM Windows node.
 | VMWare vCenter Node | Basic Node | `vmwarevcenternode` | The vCenter Node details. |
 | VMWare vCenter Server | Basic Node | `vmwarevcenterserver` |  |
 | VMWare vCenter User | Basic Credential | `vmwarevcenteruser` | The user to connect to vCenter. |
-| Automation Worker Linux Base Directory | Text | `automationworkerlinuxbasedirectory` | Directory for storing kickstart files, eg: "~/kickstart". |
 
 
 

@@ -6,13 +6,13 @@
 
 
 <head>
-    <title>How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation</title>
+    <title>How to Perform Test if VMWare Drivers Installed on Windows - Attune Automation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title"
-          content="How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation">
+          content="How to Perform Test if VMWare Drivers Installed on Windows - Attune Automation">
     <meta name="description"
           content="">
     <meta name="robots"
@@ -21,13 +21,13 @@
     <meta property="og:locale" content="en_AU" />
     <meta property="og:type" content="article" />
     <meta property="og:title"
-          content="HowTo Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation" />
+          content="HowTo Perform Test if VMWare Drivers Installed on Windows - Attune Automation" />
     <meta property="og:description" content="" />
     <meta property="og:site_name" content="Attune Automation" />
     <meta property="article:section" content="IT Instruction" />
 
     <meta name="twitter:title"
-          content="How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker - Attune Automation" />
+          content="How to Perform Test if VMWare Drivers Installed on Windows - Attune Automation" />
     <meta name="twitter:description" content="" />
 
     <link rel="icon" href="https://www.servertribe.com/wp-content/uploads/2020/10/cropped-server_tribe_favicon-32x32.png" sizes="32x32">
@@ -119,7 +119,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                    <strong>Perform Test if VMWare Drivers Installed on Windows</strong>
                 </li>
             </ol>
         </nav>
@@ -133,7 +133,7 @@
     <div class="row">
         <div class="col px-0">
             <h1 class="text-left">
-                How to Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                How to Perform Test if VMWare Drivers Installed on Windows
             </h1>
         </div>
     </div>
@@ -197,7 +197,7 @@
                     </p>
                     <p class="text-muted">
                         <a href="#top">
-                            <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                            <strong>Perform Test if VMWare Drivers Installed on Windows</strong>
                         </a>
                     </p>
 
@@ -206,8 +206,8 @@
         
 
                     <p class="text-muted pt-2">
-                        <a href="#deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                            <strong>Step 1 -</strong> Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                        <a href="#testifvmwaredriversinstalledonwindows">
+                            <strong>Step 1 -</strong> Test if VMWare Drivers Installed on Windows
                         </a>
                     </p>
 
@@ -270,7 +270,7 @@
                 </ol>
             </p>
             <p class="lead text-center">
-                You've automated: <strong>Perform Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker</strong>
+                You've automated: <strong>Perform Test if VMWare Drivers Installed on Windows</strong>
             </p>
             <hr class="my-4 text-center">
             <div class="col px-0">
@@ -301,9 +301,9 @@
 
 
                     <div class="row pt-5">
-                        <h3 id="deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                            <a href="#deployesxidriverstoadropdirectorywithmacosorlinuxworker">
-                                <strong>Step 1 -</strong> Deploy ESXi Drivers to a Drop Directory with macOS or Linux Worker
+                        <h3 id="testifvmwaredriversinstalledonwindows">
+                            <a href="#testifvmwaredriversinstalledonwindows">
+                                <strong>Step 1 -</strong> Test if VMWare Drivers Installed on Windows
                             </a>
                         </h3>
                     </div>
@@ -311,7 +311,7 @@
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Deploys ESXi drivers to the drivers drop in directory at <code>{automationWorkerLinuxBaseDirectory}/drivers-{newVmNode.fqn}</code>. </p>
+                                <p>Tests if the VMWare ESXi drivers are installed on the new VM Windows node.</p>
                             </p>
                         </div>
                     </div>
@@ -327,14 +327,21 @@
 
                         <div class="row">
                             <p>
-                                Connect via ssh:
+                                Connect via RDP:
                             </p>
                         </div>
                         <div class="row py-1">
                             <code class="language-sql">
-ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
+mstsc /admin /v:{newvmwindowsnode}
                             </code>
                         </div>
+                        <div class="row">
+                            <p>
+                                Login as user {newvmwindowsuseradministrator} and open a
+                                command prompt.
+                            </p>
+                        </div>
+
 
 
     
@@ -343,22 +350,26 @@ ssh {automationworkerlinuxuser}@{automationworkerlinuxnode}
 
     <div class="row">
         <p>
-            <p>These drivers are compatible with Windows 10 and Windows Server 2016, 2019 and 2022.</p>
-<p>To obtain the files required for this archive, create a new Windows Server 2016 VM, install the VMWare Tools, and zip up the directory C:\Program Files\Common Files\VMware\Drivers</p>
-        </p>
-        <p>
-            Copy the File(s)
-            <strong>WIN_VMWare_Drivers.zip</strong>
-            to the target node.
-        </p>
-        <p>
-            <strong>Extract and deploy the File(s)</strong> here:
+            Execute the following script:
         </p>
     </div>
-    <div class="row py-1">
-        <code class="language-bash">
-{automationWorkerLinuxBaseDirectory}/drivers-{newVmNode.fqn}, relative to the home directory
-        </code>
+    <div class="row">
+        <div class="col px-0">
+            <pre>
+                <code class="language-sql py-0">
+driverquery
+
+$SEARCH_STRING = &quot;VMware&quot;
+
+if (-Not (driverquery | findstr &quot;$SEARCH_STRING&quot;)) {
+    Write-Host &quot;VMWare drivers are not installed.&quot;
+    exit 1
+} else {
+    Write-Host &quot;VMWare drivers are installed.&quot;
+}
+                </code>
+            </pre>
+        </div>
     </div>
 
 

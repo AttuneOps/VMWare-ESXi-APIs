@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": "stop", 
+    "concurrency": 1, 
+    "enabled": true, 
+    "externalUuid4": "b28c3a33-5698-4df3-8164-2e39e0419396", 
+    "isBlueprint": true, 
+    "key": "performdeployesxidriverstoadropdirectorywithwindowsworker", 
+    "links": [
+        {
+            "order": 0, 
+            "stepKey": "deployesxidriverstoadropdirectorywithwindowsworker"
+        }
+    ], 
+    "name": "Perform Deploy ESXi Drivers to a Drop Directory with Windows Worker", 
+    "type": "com.servertribe.attune.tuples.StepGroupTuple"
+}
