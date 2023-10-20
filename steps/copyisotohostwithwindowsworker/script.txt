@@ -1,6 +1,5 @@
 
 # Create the new VM
-pwsh <<'EOF' | grep -v 'Uploading'
 $ErrorActionPreference = "Stop"
 Import-Module VMware.VimAutomation.Core
 
@@ -44,7 +43,7 @@ if (-Not (Test-Path "$to")) {
 }
 
 # Set the local path to the ISO
-Set-Location {automationWorkerLinuxBaseDirectory}
+Set-Location {automationWorkerWindowsBaseDirectory}
 
 # Copy the ISO
 Copy-DatastoreItem kickstart_{newVmNode.fqn}.iso $to `
@@ -58,4 +57,3 @@ if ($? -eq $false) {
 # Remove the DS Drive
 Remove-PSDrive ds -Force
 
-EOF

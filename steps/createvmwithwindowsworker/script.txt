@@ -1,0 +1,49 @@
+$ErrorActionPreference = "Stop"
+Import-Module VMware.VimAutomation.Core
+
+Connect-VIServer {vmwareVcenterNode.ip} `
+    -User "{vmwareVcenterUser.user}" `
+    -Password '{vmwareVcenterUser.password}'
+
+if ($? -eq $false) {
+    Write-Host "Error: Not connected."
+    exit 1
+}
+
+$name = "{newVmNode.fqn}"
+$storagePool = "{vmStoragePoolName}"
+$cpuCount = {vmCpuCount}
+$memInMb = {vmRamSizeGb}*1024
+$networkName = "{vmNetworkName}"
+$guestType = "{vmGuestType}"
+
+if ( "{vmwareEsxiHost.fqn}" -eq "{vmwareVcenterNode.fqn}" ) {
+    Write-Host "We're talking to the ESXi host, don't pass the -VMHost arg"
+    $vm = New-VM `
+        -Name "$name" `
+        -Datastore "$storagePool" `
+        -CoresPerSocket $cpuCount `
+        -NumCpu $cpuCount `
+        -DiskMB 51200 `
+        -MemoryMB $memInMb `
+        -NetworkName "$networkName" `
+        -GuestId "$guestType" `
+        -CD 
+
+} else {
+    Write-Host "We're talking to a vCenter server, pass the -VMHost arg"
+    $storagePool = Get-VMHost -Name '{vmwareEsxiHost.fqn}' | Get-Datastore -Name '{vmStoragePoolName}' 
+    
+    $vm = New-VM `
+        -VMHost "{vmwareEsxiHost.fqn}" `
+        -Name "$name" `
+        -Datastore "$storagePool" `
+        -CoresPerSocket $cpuCount `
+        -NumCpu $cpuCount `
+        -DiskMB 51200 `
+        -MemoryMB $memInMb `
+        -NetworkName "$networkName" `
+        -GuestId "$guestType" `
+        -CD 
+
+}

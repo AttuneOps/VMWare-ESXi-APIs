@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "5edfa160-6d75-4834-a7af-73a46f92fee4", 
+    "interpreter": 2, 
+    "interpreterCommand": "", 
+    "interpreterScriptExt": null, 
+    "interpreterScriptSyntax": "", 
+    "key": "copydriversisotoesxihostwithwindowsworker", 
+    "name": "Copy Drivers ISO to ESXi Host with Windows Worker", 
+    "osCredKey": "automationworkerwindowsuseradministrator", 
+    "serverKey": "automationworkerwindowsnode", 
+    "successExitCode": 0, 
+    "timeout": 1800, 
+    "type": "com.servertribe.attune.tuples.StepWinRmTuple"
+}
