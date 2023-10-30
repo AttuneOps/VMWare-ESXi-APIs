@@ -1353,7 +1353,7 @@ if ( -Not (Test-Path &quot;drivers_{newVmNode.fqn}.iso&quot; `
     }
     
     # Set the local path to the ISO
-    Set-Location {automationWorkerBaseDirectory}
+    Set-Location {automationWorkerWindowsBaseDirectory}
     
     # Copy the ISO
     Copy-DatastoreItem drivers_{newVmNode.fqn}.iso $to `
@@ -1491,7 +1491,7 @@ Set-CDDrive -CD $cd `
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-Set-Location {automationWorkerLinuxBaseDirectory}
+Set-Location {automationWorkerWindowsBaseDirectory}
 if ( -Not (Test-Path &quot;drivers_{newVmNode.fqn}.iso&quot; `
     -PathType Leaf) ) {
     Write-Host &quot;This build doesn&#x27;t have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;

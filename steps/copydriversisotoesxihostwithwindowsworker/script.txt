@@ -48,7 +48,7 @@ if ( -Not (Test-Path "drivers_{newVmNode.fqn}.iso" `
     }
     
     # Set the local path to the ISO
-    Set-Location {automationWorkerBaseDirectory}
+    Set-Location {automationWorkerWindowsBaseDirectory}
     
     # Copy the ISO
     Copy-DatastoreItem drivers_{newVmNode.fqn}.iso $to `
