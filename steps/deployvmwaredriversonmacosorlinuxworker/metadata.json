@@ -4,7 +4,6 @@
     "enabled": true, 
     "externalUuid4": "78b36dec-af9f-4f10-afcf-9875296f4b56", 
     "isBlueprint": true, 
-<<<<<<<< HEAD:steps/deployvmwaredriversonmacosorlinuxworker/metadata.json
     "key": "deployvmwaredriversonmacosorlinuxworker", 
     "links": [
         {
@@ -13,15 +12,5 @@
         }
     ], 
     "name": "Deploy VMWare Drivers on macOS or Linux Worker", 
-========
-    "key": "setupvmwaredriversonlinuxwithmacosorlinuxworker", 
-    "links": [
-        {
-            "order": 0, 
-            "stepKey": "deployvmwaredrivertolinuxwithmacosorlinuxworker"
-        }
-    ], 
-    "name": "Setup VMWare Drivers on Linux with macOS or Linux Worker", 
->>>>>>>> ac02d62 (AUSTA-264: Renamed the bash Steps for Linux worker to end with " with macOS or Linux Worker".):steps/setupvmwaredriversonlinuxwithmacosorlinuxworker/metadata.json
     "type": "com.servertribe.attune.tuples.StepGroupTuple"
 }
