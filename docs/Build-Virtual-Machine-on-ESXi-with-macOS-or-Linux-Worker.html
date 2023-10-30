@@ -1386,7 +1386,7 @@ else
     }
     
     # Set the local path to the ISO
-    Set-Location {automationWorkerBaseDirectory}
+    Set-Location {automationWorkerLinuxBaseDirectory}
     
     # Copy the ISO
     Copy-DatastoreItem drivers_{newVmNode.fqn}.iso $to `
