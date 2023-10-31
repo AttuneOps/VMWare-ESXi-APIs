@@ -1,54 +1,43 @@
-<<<<<<<< HEAD:steps/setbootorderwithwindowsworker/script.txt
-========
-if {virtualMachineBootLoaderIsBios}
+if ${{virtualMachineBootLoaderIsBios}}
 then
 
-pwsh <<'EOF'
->>>>>>>> df60d49 (AUSTA-218: Added step "Set Boot Order UEFI".):steps/setbootorderbios/script.txt
-$ErrorActionPreference = "Stop"
-Import-Module VMware.VimAutomation.Core
+  $ErrorActionPreference = "Stop"
+  Import-Module VMware.VimAutomation.Core
 
-Connect-VIServer {vmwareVcenterNode.ip} `
-    -User {vmwareVcenterUser.user} `
-    -Password {vmwareVcenterUser.password}
+  Connect-VIServer {vmwareVcenterNode.ip} `
+      -User {vmwareVcenterUser.user} `
+      -Password {vmwareVcenterUser.password}
 
-if ($? -eq $false) {
-    Write-Host "Error: Not connected."
-    exit 1
-}
+  if ($? -eq $false) {
+      Write-Host "Error: Not connected."
+      exit 1
+  }
 
-#$vm = Get-View -ViewType VirtualMachine -Filter @{'Name'="^{newVmNode.fqn}$"}
-$vm = Get-VM -Name "{newVmNode.fqn}"
+  $vm = Get-VM -Name "{newVmNode.fqn}"
 
-## the device name of the hard disk to which to boot
-$strBootHDiskDeviceName = "Hard disk 1"
+  # the device name of the hard disk to which to boot
+  $strBootHDiskDeviceName = "Hard disk 1"
 
-## get the VirtualDisk device, then grab its Key (DeviceKey, used later)
-$intHDiskDeviceKey = ($vm.ExtensionData.Config.Hardware.Device | ?{$_.DeviceInfo.Label -eq $strBootHDiskDeviceName}).Key
+  # get the VirtualDisk device, then grab its Key (DeviceKey, used later)
+  $intHDiskDeviceKey = ($vm.ExtensionData.Config.Hardware.Device | ?{$_.DeviceInfo.Label -eq $strBootHDiskDeviceName}).Key
 
-## bootable Disk BootOption device, for use in setting BootOrder (the corresponding VirtualDisk device is bootable, assumed)
-$oBootableHDisk = New-Object -TypeName VMware.Vim.VirtualMachineBootOptionsBootableDiskDevice -Property @{"DeviceKey" = $intHDiskDeviceKey}
+  # bootable Disk BootOption device, for use in setting BootOrder (the corresponding VirtualDisk device is bootable, assumed)
+  $oBootableHDisk = New-Object -TypeName VMware.Vim.VirtualMachineBootOptionsBootableDiskDevice -Property @{"DeviceKey" = $intHDiskDeviceKey}
 
-## bootable CDROM device (per the docs, the first CDROM with bootable media found is used)
-$oBootableCDRom = New-Object -Type VMware.Vim.VirtualMachineBootOptionsBootableCdromDevice
+  # bootable CDROM device (per the docs, the first CDROM with bootable media found is used)
+  $oBootableCDRom = New-Object -Type VMware.Vim.VirtualMachineBootOptionsBootableCdromDevice
 
-$spec = New-Object VMware.Vim.VirtualMachineConfigSpec -Property @{
-    "BootOptions" = New-Object VMware.Vim.VirtualMachineBootOptions -Property @{
-        BootOrder = $oBootableHDisk, $oBootableCDRom
-    } ## end new-object
-} ## end new-object
+  $spec = New-Object VMware.Vim.VirtualMachineConfigSpec -Property @{
+      "BootOptions" = New-Object VMware.Vim.VirtualMachineBootOptions -Property @{
+          BootOrder = $oBootableHDisk, $oBootableCDRom
+      } # end new-object
+  } # end new-object
 
-## reconfig the VM to use the spec with the new BootOrder
-$vm.ExtensionData.ReconfigVM_Task($spec)
-
-##(Get-VM {newVmNode.fqn}).Extensiondata.Config.BootOptions
-
-<<<<<<<< HEAD:steps/setbootorderwithwindowsworker/script.txt
-========
-
-EOF
+  # reconfig the VM to use the spec with the new BootOrder
+  $vm.ExtensionData.ReconfigVM_Task($spec)
 
 else
     echo "Skipping for UEFI boot."
 fi
->>>>>>>> df60d49 (AUSTA-218: Added step "Set Boot Order UEFI".):steps/setbootorderbios/script.txt
+
+
