@@ -1,0 +1,12 @@
+$MODULE = "VMware.PowerCLI"
+
+if (Get-Module -ListAvailable -Name "${MODULE}") {
+	Write-Host "Module ${MODULE} is already installed."
+} else {
+	Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+
+    Install-Module -Name "${MODULE}"
+    
+    Set-PSRepository -Name 'PSGallery' -InstallationPolicy Untrusted
+}
+

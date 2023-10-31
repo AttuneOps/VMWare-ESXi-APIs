@@ -1,0 +1,16 @@
+{
+    "actionOnStepFail": null, 
+    "enabled": true, 
+    "externalUuid4": "df12c1a8-8086-4b81-a82c-69049ca3189c", 
+    "interpreter": 2, 
+    "interpreterCommand": "", 
+    "interpreterScriptExt": null, 
+    "interpreterScriptSyntax": "", 
+    "key": "installvmwarevimautomationcoreonwindowsworker", 
+    "name": "Install VMware.VimAutomation.Core on Windows Worker", 
+    "osCredKey": "automationworkerwindowsuseradministrator", 
+    "serverKey": "automationworkerwindowsnode", 
+    "successExitCode": 0, 
+    "timeout": 1800, 
+    "type": "com.servertribe.attune.tuples.StepWinRmTuple"
+}
