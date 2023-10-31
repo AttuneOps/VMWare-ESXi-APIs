@@ -571,7 +571,6 @@ if ( -Not (Test-Path &quot;drivers_{newVmNode.fqn}.iso&quot; `
     -PathType Leaf) ) {
     Write-Host &quot;This build doesn&#x27;t have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
 } else {
-    pwsh &lt;&lt;&#x27;EOF&#x27;
     $ErrorActionPreference = &quot;Stop&quot;
     Import-Module VMware.VimAutomation.Core
     
