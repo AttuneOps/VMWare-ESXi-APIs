@@ -1037,6 +1037,13 @@ if ( &#x27;{vmGuestType}&#x27; -ne &#x27;windows9_64Guest&#x27; ) {
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:steps/setbootorderwithwindowsworker/script.txt
+========
+if {virtualMachineBootLoaderIsBios}
+then
+
+pwsh &lt;&lt;&#x27;EOF&#x27;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; df60d49 (AUSTA-218: Added step &quot;Set Boot Order UEFI&quot;.):steps/setbootorderbios/script.txt
 $ErrorActionPreference = &quot;Stop&quot;
 Import-Module VMware.VimAutomation.Core
 
@@ -1074,6 +1081,16 @@ $spec = New-Object VMware.Vim.VirtualMachineConfigSpec -Property @{
 $vm.ExtensionData.ReconfigVM_Task($spec)
 
 ##(Get-VM {newVmNode.fqn}).Extensiondata.Config.BootOptions
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:steps/setbootorderwithwindowsworker/script.txt
+========
+
+EOF
+
+else
+    echo &quot;Skipping for UEFI boot.&quot;
+fi
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; df60d49 (AUSTA-218: Added step &quot;Set Boot Order UEFI&quot;.):steps/setbootorderbios/script.txt
                 </code>
             </pre>
         </div>

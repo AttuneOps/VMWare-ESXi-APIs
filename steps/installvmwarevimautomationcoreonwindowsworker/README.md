@@ -1,0 +1,1 @@
+Here is how to disable the confirmation prompts from `Install-Module` https://github.com/PowerShell/PowerShellGetv2/issues/461.

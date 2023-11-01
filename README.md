@@ -103,6 +103,9 @@ This Project contains the following Blueprints.
 
 Post Windows install setup of VMWare tools for new VM Windows node.
 
+### Perform Install VMware.VimAutomation.Core on Windows Worker
+
+
 
 
 
