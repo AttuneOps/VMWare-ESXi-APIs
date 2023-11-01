@@ -96,15 +96,15 @@ This Project contains the following Blueprints.
 ### Perform Deploy ESXi Drivers to a Drop Directory with Windows Worker
 
 
+### Perform Install VMware.VimAutomation.Core on Windows Worker
+
+
 ### Perform Test if VMWare Drivers Installed on Windows
 
 
 ### Setup VMWare Tools on Windows
 
 Post Windows install setup of VMWare tools for new VM Windows node.
-
-### Perform Install VMware.VimAutomation.Core on Windows Worker
-
 
 
 
