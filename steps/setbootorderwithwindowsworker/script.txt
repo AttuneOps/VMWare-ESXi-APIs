@@ -39,5 +39,3 @@ then
 else
     echo "Skipping for UEFI boot."
 fi
-
-
