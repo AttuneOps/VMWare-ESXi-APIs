@@ -1,0 +1,1 @@
+Deploys ESXi drivers to `/c$/software/drivers-{newVmNode.fqn}`.
