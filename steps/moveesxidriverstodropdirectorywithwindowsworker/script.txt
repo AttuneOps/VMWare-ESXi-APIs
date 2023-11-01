@@ -1,0 +1,5 @@
+$CURRENT_PATH = "C:\software\drivers-{newVmNode.fqn}"
+$DEST_FOLDER = "{automationWorkerWindowsBaseDirectory}"
+
+Write-Host "CURRENT_PATH=${CURRENT_PATH}\n DEST_FOLDER=${DEST_FOLDER}"
+Move-Item -Path "${CURRENT_PATH}" -Destination "${DEST_FOLDER}"
