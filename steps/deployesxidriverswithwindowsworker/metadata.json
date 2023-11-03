@@ -1,7 +1,7 @@
 {
     "actionOnStepFail": null, 
     "archiveKey": "winvmwaredrivers", 
-    "deployPath": "/c$/software/drivers-{newVmNode.fqn}", 
+    "deployPath": "/c$/attuneautomationworker/drivers-{newVmNode.fqn}", 
     "enabled": true, 
     "externalUuid4": "1b89296f-232a-4c2a-986d-910e960d86d6", 
     "key": "deployesxidriverswithwindowsworker", 

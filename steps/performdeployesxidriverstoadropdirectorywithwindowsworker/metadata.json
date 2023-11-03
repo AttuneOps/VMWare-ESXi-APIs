@@ -9,10 +9,6 @@
         {
             "order": 0, 
             "stepKey": "deployesxidriverswithwindowsworker"
-        }, 
-        {
-            "order": 50, 
-            "stepKey": "moveesxidriverstodropdirectorywithwindowsworker"
         }
     ], 
     "name": "Perform Deploy ESXi Drivers to a Drop Directory with Windows Worker", 
