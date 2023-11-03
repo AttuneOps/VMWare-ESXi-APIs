@@ -1,1 +1,1 @@
-Deploys ESXi drivers to `/c$/software/drivers-{newVmNode.fqn}`.
+Deploys ESXi drivers to `/c$/attuneautomationworker/drivers-{newVmNode.fqn}`.

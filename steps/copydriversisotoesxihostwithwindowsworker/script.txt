@@ -1,7 +1,7 @@
-Set-Location "{automationWorkerWindowsBaseDirectory}"
+Set-Location "C:\attuneautomationworker"
 if ( -Not (Test-Path "drivers_{newVmNode.fqn}.iso" `
     -PathType Leaf) ) {
-    Write-Host "This build doesn't have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso."
+    Write-Host "This build doesn't have a C:\attuneautomationworker\drivers_{newVmNode.fqn}.iso."
 } else {
 
     $ErrorActionPreference = "Stop"
@@ -48,7 +48,7 @@ if ( -Not (Test-Path "drivers_{newVmNode.fqn}.iso" `
     }
     
     # Set the local path to the ISO
-    Set-Location {automationWorkerWindowsBaseDirectory}
+    Set-Location C:\attuneautomationworker
     
     # Copy the ISO
     Copy-DatastoreItem drivers_{newVmNode.fqn}.iso $to `

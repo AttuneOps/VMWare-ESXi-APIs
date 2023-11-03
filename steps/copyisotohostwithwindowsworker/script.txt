@@ -43,7 +43,7 @@ if (-Not (Test-Path "$to")) {
 }
 
 # Set the local path to the ISO
-Set-Location {automationWorkerWindowsBaseDirectory}
+Set-Location C:\attuneautomationworker
 
 # Copy the ISO
 Copy-DatastoreItem kickstart_{newVmNode.fqn}.iso $to `

@@ -1165,13 +1165,6 @@ Get-VM -name {newVmNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1
                         </h3>
                     </div>
 
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                
-                            </p>
-                        </div>
-                    </div>
 
 
 
@@ -1241,7 +1234,7 @@ if (-Not (Test-Path &quot;$to&quot;)) {
 }
 
 # Set the local path to the ISO
-Set-Location {automationWorkerWindowsBaseDirectory}
+Set-Location C:\attuneautomationworker
 
 # Copy the ISO
 Copy-DatastoreItem kickstart_{newVmNode.fqn}.iso $to `
@@ -1307,10 +1300,10 @@ Remove-PSDrive ds -Force
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-Set-Location &quot;{automationWorkerWindowsBaseDirectory}&quot;
+Set-Location &quot;C:\attuneautomationworker&quot;
 if ( -Not (Test-Path &quot;drivers_{newVmNode.fqn}.iso&quot; `
     -PathType Leaf) ) {
-    Write-Host &quot;This build doesn&#x27;t have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
+    Write-Host &quot;This build doesn&#x27;t have a C:\attuneautomationworker\drivers_{newVmNode.fqn}.iso.&quot;
 } else {
 
     $ErrorActionPreference = &quot;Stop&quot;
@@ -1357,7 +1350,7 @@ if ( -Not (Test-Path &quot;drivers_{newVmNode.fqn}.iso&quot; `
     }
     
     # Set the local path to the ISO
-    Set-Location {automationWorkerWindowsBaseDirectory}
+    Set-Location C:\attuneautomationworker
     
     # Copy the ISO
     Copy-DatastoreItem drivers_{newVmNode.fqn}.iso $to `
@@ -1495,10 +1488,10 @@ Set-CDDrive -CD $cd `
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-Set-Location {automationWorkerWindowsBaseDirectory}
+Set-Location C:\attuneautomationworker
 if ( -Not (Test-Path &quot;drivers_{newVmNode.fqn}.iso&quot; `
     -PathType Leaf) ) {
-    Write-Host &quot;This build doesn&#x27;t have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
+    Write-Host &quot;This build doesn&#x27;t have a C:\attuneautomationworker\drivers_{newVmNode.fqn}.iso.&quot;
 } else {
         
     $ErrorActionPreference = &quot;Stop&quot;

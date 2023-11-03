@@ -211,14 +211,6 @@
                         </a>
                     </p>
 
-        
-
-                    <p class="text-muted pt-2">
-                        <a href="#moveesxidriverstodropdirectorywithwindowsworker">
-                            <strong>Step 2 -</strong> Move ESXi Drivers to Drop Directory with Windows Worker
-                        </a>
-                    </p>
-
 
                 </div>
             </div>
@@ -319,7 +311,7 @@
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                <p>Deploys ESXi drivers to <code>/c$/software/drivers-{newVmNode.fqn}</code>.</p>
+                                <p>Deploys ESXi drivers to <code>/c$/attuneautomationworker/drivers-{newVmNode.fqn}</code>.</p>
                             </p>
                         </div>
                     </div>
@@ -371,59 +363,8 @@ mstsc /admin /v:{automationworkerwindowsnode}
     </div>
     <div class="row py-1">
         <code class="language-bash">
-/c$/software/drivers-{newVmNode.fqn}
+/c$/attuneautomationworker/drivers-{newVmNode.fqn}
         </code>
-    </div>
-
-
-
-
-
-        
-
-
-
-                    <div class="row pt-5">
-                        <h3 id="moveesxidriverstodropdirectorywithwindowsworker">
-                            <a href="#moveesxidriverstodropdirectorywithwindowsworker">
-                                <strong>Step 2 -</strong> Move ESXi Drivers to Drop Directory with Windows Worker
-                            </a>
-                        </h3>
-                    </div>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-
-
-
-    <div class="row">
-        <p>
-            Execute the following script:
-        </p>
-    </div>
-    <div class="row">
-        <div class="col px-0">
-            <pre>
-                <code class="language-sql py-0">
-$CURRENT_PATH = &quot;C:\software\drivers-{newVmNode.fqn}&quot;
-$DEST_FOLDER = &quot;{automationWorkerWindowsBaseDirectory}&quot;
-
-Write-Host &quot;CURRENT_PATH=${CURRENT_PATH}\n DEST_FOLDER=${DEST_FOLDER}&quot;
-Move-Item -Path &quot;${CURRENT_PATH}&quot; -Destination &quot;${DEST_FOLDER}&quot;
-                </code>
-            </pre>
-        </div>
     </div>
 
 
