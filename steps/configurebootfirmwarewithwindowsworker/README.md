@@ -1,0 +1,1 @@
+https://communities.vmware.com/t5/VMware-PowerCLI-Discussions/Set-Enable-SecureBoot-PowerCLI/td-p/449027

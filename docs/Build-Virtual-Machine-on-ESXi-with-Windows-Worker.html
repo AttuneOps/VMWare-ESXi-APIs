@@ -775,7 +775,7 @@ if ( &quot;{vmwareEsxiHost.fqn}&quot; -eq &quot;{vmwareVcenterNode.fqn}&quot; ) 
                     <div class="row">
                         <div class="description col px-0">
                             <p>
-                                
+                                <p>https://communities.vmware.com/t5/VMware-PowerCLI-Discussions/Set-Enable-SecureBoot-PowerCLI/td-p/449027</p>
                             </p>
                         </div>
                     </div>
@@ -817,14 +817,31 @@ if ($? -eq $false) {
 }
 
 $vm = Get-VM -Name &quot;{newVmNode.fqn}&quot;
+Write-Host &quot;newVmNode.fqn=[{newVmNode.fqn}], virtualMachineBootLoaderIsUefi=[{virtualMachineBootLoaderIsUefi}], virtualMachineBootLoaderIsBios=[{virtualMachineBootLoaderIsBios}]&quot;
 
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
-if (&#x27;{virtualMachineBootLoaderIsUefi}&#x27; -eq &#x27;true&#x27;) {
+
+Write-Host &quot;spec = ${spec}&quot;
+if (${{virtualMachineBootLoaderIsUefi}}) {
+    Write-Host &quot;here a&quot;
     $spec.Firmware = [VMware.Vim.GuestOsDescriptorFirmwareType]::efi
+    
+    $boot = New-Object VMware.Vim.VirtualMachineBootOptions
+    $boot.EfiSecureBootEnabled = $true
+    $spec.BootOptions = $boot
 }
-if (&#x27;{virtualMachineBootLoaderIsBios}&#x27; -eq &#x27;true&#x27;) {
+
+if (${{virtualMachineBootLoaderIsBios}}) {
+    Write-Host &quot;here b&quot;
     $spec.Firmware = [VMware.Vim.GuestOsDescriptorFirmwareType]::bios
+
+    $boot = New-Object VMware.Vim.VirtualMachineBootOptions
+    $boot.EfiSecureBootEnabled = $false
+    $spec.BootOptions = $boot
 }
+
+Write-Host &quot;spec.Firmwar = $($spec.Firmware), spec.BootOptions = [$($spec.BootOptions)]&quot;
+
 $vm.ExtensionData.ReconfigVM($spec)
                 </code>
             </pre>
@@ -1165,6 +1182,13 @@ Get-VM -name {newVmNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1
                         </h3>
                     </div>
 
+                    <div class="row">
+                        <div class="description col px-0">
+                            <p>
+                                
+                            </p>
+                        </div>
+                    </div>
 
 
 
