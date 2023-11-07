@@ -817,13 +817,10 @@ if ($? -eq $false) {
 }
 
 $vm = Get-VM -Name &quot;{newVmNode.fqn}&quot;
-Write-Host &quot;newVmNode.fqn=[{newVmNode.fqn}], virtualMachineBootLoaderIsUefi=[{virtualMachineBootLoaderIsUefi}], virtualMachineBootLoaderIsBios=[{virtualMachineBootLoaderIsBios}]&quot;
 
 $spec = New-Object VMware.Vim.VirtualMachineConfigSpec
 
-Write-Host &quot;spec = ${spec}&quot;
 if (${{virtualMachineBootLoaderIsUefi}}) {
-    Write-Host &quot;here a&quot;
     $spec.Firmware = [VMware.Vim.GuestOsDescriptorFirmwareType]::efi
     
     $boot = New-Object VMware.Vim.VirtualMachineBootOptions
@@ -832,15 +829,12 @@ if (${{virtualMachineBootLoaderIsUefi}}) {
 }
 
 if (${{virtualMachineBootLoaderIsBios}}) {
-    Write-Host &quot;here b&quot;
     $spec.Firmware = [VMware.Vim.GuestOsDescriptorFirmwareType]::bios
 
     $boot = New-Object VMware.Vim.VirtualMachineBootOptions
     $boot.EfiSecureBootEnabled = $false
     $spec.BootOptions = $boot
 }
-
-Write-Host &quot;spec.Firmwar = $($spec.Firmware), spec.BootOptions = [$($spec.BootOptions)]&quot;
 
 $vm.ExtensionData.ReconfigVM($spec)
                 </code>
@@ -864,13 +858,6 @@ $vm.ExtensionData.ReconfigVM($spec)
                         </h3>
                     </div>
 
-                    <div class="row">
-                        <div class="description col px-0">
-                            <p>
-                                
-                            </p>
-                        </div>
-                    </div>
 
 
 
@@ -897,9 +884,9 @@ $vm.ExtensionData.ReconfigVM($spec)
             <pre>
                 <code class="language-sql py-0">
 if ( &#x27;{vmGuestType}&#x27; -ne &#x27;winNetStandard64Guest&#x27; ) {
-    Wtite-Host &quot;This isn&#x27;t windows server VM, SAS not required&quot;
+    Write-Host &quot;This isn&#x27;t windows server VM, SAS not required&quot;
 } else {
-    Wtite-Host &quot;Switching to LSI Logic SAS Controller&quot;
+    Write-Host &quot;Switching to LSI Logic SAS Controller&quot;
 
     $ErrorActionPreference = &quot;Stop&quot;
     Import-Module VMware.VimAutomation.Core

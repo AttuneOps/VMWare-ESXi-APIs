@@ -1,7 +1,7 @@
 if ( '{vmGuestType}' -ne 'winNetStandard64Guest' ) {
-    Wtite-Host "This isn't windows server VM, SAS not required"
+    Write-Host "This isn't windows server VM, SAS not required"
 } else {
-    Wtite-Host "Switching to LSI Logic SAS Controller"
+    Write-Host "Switching to LSI Logic SAS Controller"
 
     $ErrorActionPreference = "Stop"
     Import-Module VMware.VimAutomation.Core
