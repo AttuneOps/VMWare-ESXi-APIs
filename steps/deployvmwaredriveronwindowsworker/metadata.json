@@ -1,7 +1,7 @@
 {
     "actionOnStepFail": null, 
     "archiveKey": "winvmwaredrivers", 
-    "deployPath": "{automationWorkerWindowsBaseDirectory}/build-{newVmNode.fqn}", 
+    "deployPath": "/c$/attuneautomationworker/build-{newVmNode.fqn}", 
     "enabled": true, 
     "externalUuid4": "b1609477-2b28-4d8f-82b7-234ab40beb50", 
     "key": "deployvmwaredriveronwindowsworker", 
