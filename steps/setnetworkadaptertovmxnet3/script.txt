@@ -10,4 +10,16 @@ if ($? -eq $false) {
     exit 1
 }
 
-Get-VM -name {newVmNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq "E1000E"} | Set-NetworkAdapter -Type "vmxnet3"
+Write-Host "newVmNode.fqn = {newVmNode.fqn}"
+
+$NETWORK_ADAPTER = (Get-VM -name {newVmNode.fqn} `
+    | Get-NetworkAdapter `
+    | Where { $_.Type -eq "E1000E"})
+    
+$NAME = $NETWORK_ADAPTER.name
+$ID = $NETWORK_ADAPTER.id
+Write-Host "NETWORK_ADAPTER.name = $NAME, id=$ID"
+
+Set-NetworkAdapter -NetworkAdapter ${NETWORK_ADAPTER} `
+    -Type "vmxnet3" `
+    -Confirm:$false
