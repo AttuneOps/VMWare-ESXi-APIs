@@ -568,10 +568,10 @@ EOF
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-cd &quot;{automationWorkerWindowsBaseDirectory}&quot;
+cd &quot;{automationWorkerLinuxBaseDirectory}&quot;
 if [ ! -f drivers_{newVmNode.fqn}.iso ]
 then
-    echo &quot;This build doesn&#x27;t have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
+    echo &quot;This build doesn&#x27;t have a {automationWorkerLinuxBaseDirectory}/drivers_{newVmNode.fqn}.iso.&quot;
 else
     pwsh &lt;&lt;&#x27;EOF&#x27;
     $ErrorActionPreference = &quot;Stop&quot;

@@ -1048,8 +1048,7 @@ if ( &#x27;{vmGuestType}&#x27; -ne &#x27;windows9_64Guest&#x27; ) {
         <div class="col px-0">
             <pre>
                 <code class="language-sql py-0">
-if ${{virtualMachineBootLoaderIsBios}}
-then
+if (${{virtualMachineBootLoaderIsBios}}) {
 
   $ErrorActionPreference = &quot;Stop&quot;
   Import-Module VMware.VimAutomation.Core
@@ -1086,9 +1085,9 @@ then
   # reconfig the VM to use the spec with the new BootOrder
   $vm.ExtensionData.ReconfigVM_Task($spec)
 
-else
+} else {
     echo &quot;Skipping for UEFI boot.&quot;
-fi
+}
                 </code>
             </pre>
         </div>

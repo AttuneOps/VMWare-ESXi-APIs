@@ -1,5 +1,4 @@
-if ${{virtualMachineBootLoaderIsBios}}
-then
+if (${{virtualMachineBootLoaderIsBios}}) {
 
   $ErrorActionPreference = "Stop"
   Import-Module VMware.VimAutomation.Core
@@ -36,6 +35,6 @@ then
   # reconfig the VM to use the spec with the new BootOrder
   $vm.ExtensionData.ReconfigVM_Task($spec)
 
-else
+} else {
     echo "Skipping for UEFI boot."
-fi
+}
