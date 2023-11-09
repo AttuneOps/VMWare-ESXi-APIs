@@ -1,7 +1,7 @@
-cd "{automationWorkerWindowsBaseDirectory}"
+cd "{automationWorkerLinuxBaseDirectory}"
 if [ ! -f drivers_{newVmNode.fqn}.iso ]
 then
-    echo "This build doesn't have a {automationWorkerWindowsBaseDirectory}/drivers_{newVmNode.fqn}.iso."
+    echo "This build doesn't have a {automationWorkerLinuxBaseDirectory}/drivers_{newVmNode.fqn}.iso."
 else
     pwsh <<'EOF'
     $ErrorActionPreference = "Stop"
