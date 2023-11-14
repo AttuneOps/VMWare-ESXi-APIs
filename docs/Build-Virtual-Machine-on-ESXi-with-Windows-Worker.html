@@ -1113,6 +1113,9 @@ if (${{virtualMachineBootLoaderIsBios}}) {
                         <div class="description col px-0">
                             <p>
                                 <p>Sets the ESXi network adapter type to vmxnet3 for the target Windows virtual machine.</p>
+<p>Documentation for <code>Set-NetworkAdapter</code> is at
+https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/set-networkadapter/#Default</p>
+<p>Pass in the <code>-Confirm:$false</code> option to <code>Set-NetworkAdapter</code> to disable it prompting for user confirmation.</p>
                             </p>
                         </div>
                     </div>
@@ -1153,7 +1156,19 @@ if ($? -eq $false) {
     exit 1
 }
 
-Get-VM -name {newVmNode.fqn} | Get-NetworkAdapter | Where { $_.Type -eq &quot;E1000E&quot;} | Set-NetworkAdapter -Type &quot;vmxnet3&quot;
+Write-Host &quot;newVmNode.fqn = {newVmNode.fqn}&quot;
+
+$NETWORK_ADAPTER = (Get-VM -name {newVmNode.fqn} `
+    | Get-NetworkAdapter `
+    | Where { $_.Type -eq &quot;E1000E&quot;})
+    
+$NAME = $NETWORK_ADAPTER.name
+$ID = $NETWORK_ADAPTER.id
+Write-Host &quot;NETWORK_ADAPTER.name = $NAME, id=$ID&quot;
+
+Set-NetworkAdapter -NetworkAdapter ${NETWORK_ADAPTER} `
+    -Type &quot;vmxnet3&quot; `
+    -Confirm:$false
                 </code>
             </pre>
         </div>

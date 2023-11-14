@@ -2,7 +2,7 @@
     "actionOnStepFail": null, 
     "enabled": true, 
     "externalUuid4": "f3a87301-d4ed-46f7-b3be-e62b496b7b77", 
-    "interpreter": 1, 
+    "interpreter": 2, 
     "interpreterCommand": "", 
     "interpreterScriptExt": null, 
     "interpreterScriptSyntax": "", 
@@ -11,6 +11,6 @@
     "osCredKey": "automationworkerwindowsuseradministrator", 
     "serverKey": "automationworkerwindowsnode", 
     "successExitCode": 0, 
-    "timeout": 5, 
+    "timeout": 60, 
     "type": "com.servertribe.attune.tuples.StepWinRmTuple"
 }

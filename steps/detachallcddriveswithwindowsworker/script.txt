@@ -10,7 +10,7 @@ if ($? -eq $false) {
     exit 1
 }
 
-$existing = Get-VM "{newVmNode.fqn}"
+$existing = Get-VM "{newVmNode.fqn}" -ErrorAction SilentlyContinue
 if ( $existing.count -eq 0 ) {
     Write-Host "VM does not exist, skipping."
 } else {
