@@ -10,24 +10,21 @@ if ($? -eq $false) {
     exit 1
 }
 
-$existing = Get-VM "{newVmNode.fqn}"
-if ( $existing.count -eq 1 ) {
-    } else {
-        $existing = Get-VM "{newVmNode.hostname}"
-    }
+$exists = Get-VM "{newVmNode.fqn}" -ErrorAction SilentlyContinue
+if ( -Not $exists ) {
+    "The VM doesn't exist"
+} else {
+    $VM = Get-VM "{newVmNode.fqn}"
 
-if ( $existing.count -eq 1 ) {
-    if ( $existing.PowerState -eq "PoweredOn" ) {
+    if ( $VM.PowerState -eq "PoweredOn" ) {
         "Stopping the VM"
-        Stop-VM -VM $existing -Confirm:$false
+        Stop-VM -VM $VM -Confirm:$false
     } else {
         "The VM is off"
     }
     
     "Removing the VM"
-    Remove-VM -DeleteFromDisk -VM $existing -Confirm:$false
-    
-} else {
-    "The VM doesn't exist"
+    Remove-VM -DeleteFromDisk -VM $VM -Confirm:$false
+   
 }
 
